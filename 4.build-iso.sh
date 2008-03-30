@@ -1,9 +1,16 @@
 #!/bin/bash
 
-REMASTER_HOME=/media/mediabay/uckHardyCD
-ISO_IMAGE="/media/mediabay/hardy-desktop-i386.iso"
+# To run this script you should define three environment variables:
+# REMASTER_HOME -> full path to the directory where this script resides
+# ISO_IMAGE -> full path to the ubuntu iso file
+# ISO_NAME -> name of the final ISO file
+#
+# You can add these variables by editing your ~/.bashrc file, for example:
+# export REMASTER_HOME="fullPathToDir"
+# export ISO_IMAGE="fullPathToISO"
+# export ISO_NAME=ubuntuME-8.04-desktop-i386.iso
+
 CUSTOMIZE_DIR="$REMASTER_HOME/customization-scripts"
-ISO_NAME=ubuntuME-8.04-desktop-i386.iso
 
 ##################
 # some functions #
