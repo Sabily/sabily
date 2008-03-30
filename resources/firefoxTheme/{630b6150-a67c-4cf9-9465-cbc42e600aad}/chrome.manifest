@@ -1,0 +1,5 @@
+skin	communicator	ubuntuME	jar:chrome/ubuntuME.jar!/communicator/
+skin	global	ubuntuME	jar:chrome/ubuntuME.jar!/global/
+skin	browser	ubuntuME	jar:chrome/ubuntuME.jar!/browser/
+skin	mozapps	ubuntuME	jar:chrome/ubuntuME.jar!/mozapps/
+skin	help	ubuntuME	jar:chrome/ubuntuME.jar!/help/

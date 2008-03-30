@@ -1,0 +1,3 @@
+#! /bin/sh -e
+
+rm -f /target/usr/share/applications/ubiquity-gtkui.desktop

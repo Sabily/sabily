@@ -1,0 +1,4 @@
+#/bin/bash
+
+#cd /tmp && apt-get source -d gfxboot-theme-ubuntu && tar xfz *.tar.gz
+cd /tmp && bzr get http://bazaar.launchpad.net/~ubuntu-core-dev/gfxboot-theme-ubuntu/mainline && mv mainline gfxboot-theme-ubuntu

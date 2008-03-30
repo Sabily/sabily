@@ -1,0 +1,117 @@
+#!/bin/bash
+BUILD_DIR=`mktemp -d`
+
+function failure()
+{
+	echo "$@"
+	exit 1
+}
+
+SCRIPT_DIR=`dirname "$0"`
+BOOT_LANG=`cat "$SCRIPT_DIR/livecd_locale"`
+REMASTER_HOME=$1
+ISO_REMASTER_DIR="$REMASTER_HOME/remaster-iso"
+REMASTER_DIR="$REMASTER_HOME/remaster-root"
+
+pushd "$BUILD_DIR" || failure "Cannot change directory to $BUILD_DIR, error=$?"
+if [ -e "$REMASTER_DIR"  ]; then
+	echo ici
+	cp -f /etc/resolv.conf "$REMASTER_DIR/etc/resolv.conf" || failure "Failed to copy resolv.conf to image directory, error=$?"
+	cp -a "$SCRIPT_DIR/download-gfxboot-theme-ubuntu" "$REMASTER_DIR/tmp"
+	#chroot "$REMASTER_DIR" /tmp/download-gfxboot-theme-ubuntu || failure "Failed to fetch gfxboot-theme-ubuntu source, check if you have deb-src line enabled for repository main in /etc/apt/sources.list, error=$?"
+	bzr get http://bazaar.launchpad.net/~ubuntu-core-dev/gfxboot-theme-ubuntu/mainline && mv mainline gfxboot-theme-ubuntu
+	#mv "$REMASTER_DIR/tmp/gfxboot-theme-ubuntu" "$BUILD_DIR"
+	chroot "$REMASTER_DIR" rm /etc/resolv.conf /tmp/download-gfxboot-theme-ubuntu /tmp/gfxboot*
+else
+	#apt-get source gfxboot-theme-ubuntu || failure "Failed to fetch gfxboot-theme-ubuntu source, check if you have deb-src line enabled for repository main in /etc/apt/sources.list, error=$?"
+	bzr get http://bazaar.launchpad.net/~ubuntu-core-dev/gfxboot-theme-ubuntu/mainline && mv mainline gfxboot-theme-ubuntu
+fi
+
+cd gfxboot-theme-ubuntu*/
+
+LIVECD_LANGS=`cat "$SCRIPT_DIR/language_packs"`
+LANGPACKS_CONCATENATED=""
+
+for LANGPACK in $LIVECD_LANGS; do
+	if [ -z "$LANGPACKS_CONCATENATED" ]; then
+		LANGPACKS_CONCATENATED="$LANGPACK"
+	else
+		LANGPACKS_CONCATENATED="$LANGPACKS_CONCATENATED|$LANGPACK"
+	fi
+done
+
+make DEFAULT_LANG="$BOOT_LANG" || failure "Failed to build gfxboot theme, error=$?"
+pushd boot
+#fix list of languages to contain all languages for which there are language packs on CD
+ls -1 *.tr | while read i ; do echo $(basename $i .tr) ; done | grep -E "^($LANGPACKS_CONCATENATED)\>(_.*)?" >langlist
+popd
+
+cp -af boot/* "$ISO_REMASTER_DIR/isolinux/" || failure "Error while copying boot files ( " boot/* " ) to $ISO_REMASTER_DIR/isolinux/, error=$?"
+
+popd
+
+if [ "$BUILD_DIR" = "/" ] ; then
+	failure "Trying to remove root dir"
+else
+	rm -rf "$BUILD_DIR"
+fi
+
+#copy kernel and initrd, in case it was changed during installation
+VMLINUZ=`ls -1 "$REMASTER_DIR"/boot/vmlinuz* | sort | tail -n1`
+INITRD="$REMASTER_DIR"/boot/initrd.img-$(echo `basename $VMLINUZ` | cut -d'-' -f 2-)
+if [ -e "$VMLINUZ" -a -e "$INITRD" ]; then
+	echo "Updating kernel, kernel=$VMLINUZ, initrd=$INITRD"
+	cp -f "$VMLINUZ" "$ISO_REMASTER_DIR/casper/vmlinuz"
+	cp -f "$INITRD" "$ISO_REMASTER_DIR/casper/initrd.gz"
+else
+	echo "Not updating kernel as initrd not present"
+fi
+
+#################################################
+# Customization
+cp -f ./resources/apt-setup "$REMASTER_DIR"/usr/share/ubiquity/apt-setup
+
+# Live CD splash
+#cp -f /home/jc/projects/ubuntume-artwork/trunk/pictures/liveCD-splash/splash1-14colors.pcx "$ISO_REMASTER_DIR/isolinux/splash.pcx"
+cp -f ./resources/splash1-14colors.pcx "$ISO_REMASTER_DIR/isolinux/splash.pcx"
+sed -i "s|GFXBOOT-BACKGROUND 0xB6875A|GFXBOOT-BACKGROUND 0x1F6E0B|" "$ISO_REMASTER_DIR/isolinux/isolinux.cfg"
+
+#lock firefox par defaut:
+cp -f ./resources/firefox.cfg "$REMASTER_DIR"/usr/lib/firefox/firefox.cfg
+sed -i "s|pref(\"general.config.obscure_value\", 13)|pref(\"general.config.obscure_value\", 0)|" "$REMASTER_DIR"/usr/lib/firefox/greprefs/all.js
+
+rm -f "$REMASTER_DIR"/usr/share/backgrounds/space-01.jpg
+rm -f "$REMASTER_DIR"/usr/share/backgrounds/space-02.jpg
+rm -f "$REMASTER_DIR"/usr/share/backgrounds/space-03.jpg
+rm -f "$REMASTER_DIR"/usr/share/backgrounds/space-04.jpg
+rm -f "$REMASTER_DIR"/usr/share/backgrounds/space-05.jpg
+rm -f "$REMASTER_DIR"/usr/share/backgrounds/ubuntu-smooth-chocolate.png
+rm -f "$REMASTER_DIR"/usr/share/backgrounds/warty-final-ubuntu.png
+rm -f "$REMASTER_DIR"/usr/share/backgrounds/elephant-skin.png
+
+#fix pour gutsy et la couleur de fond de GDM:
+cp -f ./resources/Default "$REMASTER_DIR"/etc/gdm/PreSession/Default
+
+cp "$REMASTER_DIR"/usr/share/ubuntume-artwork/gdm/gdm.conf-custom "$REMASTER_DIR"/etc/gdm
+
+# firefox theme
+cp -rf ./resources/firefoxTheme/{630b6150-a67c-4cf9-9465-cbc42e600aad} "$REMASTER_DIR"/usr/lib/firefox/extensions
+cp -f ./resources/firefoxTheme/theme-ubuntuME.js "$REMASTER_DIR"/etc/firefox/pref/theme-ubuntuME.js
+
+# firefox athan add-on
+#cp -rf ./resources/azan-times@hamid.net "$REMASTER_DIR"/usr/lib/firefox/extensions
+cp -rf ./resources/azan-times@hamid.net "$REMASTER_DIR"/usr/lib/firefox-addons/extensions # ?????
+
+# pour etre sur d'avoir la derniere version des bookmarks :
+#cp -f /home/jc/projects/ubuntumeSVN/trunk/debianSource/usr/share/ubuntuME/tmp/bookmarks.html "$REMASTER_DIR"/etc/firefox/profile/bookmarks.html
+cp -f ./resources/bookmarks.html "$REMASTER_DIR"/etc/firefox/profile/bookmarks.html
+
+# toutes les recitations online:
+cp -rf ./resources/zekr/* "$REMASTER_DIR"/usr/share/zekr/res/audio
+
+echo "Done customize_iso.sh"
+
+
+
+
+
