@@ -1,15 +1,16 @@
 #!/bin/bash
 
-# To run this script you should define three environment variables:
+# To run this script you should call it with three parameters:
 # REMASTER_HOME -> full path to the directory where this script resides
 # ISO_IMAGE -> full path to the ubuntu iso file
 # ISO_NAME -> name of the final ISO file
 #
-# You can add these variables by editing your ~/.bashrc file, for example:
-# export REMASTER_HOME="fullPathToDir"
-# export ISO_IMAGE="fullPathToISO"
-# export ISO_NAME=ubuntuME-8.04-desktop-i386.iso
+# For example:
+# sudo ./1.clean.sh "fullPathToDir" "fullPathToISO" "ubuntuME-vX.XX-desktop-i386.iso"
 
+REMASTER_HOME=$1
+ISO_IMAGE=$2
+ISO_NAME=$3
 CUSTOMIZE_DIR="$REMASTER_HOME/customization-scripts"
 
 ##################
