@@ -3,7 +3,7 @@ Section: metapackages
 Priority: optional
 Maintainer: Ubuntu Muslim Edition Team <ubuntume@googlegroups.com>
 XSBC-Original-Maintainer: أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>
-Build-Depends: debhelper (>= 5)
+Build-Depends: debhelper (>= 5.0.51~)
 Build-Depends-Indep: po-debconf, debconf | debconf-2.0
 Standards-Version: 3.7.3
 Homepage: http://www.ubuntume.com

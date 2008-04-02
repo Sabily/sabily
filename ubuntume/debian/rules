@@ -22,7 +22,7 @@ binary-indep: build
 	dh_installdocs
 	dh_install
 	dh_installdebconf
-	dh_installman
+	dh_icons
 	dh_link
 	dh_compress
 	dh_fixperms
