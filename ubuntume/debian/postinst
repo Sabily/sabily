@@ -1,0 +1,30 @@
+#!/bin/sh
+# postinst script for ubuntume
+
+set -e
+
+# Source debconf library:
+. /usr/share/debconf/confmodule
+
+case "$1" in
+    configure)
+      db_get ubuntume/replace-bookmarks || true
+      if [ "$RET" = "true" ]; then
+        cp -f /usr/share/ubuntume/bookmarks.html /etc/firefox/profile/
+        echo "Firefox bookmarks updated"
+      fi
+    ;;
+
+    abort-upgrade|abort-remove|abort-deconfigure)
+    ;;
+
+    *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 1
+    ;;
+esac
+
+#DEBHELPER#
+
+exit 0
+

@@ -1,0 +1,15 @@
+<!DOCTYPE Menu PUBLIC "-//freedesktop//DTD Menu 1.0//EN"
+"http://www.freedesktop.org/standards/menu-spec/1.0/menu.dtd">
+<Menu>
+  <Name>Applications</Name>
+  <!-- Islamic Software -->
+  <Menu>
+    <Name>Islamic-Software</Name>
+    <Directory>Islamic-Software.directory</Directory>
+    <Include>
+      <And>
+        <Category>Islamic-Software</Category>
+      </And>
+    </Include>
+  </Menu> <!-- End Islamic Software -->
+</Menu> <!-- End Applications -->

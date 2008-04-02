@@ -1,0 +1,24 @@
+ubuntume (1.1~ppa1) hardy; urgency=low
+
+  * New package.
+  * Use debconf to determine wether Firefox bookmarks should be replaced.
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Mon,  1 Apr 2008 21:35:50 +0200
+
+ubuntume (0.4-3) unstable; urgency=low
+
+  * Firefox welcome page updated
+
+ -- jMehdi <jMehdi@ubuntume.com>  Sat, 08 Sep 2007 14:32:23 +0200
+
+ubuntume (0.4-2) unstable; urgency=low
+
+  * Added Zekr 0.6 with ttf-farsiweb and zekr-quran-translation-extras
+
+ -- jMehdi <jMehdi@ubuntume.com>  Sat, 11 Aug 2007 21:28:23 +0200
+
+ubuntume (0.4-1) unstable; urgency=low
+
+  * Initial release.
+
+ -- jMehdi <jMehdi@ubuntume.com>  Sat, 16 Jun 2007 00:08:23 +0200

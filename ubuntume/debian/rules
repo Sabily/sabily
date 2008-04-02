@@ -1,0 +1,36 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+clean:
+	dh_testdir
+	dh_testroot
+
+	dh_clean
+
+build:
+
+# Build architecture-dependent files here.
+binary-arch:
+
+# Build architecture-independent files here.
+binary-indep: build
+	dh_testdir
+	dh_testroot
+	dh_clean -k
+	dh_installdirs
+	dh_installchangelogs
+	dh_installdocs
+	dh_install
+	dh_installdebconf
+	dh_installman
+	dh_link
+	dh_compress
+	dh_fixperms
+	dh_installdeb
+	dh_shlibdeps
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary install configure
