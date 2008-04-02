@@ -74,8 +74,6 @@ fi
 # customizing #
 ###############
 
-cp -f $REMASTER_HOME/resources/install-ubuntuME.sh $REMASTER_HOME/remaster-root/tmp/install-ubuntuME.sh
-
 if [ "$REMOVE_WIN32_FILES" = "yes" ]; then
 	"$SCRIPTS_DIR/uck-remaster-remove-win32-files" "$REMASTER_HOME"
 	check_exit_code
@@ -87,7 +85,7 @@ if [ "$CUSTOMIZE_INITRD" = "yes" ] ; then
 	check_exit_code
 	echo "Initrd customization script finished"
 fi
-echo $CUSTOMIZE_ISO
+
 if [ "$CUSTOMIZE_ISO" = "yes" ] && [ "$CUSTOMIZE_ROOTFS" = "yes" ] ; then
 	$SCRIPTS_DIR/uck-remaster-chroot-rootfs "/tmp/customization-scripts/customize" "$REMASTER_HOME"
 	check_exit_code

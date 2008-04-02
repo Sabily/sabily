@@ -127,18 +127,73 @@ REMOVED_PACKAGES=`dpkg-query --show | cut -f1 | grep -E '^(language-pack|languag
 remove_packages $REMOVED_PACKAGES || failure "Removing packages failed, error=$?"
 echo removed: $REMOVED_PACKAGES
 
-cd /tmp
-chmod u+x install-ubuntuME.sh
-./install-ubuntuME.sh
-cd /
+#######################################
+# UBUNTUME customizations
+#######################################
 
-remove_packages openoffice.org-base openoffice.org-calc openoffice.org-common  openoffice.org-draw openoffice.org-evolution openoffice.org-gnome openoffice.org-gtk openoffice.org-impress openoffice.org-java-common openoffice.org-math openoffice.org-writer python-uno openoffice.org openoffice.org-core openoffice.org-l10n-common openoffice.org-filter-binfilter gnome-games gnome-games-data example-content || failure "Removing packages failed, error=$?"
+# Customize sources.list
+echo "deb http://ppa.launchpad.net/ubuntume.team/ubuntu hardy main #Ubuntu Muslim Edition" >> "/etc/apt/sources.list"
+echo "deb-src http://ppa.launchpad.net/ubuntume.team/ubuntu hardy main #Ubuntu Muslim Edition" >> "/etc/apt/sources.list"
+echo "deb http://zekr.org/apt sid main #Zekr" >> "/etc/apt/sources.list"
 
-install_packages bzr aptoncd  xfonts-intl-arabic ttf-arabeyes aspell-ar ttf-kacst ttf-farsiweb flashplugin-nonfree sun-java6-plugin zekr-quran-translations-fr zekr-quran-translations-nl zekr-quran-translations-ru zekr-quran-translations-ur zekr-quran-translations-bs zekr-quran-translations-fa zekr-quran-translations-id zekr-quran-translations-tr zekr-quran-translations-pt acon || failure "Installing packages failed, error=$?"
+# retrieve authentication keys
+# for ubuntume: should wait for LaunchPad PPA to support gpg keys
+wget -q http://zekr.org/apt/zekr.debian.gpg -O- | sudo apt-key add -
 
+
+# remove wallpapers, openoffice, gnome games, examples
+remove_packages ubuntu-wallpapers openoffice.org-base openoffice.org-calc openoffice.org-common  openoffice.org-draw openoffice.org-evolution openoffice.org-gnome openoffice.org-gtk openoffice.org-impress openoffice.org-java-common openoffice.org-math openoffice.org-writer python-uno openoffice.org openoffice.org-core openoffice.org-l10n-common openoffice.org-filter-binfilter gnome-games gnome-games-data example-content || failure "Removing packages failed, error=$?"
+
+# install these packages?
+# xfonts-intl-arabic ttf-arabeyes ttf-kacst ttf-farsiweb flashplugin-nonfree sun-java6-plugin
+install_packages ubuntume bzr aptoncd aspell-ar zekr-quran-translations-fr zekr-quran-translations-nl zekr-quran-translations-ru zekr-quran-translations-ur zekr-quran-translations-bs zekr-quran-translations-fa zekr-quran-translations-id zekr-quran-translations-tr zekr-quran-translations-pt acon || failure "Installing packages failed, error=$?"
+
+# some clean-up
 aptitude clean
 aptitude autoclean
 
+# GDM ?
+#gconftool-2 --type string --set /apps/gnome-session/options/splash_image "/usr/share/gdm/themes/UbuntuME/ubuntume-splash.png" 
+#gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults --type string --set /apps/gnome-session/options/splash_image "/usr/share/gdm/themes/UbuntuME/ubuntume-splash.png"
+#cp /etc/gdm/gdm.conf-custom /etc/gdm/gdm.conf-custom.ubuntume.backup
+#cp -f /usr/share/ubuntume-artwork/gdm/gdm.conf-custom /etc/gdm/gdm.conf-custom
+
+# theme?
+#gconftool-2 --type string --set /desktop/gnome/interface/gtk_theme "HumanME" 
+#gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults --type string --set /desktop/gnome/interface/gtk_theme "HumanME"
+
+#gconftool-2 --type string --set /apps/metacity/general/theme "HumanME" 
+#gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults --type string --set /apps/metacity/general/theme "HumanME"
+
+#gconftool-2 --type string --set /desktop/gnome/interface/icon_theme "HumanME-green"
+#gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults --type string --set /desktop/gnome/interface/icon_theme "HumanME-green"
+
+# wallpaper?
+#gconftool-2 --type string --set /desktop/gnome/background/picture_filename "/usr/share/ubuntume-artwork/ubuntuME.jpg"
+#gconftool-2 --type string --set /desktop/gnome/background/picture_options "stretched" 
+#gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults --type string --set /desktop/gnome/background/picture_filename "/usr/share/ubuntume-artwork/ubuntuME.jpg" 
+#gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults --type string --set /desktop/gnome/background/picture_options "stretched"
+
+# screensaver?
+#cp -f /usr/share/ubuntume-artwork/glslideshow.desktop /usr/share/applications/screensavers/glslideshow.desktop
+#gconftool-2 --type list --list-type string --set /apps/gnome-screensaver/themes ["screensavers-glslideshow"]
+#gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults --type list --list-type string --set /apps/gnome-screensaver/themes ["screensavers-glslideshow"] 
+
+# login sound?
+#cp -f --remove-destination /usr/share/ubuntume-artwork/sounds/startup3.wav /usr/share/sounds/startup3.wav
+
+# dansguardian blacklists
+rm -rf /etc/dansguardian/blacklists
+wget http://squidguard.shalla.de/Downloads/shallalist.tar.gz
+tar xzf shallalist.tar.gz -C /etc/dansguardian
+mv /etc/dansguardian/BL /etc/dansguardian/blacklists
+rm -f shallalist.tar.gz
+chown -R root:root /etc/dansguardian/blacklists
+chmod -R 755 /etc/dansguardian/blacklists
+
+
+
+####################################
 
 if [ "$RUN_MANUAL_CUSTOMIZATIONS" = "yes" ] ; then
 	while true ; do
