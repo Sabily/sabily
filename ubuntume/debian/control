@@ -12,7 +12,7 @@ Vcs-Browser: http://bazaar.launchpad.net/~ubuntume.team/ubuntume/hardy
 
 Package: ubuntume
 Architecture: all
-Depends: ${misc:Depends}, ubuntume-artwork, minbar, zekr, zekr-quran-translations-en, thwab-lib, firefox-praytimes, wallpaper-tray
+Depends: ${misc:Depends}, ubuntume-artwork, minbar, zekr, zekr-quran-translations-en, thwab-lib, firefox-praytimes, wallpaper-tray, glipper
 Suggests: webstrict
 Description: Ubuntu Muslim Edition
  Installs Islamic software and customizes the user interface.
