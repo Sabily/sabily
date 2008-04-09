@@ -8,7 +8,7 @@
     <Directory>Islamic-Software.directory</Directory>
     <Include>
       <And>
-        <Category>Religion</Category>
+        <Category>X-Islamic-Software</Category>
       </And>
     </Include>
   </Menu> <!-- End Islamic Software -->
