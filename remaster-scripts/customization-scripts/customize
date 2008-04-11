@@ -19,6 +19,11 @@ function install_packages()
 	aptitude install --assume-yes "$@" || failure "aptitude install $@ failed, error=$?"
 }
 
+function install_packages_with_recommends()
+{
+	aptitude install --assume-yes --with-recommends "$@" || failure "aptitude install $@ failed, error=$?"
+}
+
 function remove_packages()
 {
 	aptitude remove --assume-yes "$@" || failure "aptitude remove $@ failed, error=$?"
@@ -144,9 +149,8 @@ wget -q http://zekr.org/apt/zekr.debian.gpg -O- | sudo apt-key add -
 # remove wallpapers, openoffice, gnome games, examples
 remove_packages ubuntu-wallpapers openoffice.org-base openoffice.org-calc openoffice.org-common  openoffice.org-draw openoffice.org-evolution openoffice.org-gnome openoffice.org-gtk openoffice.org-impress openoffice.org-java-common openoffice.org-math openoffice.org-writer python-uno openoffice.org openoffice.org-core openoffice.org-l10n-common openoffice.org-filter-binfilter gnome-games gnome-games-data example-content || failure "Removing packages failed, error=$?"
 
-# install these packages?
-# xfonts-intl-arabic ttf-arabeyes ttf-kacst ttf-farsiweb flashplugin-nonfree sun-java6-plugin
-install_packages ubuntume bzr aptoncd aspell-ar zekr-quran-translations-fr zekr-quran-translations-nl zekr-quran-translations-ru zekr-quran-translations-ur zekr-quran-translations-bs zekr-quran-translations-fa zekr-quran-translations-id zekr-quran-translations-tr zekr-quran-translations-pt acon || failure "Installing packages failed, error=$?"
+install_packages_with_recommends ubuntume webstrict
+install_packages bzr aptoncd aspell-ar zekr-quran-translations-fr zekr-quran-translations-nl zekr-quran-translations-ru zekr-quran-translations-ur zekr-quran-translations-bs zekr-quran-translations-fa zekr-quran-translations-id zekr-quran-translations-tr zekr-quran-translations-pt acon || failure "Installing packages failed, error=$?"
 
 # some clean-up
 aptitude clean
@@ -158,16 +162,6 @@ aptitude autoclean
 #cp /etc/gdm/gdm.conf-custom /etc/gdm/gdm.conf-custom.ubuntume.backup
 #cp -f /usr/share/ubuntume-artwork/gdm/gdm.conf-custom /etc/gdm/gdm.conf-custom
 
-# theme?
-#gconftool-2 --type string --set /desktop/gnome/interface/gtk_theme "HumanME" 
-#gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults --type string --set /desktop/gnome/interface/gtk_theme "HumanME"
-
-#gconftool-2 --type string --set /apps/metacity/general/theme "HumanME" 
-#gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults --type string --set /apps/metacity/general/theme "HumanME"
-
-#gconftool-2 --type string --set /desktop/gnome/interface/icon_theme "HumanME-green"
-#gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults --type string --set /desktop/gnome/interface/icon_theme "HumanME-green"
-
 # wallpaper?
 #gconftool-2 --type string --set /desktop/gnome/background/picture_filename "/usr/share/ubuntume-artwork/ubuntuME.jpg"
 #gconftool-2 --type string --set /desktop/gnome/background/picture_options "stretched" 
@@ -178,9 +172,6 @@ aptitude autoclean
 #cp -f /usr/share/ubuntume-artwork/glslideshow.desktop /usr/share/applications/screensavers/glslideshow.desktop
 #gconftool-2 --type list --list-type string --set /apps/gnome-screensaver/themes ["screensavers-glslideshow"]
 #gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults --type list --list-type string --set /apps/gnome-screensaver/themes ["screensavers-glslideshow"] 
-
-# login sound?
-#cp -f --remove-destination /usr/share/ubuntume-artwork/sounds/startup3.wav /usr/share/sounds/startup3.wav
 
 # dansguardian blacklists
 rm -rf /etc/dansguardian/blacklists

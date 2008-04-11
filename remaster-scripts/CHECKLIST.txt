@@ -13,8 +13,11 @@ MINBAR
 # Minbar launched at startup  
 
 GNOME
-# New "Islam" menu, sub-menus: "Zekr", "Minbar" (Zekr not displayed in the Applications-Accessories menu)  
+# New "Islam Softwares" menu, sub-menus: "Zekr", "Minbar" (Zekr not displayed in the Applications-Accessories menu)  
 # Screensaver configured to display islamic wallpapers  
+
+MISC
+# zakatcalc.ods in ~/Documents
 
 FIREFOX
 # Firefox welcome page updated
