@@ -73,8 +73,8 @@ cp -f ./resources/apt-setup "$REMASTER_DIR"/usr/share/ubiquity/apt-setup
 
 # Live CD splash
 cp -f ./resources/splash1-14colors.pcx "$ISO_REMASTER_DIR/isolinux/splash.pcx"
-#sed -i "s|GFXBOOT-BACKGROUND 0xB6875A|GFXBOOT-BACKGROUND 0x1F6E0B|" "$ISO_REMASTER_DIR/isolinux/isolinux.cfg"
-echo "GFXBOOT-BACKGROUND 0x1F6E0B" >> "$ISO_REMASTER_DIR/isolinux/isolinux.cfg"
+sed -i "s|background=.*|background=0x1F6E0B|" "$ISO_REMASTER_DIR/isolinux/gfxboot.cfg"
+
 
 # lock firefox by default
 cp -f ./resources/firefox.cfg "$REMASTER_DIR"/usr/lib/firefox-3.0b5/firefox.cfg
@@ -93,15 +93,15 @@ rm -f "$REMASTER_DIR"/usr/share/backgrounds/space-05.jpg # 14.3 KB
 #cp "$REMASTER_DIR"/usr/share/ubuntume-artwork/gdm/gdm.conf-custom "$REMASTER_DIR"/etc/gdm
 
 # dansguardian configuration
-cp -f ./resources/dansguardian/dansguardian.conf /etc/dansguardian/dansguardian.conf
-cp -f ./resources/dansguardian/dansguardianf2.conf /etc/dansguardian/dansguardianf2.conf
-cp -f ./resources/dansguardian/bannedsitelist /etc/dansguardian/bannedsitelist
-cp -f ./resources/dansguardian/bannedurllist /etc/dansguardian/bannedurllist
-cp -f ./resources/dansguardian/bannedmimetypelist /etc/dansguardian/bannedmimetypelist
-cp -f ./resources/dansguardian/bannedextensionlist /etc/dansguardian/bannedextensionlist
-cp -f ./resources/dansguardian/default/oidentd /etc/default/oidentd
-cp -f ./resources/dansguardian/tinyproxy/tinyproxy.conf /etc/tinyproxy/tinyproxy.conf
-cp -rf ./resources/dansguardian/languages /etc/dansguardian
+cp -f ./resources/dansguardian/dansguardian.conf "$REMASTER_DIR"/etc/dansguardian/dansguardian.conf
+cp -f ./resources/dansguardian/dansguardianf2.conf "$REMASTER_DIR"/etc/dansguardian/dansguardianf2.conf
+cp -f ./resources/dansguardian/bannedsitelist "$REMASTER_DIR"/etc/dansguardian/bannedsitelist
+cp -f ./resources/dansguardian/bannedurllist "$REMASTER_DIR"/etc/dansguardian/bannedurllist
+cp -f ./resources/dansguardian/bannedmimetypelist "$REMASTER_DIR"/etc/dansguardian/bannedmimetypelist
+cp -f ./resources/dansguardian/bannedextensionlist "$REMASTER_DIR"/etc/dansguardian/bannedextensionlist
+cp -f ./resources/dansguardian/default/oidentd "$REMASTER_DIR"/etc/default/oidentd
+cp -f ./resources/dansguardian/tinyproxy/tinyproxy.conf "$REMASTER_DIR"/etc/tinyproxy/tinyproxy.conf
+cp -rf ./resources/dansguardian/languages "$REMASTER_DIR"/etc/dansguardian
 chroot "$REMASTER_DIR" dpkg-reconfigure dansguardian
 
 echo "Done customize_iso.sh"
