@@ -1,9 +1,10 @@
-ubuntume (1.1~ppa1) hardy; urgency=low
+ubuntume (1.1~ppa2) hardy; urgency=low
 
   * New package.
   * Use debconf to determine wether Firefox bookmarks should be replaced.
+  * Use update-alternatives to install UbuntuME firefox homepage.
 
- -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Mon,  1 Apr 2008 21:35:50 +0200
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Mon, 15 Apr 2008 21:35:50 +0200
 
 ubuntume (0.4-3) unstable; urgency=low
 

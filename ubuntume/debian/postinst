@@ -8,6 +8,10 @@ set -e
 
 case "$1" in
     configure)
+      # Update firefox homepage:
+      update-alternatives --set firefox-homepage /usr/share/ubuntume-artwork/firefox/firefox-index.html
+
+      # Update firefox bookmarks:
       db_get ubuntume/replace-bookmarks || true
       if [ "$RET" = "true" ]; then
         for d in firefox firefox-3; do
