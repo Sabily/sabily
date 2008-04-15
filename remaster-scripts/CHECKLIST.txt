@@ -1,28 +1,33 @@
 The following points should be checked after the ubuntuME remastering:
 
+LIVE CD
+# Boot menu text color
+# Boot menu picture
+
 ARTWORK
-# GRUB picture updated
+# GRUB picture updated -> KO
 # usplash updated
 # GDM login screen updated
-# GDM splash screen updated
+# GDM splash screen updated -> KO
 # Login sound (tasmiyah) updated
 # Wallpaper updated
 # Metacity, icon theme updated
-
-MINBAR
-# Minbar launched at startup  
+# Mouse pointer set to Dhikr_cursor
 
 GNOME
-# New "Islam Softwares" menu, sub-menus: "Zekr", "Minbar" (Zekr not displayed in the Applications-Accessories menu)  
-# Screensaver configured to display islamic wallpapers  
+# New "Islam Softwares" menu, sub-menus: "Zekr", "Minbar"   
+# Screensaver configured to display islamic wallpapers -> KO
 
 MISC
 # zakatcalc.ods in ~/Documents
+# Glipper installed
+# Wallpaper-tray installed
 
 FIREFOX
-# Firefox welcome page updated
-# Bookmarks updated
+# Firefox welcome page updated -> KO
+# Bookmarks updated 
 # Firefox flash plugin installed
+# PrayTimes installed
 
 WEBSTRICT
 # Dansguardian enabled (try loading www.playboy.com in firefox)
@@ -31,5 +36,10 @@ WEBSTRICT
 
 ZEKR
 # online recitations should work
+# 10 online recitations installed
 # offline recitations installed: 
+
+MINBAR
+# Minbar installed
+
 

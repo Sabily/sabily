@@ -10,6 +10,16 @@ function prepare_install()
 {
 	sed -i "s|# deb http://archive.ubuntu.com/ubuntu hardy universe|deb http://archive.ubuntu.com/ubuntu hardy universe multiverse|" /etc/apt/sources.list ||  failure "sed failed, error=$?"
 	sed -i "s|# deb-src http://archive.ubuntu.com/ubuntu hardy universe|deb-src http://archive.ubuntu.com/ubuntu hardy universe multiverse|" /etc/apt/sources.list 
+	
+	# Add ubuntuME and Zekr repositories
+	echo "deb http://ppa.launchpad.net/ubuntume.team/ubuntu hardy main #Ubuntu Muslim Edition" >> "/etc/apt/sources.list"
+	echo "deb-src http://ppa.launchpad.net/ubuntume.team/ubuntu hardy main #Ubuntu Muslim Edition" >> "/etc/apt/sources.list"
+	echo "deb http://zekr.org/apt sid main #Zekr" >> "/etc/apt/sources.list"
+
+	# retrieve authentication keys
+	# for ubuntume: should wait for LaunchPad PPA to support gpg keys
+	wget -q http://zekr.org/apt/zekr.debian.gpg -O- | sudo apt-key add -
+
 	#try 2 times to avoid slow proxies failures
 	aptitude update || aptitude update || failure "aptitude update failed, error=$?"
 }
@@ -97,6 +107,9 @@ if [ -z "$LIVECD_LANGS" ]; then
 	failure "Live CD language not set, please put language packs codes (for example: en, pl, fr) into $SCRIPT_DIR/language_packs"
 fi
 
+mkdir /boot/grub
+update-grub
+
 DESKTOP_FLAVOURS=`cat "$SCRIPT_DIR/desktop_types"`
 
 prepare_install || failure "Preparing installation failed, error=$?"
@@ -136,26 +149,15 @@ echo removed: $REMOVED_PACKAGES
 # UBUNTUME customizations
 #######################################
 
-# Customize sources.list
-echo "deb http://ppa.launchpad.net/ubuntume.team/ubuntu hardy main #Ubuntu Muslim Edition" >> "/etc/apt/sources.list"
-echo "deb-src http://ppa.launchpad.net/ubuntume.team/ubuntu hardy main #Ubuntu Muslim Edition" >> "/etc/apt/sources.list"
-echo "deb http://zekr.org/apt sid main #Zekr" >> "/etc/apt/sources.list"
-
-# retrieve authentication keys
-# for ubuntume: should wait for LaunchPad PPA to support gpg keys
-wget -q http://zekr.org/apt/zekr.debian.gpg -O- | sudo apt-key add -
-
-
 # remove wallpapers, openoffice, gnome games, examples
 remove_packages ubuntu-wallpapers openoffice.org-base openoffice.org-calc openoffice.org-common  openoffice.org-draw openoffice.org-evolution openoffice.org-gnome openoffice.org-gtk openoffice.org-impress openoffice.org-java-common openoffice.org-math openoffice.org-writer python-uno openoffice.org openoffice.org-core openoffice.org-l10n-common openoffice.org-filter-binfilter gnome-games gnome-games-data example-content || failure "Removing packages failed, error=$?"
-
 
 install_packages_with_recommends ubuntume webstrict || failure "Installing packages failed, error=$?"
 install_packages bzr aptoncd aspell-ar acon || failure "Installing packages failed, error=$?"
 # Zekr online recitations
-install_packages zekr-quran-online-recitation-huzaifi zekr-quran-online-recitation-husary zekr-quran-online-recitation-shuraim zekr-quran-online-recitation-ajmy zekr-quran-online-recitation-afasi zekr-quran-online-recitation-abdulbasit zekr-quran-online-recitation-ghamdi zekr-quran-online-recitation-shatri zekr-quran-online-recitation-ayyub || failure "Installing packages failed, error=$?" 
+#install_packages zekr-quran-online-recitation-huzaifi zekr-quran-online-recitation-husary zekr-quran-online-recitation-shuraim zekr-quran-online-recitation-ajmy zekr-quran-online-recitation-afasi zekr-quran-online-recitation-abdulbasit zekr-quran-online-recitation-ghamdi zekr-quran-online-recitation-shatri zekr-quran-online-recitation-ayyub || failure "Installing packages failed, error=$?" 
 # Zekr Quran translations
-install_packages zekr-quran-translations-fr zekr-quran-translations-nl zekr-quran-translations-ru zekr-quran-translations-ur zekr-quran-translations-bs zekr-quran-translations-fa zekr-quran-translations-id zekr-quran-translations-tr zekr-quran-translations-pt  || failure "Installing packages failed, error=$?"
+#install_packages zekr-quran-translations-fr zekr-quran-translations-nl zekr-quran-translations-ru zekr-quran-translations-ur zekr-quran-translations-bs zekr-quran-translations-fa zekr-quran-translations-id zekr-quran-translations-tr zekr-quran-translations-pt  || failure "Installing packages failed, error=$?"
 
 
 # some clean-up
@@ -168,16 +170,10 @@ aptitude autoclean
 #cp /etc/gdm/gdm.conf-custom /etc/gdm/gdm.conf-custom.ubuntume.backup
 #cp -f /usr/share/ubuntume-artwork/gdm/gdm.conf-custom /etc/gdm/gdm.conf-custom
 
-# wallpaper?
-#gconftool-2 --type string --set /desktop/gnome/background/picture_filename "/usr/share/ubuntume-artwork/ubuntuME.jpg"
-#gconftool-2 --type string --set /desktop/gnome/background/picture_options "stretched" 
-#gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults --type string --set /desktop/gnome/background/picture_filename "/usr/share/ubuntume-artwork/ubuntuME.jpg" 
-#gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults --type string --set /desktop/gnome/background/picture_options "stretched"
-
 # screensaver?
 #cp -f /usr/share/ubuntume-artwork/glslideshow.desktop /usr/share/applications/screensavers/glslideshow.desktop
-#gconftool-2 --type list --list-type string --set /apps/gnome-screensaver/themes ["screensavers-glslideshow"]
-#gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults --type list --list-type string --set /apps/gnome-screensaver/themes ["screensavers-glslideshow"] 
+gconftool-2 --type list --list-type string --set /apps/gnome-screensaver/themes ["screensavers-glslideshow"]
+gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults --type list --list-type string --set /apps/gnome-screensaver/themes ["screensavers-glslideshow"] 
 
 # dansguardian blacklists
 rm -rf /etc/dansguardian/blacklists
