@@ -12,9 +12,15 @@ function prepare_install()
 	sed -i "s|# deb-src http://archive.ubuntu.com/ubuntu hardy universe|deb-src http://archive.ubuntu.com/ubuntu hardy universe multiverse|" /etc/apt/sources.list 
 	
 	# Add ubuntuME and Zekr repositories
-	echo "deb http://ppa.launchpad.net/ubuntume.team/ubuntu hardy main #Ubuntu Muslim Edition" >> "/etc/apt/sources.list"
-	echo "deb-src http://ppa.launchpad.net/ubuntume.team/ubuntu hardy main #Ubuntu Muslim Edition" >> "/etc/apt/sources.list"
-	echo "deb http://zekr.org/apt sid main #Zekr" >> "/etc/apt/sources.list"
+	if grep -q "http://ppa.launchpad.net/ubuntume.team/ubuntu" "/etc/apt/sources.list" ; then EXISTS="yes"
+	else
+		echo "deb http://ppa.launchpad.net/ubuntume.team/ubuntu hardy main #Ubuntu Muslim Edition" >> "/etc/apt/sources.list"
+		echo "deb-src http://ppa.launchpad.net/ubuntume.team/ubuntu hardy main #Ubuntu Muslim Edition" >> "/etc/apt/sources.list"
+	fi
+	if grep -q "http://zekr.org/apt" "/etc/apt/sources.list" ; then EXISTS="yes"
+	else
+		echo "deb http://zekr.org/apt hardy main #Zekr" >> "/etc/apt/sources.list"
+	fi
 
 	# retrieve authentication keys
 	# for ubuntume: should wait for LaunchPad PPA to support gpg keys
@@ -114,7 +120,8 @@ DESKTOP_FLAVOURS=`cat "$SCRIPT_DIR/desktop_types"`
 
 prepare_install || failure "Preparing installation failed, error=$?"
 
-echo "Installing language packs ($LIVECD_LANGS)..."
+#echo "Installing language packs ($LIVECD_LANGS)..."
+#echo "Installing language packs..."
 
 PACKAGES_TO_INSTALL=""
 LANGPACKS_CONCATENATED=""
@@ -140,10 +147,10 @@ done
 
 #NOTE: we first install language pack, then remove others as installing language pack might pull packages
 #which were not previously present
-echo "Removing unnecessary language packages..."
-REMOVED_PACKAGES=`dpkg-query --show | cut -f1 | grep -E '^(language-pack|language-support)' | grep -v -E "[-]($LANGPACKS_CONCATENATED)\>"`
-remove_packages $REMOVED_PACKAGES || failure "Removing packages failed, error=$?"
-echo removed: $REMOVED_PACKAGES
+#echo "Removing unnecessary language packages..."
+#REMOVED_PACKAGES=`dpkg-query --show | cut -f1 | grep -E '^(language-pack|language-support)' | grep -v -E "[-]($LANGPACKS_CONCATENATED)\>"`
+#remove_packages $REMOVED_PACKAGES || failure "Removing packages failed, error=$?"
+#echo "removed: $REMOVED_PACKAGES"
 
 #######################################
 # UBUNTUME customizations
@@ -163,12 +170,6 @@ install_packages bzr aptoncd aspell-ar acon || failure "Installing packages fail
 # some clean-up
 aptitude clean
 aptitude autoclean
-
-# GDM ?
-#gconftool-2 --type string --set /apps/gnome-session/options/splash_image "/usr/share/gdm/themes/UbuntuME/ubuntume-splash.png" 
-#gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults --type string --set /apps/gnome-session/options/splash_image "/usr/share/gdm/themes/UbuntuME/ubuntume-splash.png"
-#cp /etc/gdm/gdm.conf-custom /etc/gdm/gdm.conf-custom.ubuntume.backup
-#cp -f /usr/share/ubuntume-artwork/gdm/gdm.conf-custom /etc/gdm/gdm.conf-custom
 
 # screensaver?
 #cp -f /usr/share/ubuntume-artwork/glslideshow.desktop /usr/share/applications/screensavers/glslideshow.desktop

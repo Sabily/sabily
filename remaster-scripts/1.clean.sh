@@ -1,16 +1,15 @@
 #!/bin/bash
 
-# To run this script you should call it with three parameters:
-# REMASTER_HOME -> full path to the directory where this script resides
+# To run this script you should call it with two parameters:
 # ISO_IMAGE -> full path to the ubuntu iso file
 # ISO_NAME -> name of the final ISO file
 #
 # For example:
-# sudo ./1.clean.sh "fullPathToDir" "fullPathToISO" "ubuntuME-vX.XX-desktop-i386.iso"
+# sudo ./1.clean.sh "fullPathToISO" "ubuntuME-vX.XX-desktop-i386.iso"
 
-REMASTER_HOME=$1
-ISO_IMAGE=$2
-ISO_NAME=$3
+REMASTER_HOME=`pwd`
+ISO_IMAGE=$1
+ISO_NAME=$2
 CUSTOMIZE_DIR="$REMASTER_HOME/customization-scripts"
 
 ##################
