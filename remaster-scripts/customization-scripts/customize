@@ -156,27 +156,31 @@ done
 # UBUNTUME customizations
 #######################################
 
-# remove wallpapers, openoffice, gnome games, examples
+echo **** remove wallpapers, openoffice, gnome games, examples ****
 remove_packages ubuntu-wallpapers openoffice.org-base openoffice.org-calc openoffice.org-common  openoffice.org-draw openoffice.org-evolution openoffice.org-gnome openoffice.org-gtk openoffice.org-impress openoffice.org-java-common openoffice.org-math openoffice.org-writer python-uno openoffice.org openoffice.org-core openoffice.org-l10n-common openoffice.org-filter-binfilter gnome-games gnome-games-data example-content || failure "Removing packages failed, error=$?"
 
+echo **** install ubuntume, webstrict ****
 install_packages_with_recommends ubuntume webstrict || failure "Installing packages failed, error=$?"
+
+echo **** install miscellaneous ****
 install_packages bzr aptoncd aspell-ar acon || failure "Installing packages failed, error=$?"
-# Zekr online recitations
-#install_packages zekr-quran-online-recitation-huzaifi zekr-quran-online-recitation-husary zekr-quran-online-recitation-shuraim zekr-quran-online-recitation-ajmy zekr-quran-online-recitation-afasi zekr-quran-online-recitation-abdulbasit zekr-quran-online-recitation-ghamdi zekr-quran-online-recitation-shatri zekr-quran-online-recitation-ayyub || failure "Installing packages failed, error=$?" 
-# Zekr Quran translations
+
+echo **** install Zekr online recitations ****
+install_packages zekr-quran-online-recitation-huzaifi zekr-quran-online-recitation-husary zekr-quran-online-recitation-shuraim zekr-quran-online-recitation-ajmy zekr-quran-online-recitation-afasi zekr-quran-online-recitation-abdulbasit zekr-quran-online-recitation-ghamdi zekr-quran-online-recitation-shatri zekr-quran-online-recitation-ayyub || failure "Installing packages failed, error=$?" 
+
+echo **** install Zekr Quran translations ****
 #install_packages zekr-quran-translations-fr zekr-quran-translations-nl zekr-quran-translations-ru zekr-quran-translations-ur zekr-quran-translations-bs zekr-quran-translations-fa zekr-quran-translations-id zekr-quran-translations-tr zekr-quran-translations-pt  || failure "Installing packages failed, error=$?"
 
-
-# some clean-up
+echo **** clean-up ****
 aptitude clean
 aptitude autoclean
 
 # screensaver?
 #cp -f /usr/share/ubuntume-artwork/glslideshow.desktop /usr/share/applications/screensavers/glslideshow.desktop
-gconftool-2 --type list --list-type string --set /apps/gnome-screensaver/themes ["screensavers-glslideshow"]
-gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults --type list --list-type string --set /apps/gnome-screensaver/themes ["screensavers-glslideshow"] 
+#gconftool-2 --type list --list-type string --set /apps/gnome-screensaver/themes ["screensavers-glslideshow"]
+#gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults --type list --list-type string --set /apps/gnome-screensaver/themes ["screensavers-glslideshow"] 
 
-# dansguardian blacklists
+echo **** download and install dansguardian blacklists ****
 rm -rf /etc/dansguardian/blacklists
 wget http://squidguard.shalla.de/Downloads/shallalist.tar.gz
 tar xzf shallalist.tar.gz -C /etc/dansguardian
