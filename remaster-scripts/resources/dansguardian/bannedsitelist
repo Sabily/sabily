@@ -1,0 +1,83 @@
+#domains in banned list
+#Don't bother with the www. or the http://
+
+#The bannedurllist is for blocking PART of a site
+#The bannedsitelist is for blocking ALL of a site
+
+#As of DansGuardian 2.7.3 you can now include
+#.tld so for example you can match .gov for example
+
+#The 'grey' lists override the 'banned' lists.
+#The 'exception' lists override the 'banned' lists also.
+#The difference is that the 'exception' lists completely switch
+#off *all* other filtering for the match.  'grey' lists only
+#stop the URL filtering and allow the normal filtering to work.
+
+#An example of grey list use is when in Blanket Block (whitelist)
+#mode and you want to allow some sites but still filter as normal
+#on their content
+
+#Another example of grey list use is when you ban a site but want
+#to allow part of it.
+
+#To include additional files in this list use this example:
+#.Include</etc/dansguardian/anotherbannedurllist>
+
+#You can have multiple .Includes.
+
+#List other sites to block:
+
+badboys.com
+
+
+
+#Blanket Block.  To block all sites except those in the
+#exceptionsitelist and greysitelist files remove
+#the # from the next line to leave only a '**':
+#**
+
+#Blanket IP Block.  To block all sites specified only as an IP
+#remove the # from the next line to leave only a '*ip':
+#*ip
+
+
+
+#Remove the # from the following and edit as needed to use a stock
+#squidGuard/urlblacklist blacklists collection.
+#.Include</etc/dansguardian/blacklists/adv/domains>
+.Include</etc/dansguardian/blacklists/aggressive/domains>
+#.Include</etc/dansguardian/blacklists/automobile/domains>
+#.Include</etc/dansguardian/blacklists/chat/domains>
+#.Include</etc/dansguardian/blacklists/dating/domains>
+#.Include</etc/dansguardian/blacklists/downloads/domains>
+#.Include</etc/dansguardian/blacklists/drugs/domains>
+#.Include</etc/dansguardian/blacklists/dynamic/domains>
+#.Include</etc/dansguardian/blacklists/finance/domains>
+#.Include</etc/dansguardian/blacklists/forum/domains>
+#.Include</etc/dansguardian/blacklists/gamble/domains>
+#.Include</etc/dansguardian/blacklists/hacking/domains>
+#.Include</etc/dansguardian/blacklists/hobby/domains>
+#.Include</etc/dansguardian/blacklists/isp/domains>
+#.Include</etc/dansguardian/blacklists/jobsearch/domains>
+#.Include</etc/dansguardian/blacklists/models/domains>
+#.Include</etc/dansguardian/blacklists/movies/domains>
+#.Include</etc/dansguardian/blacklists/music/domains>
+#.Include</etc/dansguardian/blacklists/news/domains>
+.Include</etc/dansguardian/blacklists/porn/domains>
+#.Include</etc/dansguardian/blacklists/recreation/domains>
+#.Include</etc/dansguardian/blacklists/redirector/domains>
+#.Include</etc/dansguardian/blacklists/ringtones/domains>
+#.Include</etc/dansguardian/blacklists/science/domains>
+#.Include</etc/dansguardian/blacklists/searchengines/domains>
+#.Include</etc/dansguardian/blacklists/shopping/domains>
+#.Include</etc/dansguardian/blacklists/socialnet/domains>
+#.Include</etc/dansguardian/blacklists/spyware/domains>
+#.Include</etc/dansguardian/blacklists/tracker/domains>
+#.Include</etc/dansguardian/blacklists/updatesites/domains>
+.Include</etc/dansguardian/blacklists/violence/domains>
+#.Include</etc/dansguardian/blacklists/warez/domains>
+#.Include</etc/dansguardian/blacklists/webmail/domains>
+#.Include</etc/dansguardian/blacklists/webradio/domains>
+#.Include</etc/dansguardian/blacklists/webtv/domains>
+
+# You will need to edit to add and remove categories you want

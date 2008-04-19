@@ -87,11 +87,6 @@ rm -f "$REMASTER_DIR"/usr/share/backgrounds/space-03.jpg # 30.9 KB
 rm -f "$REMASTER_DIR"/usr/share/backgrounds/space-04.jpg # 76.5 KB
 rm -f "$REMASTER_DIR"/usr/share/backgrounds/space-05.jpg # 14.3 KB
 
-
-# fix for GDM background color: needed with hardy??
-#cp -f ./resources/Default "$REMASTER_DIR"/etc/gdm/PreSession/Default
-#cp "$REMASTER_DIR"/usr/share/ubuntume-artwork/gdm/gdm.conf-custom "$REMASTER_DIR"/etc/gdm
-
 # dansguardian configuration
 cp -f ./resources/dansguardian/dansguardian.conf "$REMASTER_DIR"/etc/dansguardian/dansguardian.conf
 cp -f ./resources/dansguardian/dansguardianf2.conf "$REMASTER_DIR"/etc/dansguardian/dansguardianf2.conf

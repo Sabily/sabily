@@ -1,0 +1,44 @@
+# DansGuardian 2.8 messages file in Bosnian
+
+"1","Pristup odbijen"
+
+"100","Vašoj IP adresi nije dozvoljeno korištenje weba: "
+"101","Vašoj IP adresi nije dozvoljeno korištenje weba."
+"102","Vašem korisnièkom imenu nije dozvoljeno korištenje weba: "
+
+"200","Traženi URL nije u funkciji."
+
+"300","Pronaðena je zabranjena rijeè: "
+"301","Pronaðena je zabranjena rijeè."
+
+"400","Pronaðena je zabranjena kombinacija rijeèi: "
+"401","Pronaðena je zabranjena kombinacija rijeèi."
+"402","Granica tolerancije rijeèi "
+"403","Granica tolerancije rijeèi je preðena."
+
+"500","Zabranjena web strana: "
+"501","Zabranjeni URL: "
+"502","Blanket Block is active and that site is not on the white or grey list."
+"503","Zabranjen regularni URL izraz: "
+"504","Pronaðen zabranjeni regularni URL izraz."
+"505","Blanket IP Block is active i ta adresa je iskljuèivo IP adresa."
+
+"600","Pronaðen izuzetak klijentske IP adrese."
+"601","pronaðen izuzetak klijentskog korisnika."
+"602","Pronaðen strana izuzetak."
+"603","Pronaðen URL izuzetak."
+"604","Pronaðena je rijeè izuzetak: "
+"605","Pronaðena je kombinacija rijeèi izuzetaka: "
+"606","Zaobiði izuzetak URL-a."
+"607","Zaobiði izuzetak cookie-a."
+
+"700","Web upload je zabranjen."
+"701","Preðeno ogranièenje Web uploada."
+
+"800","Zabranjeni MIME tip: "
+
+"900","Zabranjene extenzije: "
+
+"1000","PICS labeling level exceeded on the above site."
+
+"1100","Pronaðen sadržaj zaražen virusom."

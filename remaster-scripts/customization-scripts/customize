@@ -175,11 +175,6 @@ echo **** clean-up ****
 aptitude clean
 aptitude autoclean
 
-# screensaver?
-#cp -f /usr/share/ubuntume-artwork/glslideshow.desktop /usr/share/applications/screensavers/glslideshow.desktop
-#gconftool-2 --type list --list-type string --set /apps/gnome-screensaver/themes ["screensavers-glslideshow"]
-#gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults --type list --list-type string --set /apps/gnome-screensaver/themes ["screensavers-glslideshow"] 
-
 echo **** download and install dansguardian blacklists ****
 rm -rf /etc/dansguardian/blacklists
 wget http://squidguard.shalla.de/Downloads/shallalist.tar.gz

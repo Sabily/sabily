@@ -1,0 +1,67 @@
+#URLs in banned list
+#Don't bother with the http:// or the www
+
+#The bannedurllist is for blocking PART of a site
+#The bannedsitelist is for blocking ALL of a site
+
+#The 'grey' lists override the 'banned' lists.
+#The 'exception' lists override the 'banned' lists also.
+#The difference is that the 'exception' lists completely switch
+#off *all* other filtering for the match.  'grey' lists only
+#stop the URL filtering and allow the normal filtering to work.
+
+#An example of grey list use is when in Blanket Block (whitelist)
+#mode and you want to allow some sites but still filter as normal
+#on their content
+
+#Another example of grey list use is when you ban a site but want
+#to allow part of it.
+
+#To include additional files in this list use this example:
+#.Include</etc/dansguardian/anotherbannedurllist>
+
+#You can have multiple .Includes.
+
+#List other URLs to block:
+
+members.home.net/uporn
+
+
+#Remove the # from the following and edit as needed to use a stock
+#squidGuard blacklists collection.
+#.Include</etc/dansguardian/blacklists/adv/urls>
+.Include</etc/dansguardian/blacklists/aggressive/urls>
+#.Include</etc/dansguardian/blacklists/automobile/urls>
+#.Include</etc/dansguardian/blacklists/chat/urls>
+#.Include</etc/dansguardian/blacklists/dating/urls>
+#.Include</etc/dansguardian/blacklists/downloads/urls>
+#.Include</etc/dansguardian/blacklists/drugs/urls>
+#.Include</etc/dansguardian/blacklists/dynamic/urls>
+#.Include</etc/dansguardian/blacklists/finance/urls>
+#.Include</etc/dansguardian/blacklists/forum/urls>
+#.Include</etc/dansguardian/blacklists/gamble/urls>
+#.Include</etc/dansguardian/blacklists/hacking/urls>
+#.Include</etc/dansguardian/blacklists/hobby/urls>
+#.Include</etc/dansguardian/blacklists/isp/urls>
+#.Include</etc/dansguardian/blacklists/jobsearch/urls>
+#.Include</etc/dansguardian/blacklists/models/urls>
+#.Include</etc/dansguardian/blacklists/movies/urls>
+#.Include</etc/dansguardian/blacklists/music/urls>
+#.Include</etc/dansguardian/blacklists/news/urls>
+.Include</etc/dansguardian/blacklists/porn/urls>
+#.Include</etc/dansguardian/blacklists/recreation/urls>
+#.Include</etc/dansguardian/blacklists/redirector/urls>
+#.Include</etc/dansguardian/blacklists/ringtones/urls>
+#.Include</etc/dansguardian/blacklists/science/urls>
+#.Include</etc/dansguardian/blacklists/searchengines/urls>
+#.Include</etc/dansguardian/blacklists/shopping/urls>
+#.Include</etc/dansguardian/blacklists/socialnet/urls>
+#.Include</etc/dansguardian/blacklists/spyware/urls>
+#.Include</etc/dansguardian/blacklists/tracker/urls>
+#.Include</etc/dansguardian/blacklists/updatesites/urls>
+.Include</etc/dansguardian/blacklists/violence/urls>
+#.Include</etc/dansguardian/blacklists/warez/urls>
+#.Include</etc/dansguardian/blacklists/webmail/urls>
+#.Include</etc/dansguardian/blacklists/webradio/urls>
+#.Include</etc/dansguardian/blacklists/webtv/urls>
+# You will need to edit to add and remove categories you want
