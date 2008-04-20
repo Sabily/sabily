@@ -8,15 +8,15 @@ ARTWORK
 # GRUB picture updated -> KO
 # usplash updated
 # GDM login screen updated
-# GDM splash screen updated -> KO
-# Login sound (tasmiyah) updated
+# GDM splash screen updated
+# Login sound (tasmiyah) updated 
 # Wallpaper updated
 # Metacity, icon theme updated
 # Mouse pointer set to Dhikr_cursor
 
 GNOME
 # New "Islam Softwares" menu, sub-menus: "Zekr", "Minbar"   
-# Screensaver configured to display islamic wallpapers -> KO
+# Screensaver configured to display islamic wallpapers
 
 MISC
 # zakatcalc.ods in ~/Documents
@@ -25,12 +25,12 @@ MISC
 
 FIREFOX
 # Firefox welcome page updated -> KO
-# Bookmarks updated 
+# Bookmarks updated -> KO
 # Firefox flash plugin installed
 # PrayTimes installed
 
 WEBSTRICT
-# Dansguardian enabled (try loading www.playboy.com in firefox)
+# Dansguardian enabled (try loading www.playboy.com in firefox) -> KO
 # Webstrict installed (in System-Administration)
 # Blacklists installed in "/etc/dansguardian/blacklists"  
 

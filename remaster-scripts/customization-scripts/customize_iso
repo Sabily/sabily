@@ -15,7 +15,6 @@ REMASTER_DIR="$REMASTER_HOME/remaster-root"
 
 pushd "$BUILD_DIR" || failure "Cannot change directory to $BUILD_DIR, error=$?"
 if [ -e "$REMASTER_DIR"  ]; then
-	echo ici
 	cp -f /etc/resolv.conf "$REMASTER_DIR/etc/resolv.conf" || failure "Failed to copy resolv.conf to image directory, error=$?"
 	cp -a "$SCRIPT_DIR/download-gfxboot-theme-ubuntu" "$REMASTER_DIR/tmp"
 	#chroot "$REMASTER_DIR" /tmp/download-gfxboot-theme-ubuntu || failure "Failed to fetch gfxboot-theme-ubuntu source, check if you have deb-src line enabled for repository main in /etc/apt/sources.list, error=$?"
@@ -98,6 +97,8 @@ cp -f ./resources/dansguardian/default/oidentd "$REMASTER_DIR"/etc/default/oiden
 cp -f ./resources/dansguardian/tinyproxy/tinyproxy.conf "$REMASTER_DIR"/etc/tinyproxy/tinyproxy.conf
 cp -rf ./resources/dansguardian/languages "$REMASTER_DIR"/etc/dansguardian
 chroot "$REMASTER_DIR" dpkg-reconfigure dansguardian
+
+chroot "$REMASTER_DIR" dpkg-reconfigure ubuntume-artwork
 
 echo "Done customize_iso.sh"
 
