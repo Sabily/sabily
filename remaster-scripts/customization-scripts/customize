@@ -113,9 +113,6 @@ if [ -z "$LIVECD_LANGS" ]; then
 	failure "Live CD language not set, please put language packs codes (for example: en, pl, fr) into $SCRIPT_DIR/language_packs"
 fi
 
-mkdir /boot/grub
-update-grub
-
 DESKTOP_FLAVOURS=`cat "$SCRIPT_DIR/desktop_types"`
 
 prepare_install || failure "Preparing installation failed, error=$?"
@@ -184,6 +181,9 @@ rm -f shallalist.tar.gz
 chown -R root:root /etc/dansguardian/blacklists
 chmod -R 755 /etc/dansguardian/blacklists
 
+echo **** GRUB image ****
+cp /boot/grub/splashimages/medine_moon_right_below.xpm.gz /boot/grub/splash.xpm.gz
+update-grub
 
 
 ####################################
