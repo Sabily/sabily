@@ -14,7 +14,7 @@ case "$1" in
       # Update firefox bookmarks:
       db_get ubuntume/replace-bookmarks || true
       if [ "$RET" = "true" ]; then
-        for d in firefox firefox-3; do
+        for d in firefox firefox-3.0; do
           if [ -d /etc/$d/profile ]; then
             cp -f /usr/share/ubuntume/bookmarks.html /etc/$d/profile/
           fi
