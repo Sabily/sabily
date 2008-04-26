@@ -145,27 +145,27 @@ done
 # UBUNTUME customizations
 #######################################
 
-echo **** remove wallpapers, openoffice, gnome games, examples ****
+echo --------- remove wallpapers, example-content, openoffice ---------
 remove_packages ubuntu-wallpapers example-content openoffice.org-base-core openoffice.org-hyphenation openoffice.org-base openoffice.org-calc openoffice.org-common  openoffice.org-draw openoffice.org-evolution openoffice.org-gnome openoffice.org-gtk openoffice.org-impress openoffice.org-java-common openoffice.org-math openoffice.org-writer python-uno openoffice.org openoffice.org-core openoffice.org-l10n-common openoffice.org-filter-binfilter openoffice.org-help-en-us openoffice.org-style-human language-support-translations-en  || failure "Removing packages failed, error=$?"
 # gnome-games gnome-games-data 
 
-echo **** install ubuntume, webstrict ****
+echo --------- install sun-java, ubuntume, webstrict ---------
 install_packages_with_recommends sun-java6-jre ubuntume webstrict || failure "Installing packages failed, error=$?"
 
-echo **** install miscellaneous ****
+echo --------- install miscellaneous ---------
 install_packages bzr aptoncd aspell-ar acon || failure "Installing packages failed, error=$?"
 
-echo **** install Zekr online recitations ****
+echo --------- install Zekr online recitations ---------
 install_packages zekr-quran-recitation-online-huzaifi zekr-quran-recitation-online-husary zekr-quran-recitation-online-shuraim zekr-quran-recitation-online-ajmy zekr-quran-recitation-online-afasi zekr-quran-recitation-online-abdulbasit zekr-quran-recitation-online-ghamdi zekr-quran-recitation-online-shatri zekr-quran-recitation-online-ayyub || failure "Installing packages failed, error=$?" 
 
-echo **** install Zekr Quran translations ****
+echo --------- install Zekr Quran translations ---------
 install_packages zekr-quran-translation-bs-korkut zekr-quran-translation-de-bubenheimelyas zekr-quran-translation-de-muhammadibnrassoul zekr-quran-translation-de-zaidan zekr-quran-translation-en-pickthall zekr-quran-translation-en-qaribullah zekr-quran-translation-en-shakir zekr-quran-translation-en-yusufali zekr-quran-translation-es-cortes zekr-quran-translation-fa-ansarian zekr-quran-translation-fa-ghomshei zekr-quran-translation-fa-makarem zekr-quran-translation-fr-hamidullah zekr-quran-translation-id-indonesian zekr-quran-translation-it-piccardo zekr-quran-translation-nl-keyzer zekr-quran-translation-pt-elhayek zekr-quran-translation-ru-kuliev zekr-quran-translation-ru-osmanov zekr-quran-translation-ru-porokhova zekr-quran-translation-tr-diyanet zekr-quran-translation-tr-ozturk zekr-quran-translation-tt-noghmani zekr-quran-translation-ur-irfanulquran zekr-quran-translation-ur-jalandhry zekr-quran-translation-ur-kanzuliman   || failure "Installing packages failed, error=$?"
 
-echo **** clean-up ****
+echo --------- clean-up ---------
 aptitude clean
 aptitude autoclean
 
-echo **** download and install dansguardian blacklists ****
+echo --------- download and install dansguardian blacklists ---------
 rm -rf /etc/dansguardian/blacklists
 wget http://squidguard.shalla.de/Downloads/shallalist.tar.gz
 tar xzf shallalist.tar.gz -C /etc/dansguardian
@@ -174,7 +174,7 @@ rm -f shallalist.tar.gz
 chown -R root:root /etc/dansguardian/blacklists
 chmod -R 755 /etc/dansguardian/blacklists
 
-echo **** GRUB image ****
+echo --------- GRUB image ---------
 cp /boot/grub/splashimages/medine_moon_right_below.xpm.gz /boot/grub/splash.xpm.gz
 update-grub
 
