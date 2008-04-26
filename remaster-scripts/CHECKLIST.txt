@@ -24,19 +24,21 @@ MISC
 # Wallpaper-tray installed
 
 FIREFOX
-# Firefox welcome page updated -> KO
-# Bookmarks updated -> KO
+# Firefox welcome page updated -> ??
+# Bookmarks updated
 # Firefox flash plugin installed
 # PrayTimes installed
 
 WEBSTRICT
-# Dansguardian enabled (try loading www.playboy.com in firefox) -> KO
+# Dansguardian enabled (try loading www.playboy.com in firefox)
+# network proxy settings locked in Firefox -> KO
 # Webstrict installed (in System-Administration)
 # Blacklists installed in "/etc/dansguardian/blacklists"  
 
 ZEKR
 # online recitations should work
 # 10 online recitations installed
+# translations installed
 # offline recitations installed: 
 
 MINBAR
