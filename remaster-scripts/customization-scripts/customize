@@ -146,8 +146,8 @@ done
 #######################################
 
 echo **** remove wallpapers, openoffice, gnome games, examples ****
-remove_packages ubuntu-wallpapers openoffice.org-base-core openoffice.org-hyphenation openoffice.org-base openoffice.org-calc openoffice.org-common  openoffice.org-draw openoffice.org-evolution openoffice.org-gnome openoffice.org-gtk openoffice.org-impress openoffice.org-java-common openoffice.org-math openoffice.org-writer python-uno openoffice.org openoffice.org-core openoffice.org-l10n-common openoffice.org-filter-binfilter openoffice.org-help-en-us openoffice.org-style-human language-support-translations-en  || failure "Removing packages failed, error=$?"
-# gnome-games gnome-games-data example-content
+remove_packages ubuntu-wallpapers example-content openoffice.org-base-core openoffice.org-hyphenation openoffice.org-base openoffice.org-calc openoffice.org-common  openoffice.org-draw openoffice.org-evolution openoffice.org-gnome openoffice.org-gtk openoffice.org-impress openoffice.org-java-common openoffice.org-math openoffice.org-writer python-uno openoffice.org openoffice.org-core openoffice.org-l10n-common openoffice.org-filter-binfilter openoffice.org-help-en-us openoffice.org-style-human language-support-translations-en  || failure "Removing packages failed, error=$?"
+# gnome-games gnome-games-data 
 
 echo **** install ubuntume, webstrict ****
 install_packages_with_recommends sun-java6-jre ubuntume webstrict || failure "Installing packages failed, error=$?"
