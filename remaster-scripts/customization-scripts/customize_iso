@@ -76,8 +76,9 @@ sed -i "s|background=.*|background=0x1F6E0B|" "$ISO_REMASTER_DIR/isolinux/gfxboo
 
 
 # lock firefox by default
-cp -f ./resources/firefox.cfg "$REMASTER_DIR"/usr/lib/firefox-3.0b5/firefox.cfg
-sed -i "s|pref(\"general.config.obscure_value\", 13)|pref(\"general.config.obscure_value\", 0)|" "$REMASTER_DIR"/usr/lib/xulrunner-1.9b5/greprefs/all.js
+#cp -f ./resources/firefox.cfg "$REMASTER_DIR"/usr/lib/firefox-3.0b5/firefox.cfg
+#sed -i "s|pref(\"general.config.obscure_value\", 13)|pref(\"general.config.obscure_value\", 0)|" "$REMASTER_DIR"/usr/lib/xulrunner-1.9b5/greprefs/all.js
+cp -f ./resources/firefox.js "$REMASTER_DIR"/etc/firefox-3.0/pref/firefox.js
 
 # remove ubuntu backgrounds to free up some space
 rm -f "$REMASTER_DIR"/usr/share/backgrounds/space-01.jpg # 73.9 KB
