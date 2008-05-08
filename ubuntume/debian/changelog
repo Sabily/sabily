@@ -1,4 +1,4 @@
-ubuntume (1.1~ppa5) hardy; urgency=low
+ubuntume (1.1~ppa6) hardy; urgency=low
 
   * New package.
   * Use debconf to determine wether Firefox bookmarks should be replaced.
