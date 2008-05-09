@@ -5,7 +5,7 @@ LIVE CD
 # Boot menu picture
 
 ARTWORK
-# GRUB picture updated -> KO
+# GRUB picture updated 
 # usplash updated
 # GDM login screen updated
 # GDM splash screen updated
@@ -15,13 +15,13 @@ ARTWORK
 # Mouse pointer set to Dhikr_cursor
 
 GNOME
-# New "Islam Softwares" menu, sub-menus: "Zekr", "Minbar"   
+# New "Islam Softwares" menu, sub-menus: "Zekr", "Minbar", "Thwab", "Monajat"  
 # Screensaver configured to display islamic wallpapers
 
 MISC
 # zakatcalc.ods in ~/Documents
-# Glipper installed
-# Wallpaper-tray installed
+# Glipper installed (Gnome panel - Add to)
+# Wallpaper-tray installed (Applications - Graphics)
 
 FIREFOX
 # Firefox welcome page updated -> ??
