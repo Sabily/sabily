@@ -1,0 +1,12 @@
+# removed from standard ubuntu:
+sudo aptitude install gnome-games gnome-games-data gnome-games-extra-data example-content openoffice.org-base-core openoffice.org-hyphenation openoffice.org-base openoffice.org-calc openoffice.org-common  openoffice.org-draw openoffice.org-evolution openoffice.org-gnome openoffice.org-gtk openoffice.org-impress openoffice.org-java-common openoffice.org-math openoffice.org-writer python-uno openoffice.org openoffice.org-core openoffice.org-l10n-common openoffice.org-filter-binfilter openoffice.org-help-en-us openoffice.org-style-human language-support-translations-en
+
+
+# Arabic support:
+sudo aptitude install language-pack-ar language-pack-ar-base language-support-ar language-pack-gnome-ar-base language-pack-gnome-ar language-support-ar mozilla-firefox-locale-ar im-switch
+
+# DVD reader:
+sudo aptitude install ogle ogle-gui
+
+# misc:
+sudo aptitude install compizconfig-settings-manager msttcorefonts rar unrar command-not-found vlc gstreamer0.10-plugins-ugly gstreamer0.10-plugins-ugly-multiverse  gstreamer0.10-plugins-bad gstreamer0.10-plugins-bad-multiverse gstreamer0.10-pitfdll gstreamer0.10-ffmpeg nautilus-open-terminal glipper wallpaper-tray
