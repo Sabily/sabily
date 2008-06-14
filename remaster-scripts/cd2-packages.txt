@@ -9,4 +9,13 @@ sudo aptitude install language-pack-ar language-pack-ar-base language-support-ar
 sudo aptitude install ogle ogle-gui
 
 # misc:
-sudo aptitude install compizconfig-settings-manager msttcorefonts rar unrar command-not-found vlc gstreamer0.10-plugins-ugly gstreamer0.10-plugins-ugly-multiverse  gstreamer0.10-plugins-bad gstreamer0.10-plugins-bad-multiverse gstreamer0.10-pitfdll gstreamer0.10-ffmpeg nautilus-open-terminal glipper wallpaper-tray
+sudo aptitude install compizconfig-settings-manager rar unrar command-not-found vlc nautilus-open-terminal glipper wallpaper-tray
+
+ttf-liberation instead of msttcorefonts (for offline install)
+
+
+
+
+ubuntu-restricted-extras  
+(icedtea-gcjwebplugin (-> openjdk !) unrar msttcorefonts gstreamer0.10-plugins-ugly gstreamer0.10-plugins-ugly-multiverse  gstreamer0.10-plugins-bad gstreamer0.10-plugins-bad-multiverse gstreamer0.10-pitfdll gstreamer0.10-ffmpeg)
+

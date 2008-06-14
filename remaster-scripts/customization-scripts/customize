@@ -17,6 +17,15 @@ function prepare_install()
 		echo "deb http://ppa.launchpad.net/ubuntume.team/ubuntu hardy main #Ubuntu Muslim Edition" >> "/etc/apt/sources.list"
 		echo "deb-src http://ppa.launchpad.net/ubuntume.team/ubuntu hardy main #Ubuntu Muslim Edition" >> "/etc/apt/sources.list"
 	fi
+
+	# Add Medibuntu repository
+	if grep -q "http://ppa.launchpad.net/ubuntume.team/ubuntu" "/etc/apt/sources.list" ; then EXISTS="yes"
+	else
+		echo "deb http://medibuntu.sos-sts.com/repo/ hardy free non-free #Medibuntu" >> "/etc/apt/sources.list"
+		echo "deb-src http://medibuntu.sos-sts.com/repo/ hardy free non-free #Medibuntu" >> "/etc/apt/sources.list"
+	fi
+
+	wget -q http://medibuntu.sos-sts.com/repo/medibuntu-key.gpg -O- | sudo apt-key add -
 	
 	#try 2 times to avoid slow proxies failures
 	aptitude update || aptitude update || failure "aptitude update failed, error=$?"
@@ -145,10 +154,11 @@ done
 # UBUNTUME customizations
 #######################################
 
-echo --------- remove wallpapers, example-content, openoffice, games ---------
-remove_packages gnome-games gnome-games-data ubuntu-wallpapers example-content openoffice.org-base-core openoffice.org-hyphenation openoffice.org-base openoffice.org-calc openoffice.org-common  openoffice.org-draw openoffice.org-evolution openoffice.org-gnome openoffice.org-gtk openoffice.org-impress openoffice.org-java-common openoffice.org-math openoffice.org-writer python-uno openoffice.org openoffice.org-core openoffice.org-l10n-common openoffice.org-filter-binfilter openoffice.org-help-en-us openoffice.org-style-human language-support-translations-en  || failure "Removing packages failed, error=$?"
+#echo --------- remove wallpapers, example-content, openoffice, games ---------
+#remove_packages  gnome-games gnome-games-data ubuntu-wallpapers example-content openoffice.org-base-core openoffice.org-hyphenation openoffice.org-base openoffice.org-calc openoffice.org-common  openoffice.org-draw openoffice.org-evolution openoffice.org-gnome openoffice.org-gtk openoffice.org-impress openoffice.org-java-common openoffice.org-math openoffice.org-writer python-uno openoffice.org openoffice.org-core openoffice.org-l10n-common openoffice.org-filter-binfilter openoffice.org-help-en-us openoffice.org-style-human language-support-translations-en || failure "Removing packages failed, error=$?"
 
 echo --------- install sun-java, ubuntume, webstrict ---------
+# sun-java should be installed before ubuntume otherwise openjdk would be installed
 install_packages_with_recommends sun-java6-jre ubuntume webstrict || failure "Installing packages failed, error=$?"
 
 echo --------- install miscellaneous ---------
@@ -159,6 +169,18 @@ install_packages zekr-quran-recitation-online-huzaifi zekr-quran-recitation-onli
 
 echo --------- install Zekr Quran translations ---------
 install_packages zekr-quran-translation-bs-korkut zekr-quran-translation-de-bubenheimelyas zekr-quran-translation-de-muhammadibnrassoul zekr-quran-translation-de-zaidan zekr-quran-translation-en-pickthall zekr-quran-translation-en-qaribullah zekr-quran-translation-en-shakir zekr-quran-translation-en-yusufali zekr-quran-translation-es-cortes zekr-quran-translation-fa-ansarian zekr-quran-translation-fa-ghomshei zekr-quran-translation-fa-makarem zekr-quran-translation-fr-hamidullah zekr-quran-translation-id-indonesian zekr-quran-translation-it-piccardo zekr-quran-translation-nl-keyzer zekr-quran-translation-pt-elhayek zekr-quran-translation-ru-kuliev zekr-quran-translation-ru-osmanov zekr-quran-translation-ru-porokhova zekr-quran-translation-tr-diyanet zekr-quran-translation-tr-ozturk zekr-quran-translation-tt-noghmani zekr-quran-translation-ur-irfanulquran zekr-quran-translation-ur-jalandhry zekr-quran-translation-ur-kanzuliman   || failure "Installing packages failed, error=$?"
+
+echo --------- Multimedia
+install_packages libdvdcss2 w32codecs ogle ogle-gui vlc ubuntu-restricted-extras
+
+echo --------- Arabic support
+install_packages language-pack-ar language-pack-ar-base language-support-ar language-pack-gnome-ar-base language-pack-gnome-ar language-support-ar mozilla-firefox-locale-ar im-switch
+
+echo --------- Education
+install_packages kturtle stellarium celestia kstars kalzium atomix kig kmplot kpercentage kbruch tuxmath tuxpaint tuxtype tuxtype-data-nonfree xaos khangman ktouch gcompris
+
+echo --------- Miscellaneous:
+install_packages compizconfig-settings-manager rar unrar command-not-found nautilus-open-terminal glipper wallpaper-tray scribus inkscape virtualbox 
 
 echo --------- clean-up ---------
 aptitude clean
@@ -176,7 +198,6 @@ chmod -R 755 /etc/dansguardian/blacklists
 echo --------- GRUB image ---------
 cp /boot/grub/splashimages/medine_moon_right_below.xpm.gz /boot/grub/splash.xpm.gz
 update-grub
-
 
 ####################################
 
