@@ -19,13 +19,22 @@ function prepare_install()
 	fi
 
 	# Add Medibuntu repository
-	if grep -q "http://ppa.launchpad.net/ubuntume.team/ubuntu" "/etc/apt/sources.list" ; then EXISTS="yes"
+	if grep -q "http://packages.medibuntu.org/" "/etc/apt/sources.list" ; then EXISTS="yes"
 	else
-		echo "deb http://medibuntu.sos-sts.com/repo/ hardy free non-free #Medibuntu" >> "/etc/apt/sources.list"
-		echo "deb-src http://medibuntu.sos-sts.com/repo/ hardy free non-free #Medibuntu" >> "/etc/apt/sources.list"
+		echo "deb http://packages.medibuntu.org/ hardy free non-free #Medibuntu" >> "/etc/apt/sources.list"
+		echo "deb-src http://packages.medibuntu.org/ hardy free non-free #Medibuntu" >> "/etc/apt/sources.list"
 	fi
 
-	wget -q http://medibuntu.sos-sts.com/repo/medibuntu-key.gpg -O- | sudo apt-key add -
+	# Add PPA for ubuntu tweak
+	if grep -q "http://ppa.launchpad.net/tualatrix/ubuntu" "/etc/apt/sources.list" ; then EXISTS="yes"
+	else
+		echo "deb http://ppa.launchpad.net/tualatrix/ubuntu hardy main #ubuntu tweak" >> "/etc/apt/sources.list"
+		echo "deb-src http://ppa.launchpad.net/tualatrix/ubuntu hardy main #ubuntu tweak" >> "/etc/apt/sources.list"
+	fi
+
+
+	# Add Medibuntu gpg key
+	wget -q http://packages.medibuntu.org/medibuntu-key.gpg -O- | apt-key add -
 	
 	#try 2 times to avoid slow proxies failures
 	aptitude update || aptitude update || failure "aptitude update failed, error=$?"
@@ -154,15 +163,14 @@ done
 # UBUNTUME customizations
 #######################################
 
-#echo --------- remove wallpapers, example-content, openoffice, games ---------
+#echo --------- FOR CD: remove wallpapers, example-content, openoffice, games ---------
 #remove_packages  gnome-games gnome-games-data ubuntu-wallpapers example-content openoffice.org-base-core openoffice.org-hyphenation openoffice.org-base openoffice.org-calc openoffice.org-common  openoffice.org-draw openoffice.org-evolution openoffice.org-gnome openoffice.org-gtk openoffice.org-impress openoffice.org-java-common openoffice.org-math openoffice.org-writer python-uno openoffice.org openoffice.org-core openoffice.org-l10n-common openoffice.org-filter-binfilter openoffice.org-help-en-us openoffice.org-style-human language-support-translations-en || failure "Removing packages failed, error=$?"
+echo --------- remove ubuntu-gdm-themes
+remove_packages ubuntu-gdm-themes
 
 echo --------- install sun-java, ubuntume, webstrict ---------
 # sun-java should be installed before ubuntume otherwise openjdk would be installed
 install_packages_with_recommends sun-java6-jre ubuntume webstrict || failure "Installing packages failed, error=$?"
-
-echo --------- install miscellaneous ---------
-install_packages bzr aptoncd aspell-ar acon || failure "Installing packages failed, error=$?"
 
 echo --------- install Zekr online recitations ---------
 install_packages zekr-quran-recitation-online-huzaifi zekr-quran-recitation-online-husary zekr-quran-recitation-online-shuraim zekr-quran-recitation-online-ajmy zekr-quran-recitation-online-afasi zekr-quran-recitation-online-abdulbasit zekr-quran-recitation-online-ghamdi zekr-quran-recitation-online-shatri zekr-quran-recitation-online-ayyub || failure "Installing packages failed, error=$?" 
@@ -171,18 +179,24 @@ echo --------- install Zekr Quran translations ---------
 install_packages zekr-quran-translation-bs-korkut zekr-quran-translation-de-bubenheimelyas zekr-quran-translation-de-muhammadibnrassoul zekr-quran-translation-de-zaidan zekr-quran-translation-en-pickthall zekr-quran-translation-en-qaribullah zekr-quran-translation-en-shakir zekr-quran-translation-en-yusufali zekr-quran-translation-es-cortes zekr-quran-translation-fa-ansarian zekr-quran-translation-fa-ghomshei zekr-quran-translation-fa-makarem zekr-quran-translation-fr-hamidullah zekr-quran-translation-id-indonesian zekr-quran-translation-it-piccardo zekr-quran-translation-nl-keyzer zekr-quran-translation-pt-elhayek zekr-quran-translation-ru-kuliev zekr-quran-translation-ru-osmanov zekr-quran-translation-ru-porokhova zekr-quran-translation-tr-diyanet zekr-quran-translation-tr-ozturk zekr-quran-translation-tt-noghmani zekr-quran-translation-ur-irfanulquran zekr-quran-translation-ur-jalandhry zekr-quran-translation-ur-kanzuliman   || failure "Installing packages failed, error=$?"
 
 echo --------- Multimedia
-install_packages libdvdcss2 w32codecs ogle ogle-gui vlc ubuntu-restricted-extras
+install_packages libdvdcss2 w32codecs ogle ogle-gui vlc ubuntu-restricted-extras || failure "Installing packages failed, error=$?"
 
 echo --------- Arabic support
-install_packages language-pack-ar language-pack-ar-base language-support-ar language-pack-gnome-ar-base language-pack-gnome-ar language-support-ar mozilla-firefox-locale-ar im-switch
+install_packages language-pack-ar language-pack-ar-base language-pack-gnome-ar-base language-pack-gnome-ar language-support-ar language-support-extra-ar mozilla-firefox-locale-ar im-switch aspell-ar acon || failure "Installing packages failed, error=$?"
 
 echo --------- Education
-install_packages kturtle stellarium celestia kstars kalzium atomix kig kmplot kpercentage kbruch tuxmath tuxpaint tuxtype tuxtype-data-nonfree xaos khangman ktouch gcompris
+install_packages kturtle stellarium celestia kstars kalzium atomix kig kmplot kpercentage kbruch tuxmath tuxpaint tuxtype tuxtype-data-nonfree xaos khangman ktouch gcompris || failure "Installing packages failed, error=$?"
 
 echo --------- Miscellaneous:
-install_packages compizconfig-settings-manager rar unrar command-not-found nautilus-open-terminal glipper wallpaper-tray scribus inkscape virtualbox 
+install_packages compizconfig-settings-manager fusion-icon rar unrar command-not-found nautilus-open-terminal glipper wallpaper-tray scribus inkscape virtualbox bzr aptoncd galternatives startupmanager acroread mozilla-acroread acroread-plugins acroread-escript skype ubuntu-tweak gnochm clamtk envyng-gtk pessulus gnucash || failure "Installing packages failed, error=$?"
 
-echo --------- clean-up ---------
+#echo --------- Acetoneiso2
+#install_packages fuseiso gnupg-agent gnupg2 mencoder p7zip-full pinentry-qt
+#wget http://downloads.sourceforge.net/acetoneiso2/acetoneiso2_2.0.2-20080602_i386.deb?modtime=1212467797&big_mirror=0
+#dpkg -i acetoneiso2_2.0.2-20080602_i386.deb 
+#rm acetoneiso2_2.0.2-20080602_i386.deb
+
+echo --------- CLEAN UP ---------
 aptitude clean
 aptitude autoclean
 

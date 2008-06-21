@@ -84,11 +84,11 @@ cp -f ./resources/firefox.js "$REMASTER_DIR"/etc/firefox-3.0/pref/firefox.js
 cp -f ./resources/minbar.desktop "$REMASTER_DIR"/usr/share/applications/minbar.desktop
 
 # remove ubuntu backgrounds to free up some space
-rm -f "$REMASTER_DIR"/usr/share/backgrounds/space-01.jpg # 73.9 KB
-rm -f "$REMASTER_DIR"/usr/share/backgrounds/space-02.jpg # 81.9 KB
-rm -f "$REMASTER_DIR"/usr/share/backgrounds/space-03.jpg # 30.9 KB
-rm -f "$REMASTER_DIR"/usr/share/backgrounds/space-04.jpg # 76.5 KB
-rm -f "$REMASTER_DIR"/usr/share/backgrounds/space-05.jpg # 14.3 KB
+#rm -f "$REMASTER_DIR"/usr/share/backgrounds/space-01.jpg # 73.9 KB
+#rm -f "$REMASTER_DIR"/usr/share/backgrounds/space-02.jpg # 81.9 KB
+#rm -f "$REMASTER_DIR"/usr/share/backgrounds/space-03.jpg # 30.9 KB
+#rm -f "$REMASTER_DIR"/usr/share/backgrounds/space-04.jpg # 76.5 KB
+#rm -f "$REMASTER_DIR"/usr/share/backgrounds/space-05.jpg # 14.3 KB
 
 # dansguardian configuration
 cp -f ./resources/dansguardian/dansguardian.conf "$REMASTER_DIR"/etc/dansguardian/dansguardian.conf
