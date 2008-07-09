@@ -1,0 +1,85 @@
+# Main softwares
+- ubuntume-artwork: customized usplash, GDM theme, Metacity theme, cursor, wallpapers etc.
+- minbar: Islamic prayer times application
+- zekr: Quranic Study Tool
+- zekr-quran-recitation-online-*: all available online recitations
+- zekr-quran-translation-*: all available translations
+- monajat: application that popups prayers every predetermined time 
+- firefox-praytimes: Firefox extension that displays Islamic daily prayer times 
+- webstrict: UI frontend to DansGuardian (web content filtering tool)
+- thwab: Electronic Encyclopedia System
+- Hijra: Islamic calendar 
+
+# Multimedia
+- libdvdcss2: Library for accessing DVDs
+- libdvdread3: library for reading DVDs 
+- w32codecs: Win32 codec binaries 
+- ogle: DVD player with support for DVD menus 
+- vlc: multimedia player and streamer
+- flashplugin-nonfree: Adobe Flash Player plugin
+- gstreamer0.10-ffmpeg: FFmpeg plugin for GStreamer 
+- gstreamer0.10-pitfdll: GStreamer plugin for using MS Windows binary codecs 
+- gstreamer0.10-plugins-bad: GStreamer plugins from the "bad" set 
+- gstreamer0.10-plugins-bad-multiverse: GStreamer plugins from the "bad" set (Multiverse Variant) 
+- gstreamer0.10-plugins-ugly: GStreamer plugins from the "ugly" set 
+- gstreamer0.10-plugins-ugly-multiverse: GStreamer plugins from the "ugly" set (Multiverse Variant) 
+- liblame0: LAME Ain't an MP3 Encoder 
+- msttcorefonts: Microsoft TrueType core fonts 
+
+# Education
+- kturtle: educational Logo programming environment     
+- stellarium: real-time photo-realistic sky generator
+- celestia:  A real-time visual space simulation 
+- kstars:  desktop planetarium 
+- kalzium: chemistry teaching tool
+- atomix: puzzle game for building molecules out of isolated atoms
+- kig: interactive geometry program
+- kmplot: mathematical function plotter 
+- kpercentage: percentage calculation teaching tool 
+- kbruch: fraction calculation teaching tool
+- tuxmath: math game for kids with Tux 
+- tuxpaint:  A paint program for young children
+- tuxtype: Educational Typing Tutor Game Starring Tux
+- xaos: real-time interactive fractal zoomer
+- khangman: the classical hangman game
+- ktouch:  touch typing tutor 
+- gcompris: Educational games for small children
+
+# Miscellaneous
+- sun-java6-jre: Sun Java(TM) Runtime Environment (JRE) 6  
+- compizconfig-settings-manager: Compiz configuration settings manager 
+- fusion-icon: tray icon to launch and manage Compiz Fusion
+- rar, unrar: Archiver/Unarchiver for .rar files
+- command-not-found:  Suggest installation of packages in interactive bash sessions
+- nautilus-open-terminal: nautilus plugin for opening terminals in arbitrary local paths
+- glipper: Clipboard manager for the GNOME panel     
+- wallpaper-tray: wallpaper changing utility
+- scribus: Open Source Desktop Page Layout 
+- inkscape: vector-based drawing program    
+- virtualbox:  x86 virtualization solution
+- bzr:  easy to use distributed version control system
+- aptoncd: Installation disc creator for packages downloaded via APT 
+- galternatives: graphical setup tool for the alternatives system 
+- startupmanager: Grub and Splash screen configuration
+- acroread, mozilla-acroread, acroread-plugins: Adobe Reader, Mozilla plugin
+- skype: A VoIP software 
+- acetoneiso2: let You mount typical proprietary images formats of the Windows world such as ISO BIN NRG MDF IMG
+- ubuntu tweak: application designed to config Ubuntu easier for everyone.
+- envyng-gtk: install the ATI or the NVIDIA driver
+- gnochm: CHM file viewer for GNOME
+- pessulus: lockdown editor for GNOME       
+- gnucash: A personal finance tracking program
+- clamtk: graphical front-end for ClamAV
+
+* Arabic support
+- language-pack-ar: translations for language Arabic
+- language-pack-gnome-ar: GNOME translations for language Arabic 
+- mozilla-firefox-locale-ar: Mozilla Firefox Arabic language/region package 
+- aspell-ar: Arabic dictionary for aspell 
+- acon: Text console arabization
+- bicon: Console that supports bidirectional text display
+
+
+
+
+
