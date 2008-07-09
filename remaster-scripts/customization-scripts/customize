@@ -38,6 +38,8 @@ function prepare_install()
 	
 	#try 2 times to avoid slow proxies failures
 	aptitude update || aptitude update || failure "aptitude update failed, error=$?"
+
+	aptitude safe-upgrade
 }
 
 function install_packages()
@@ -163,14 +165,15 @@ done
 # UBUNTUME customizations
 #######################################
 
+install_packages linux-restricted-modules-$(uname -r) build-essential
+
 #echo --------- FOR CD: remove wallpapers, example-content, openoffice, games ---------
 #remove_packages  gnome-games gnome-games-data ubuntu-wallpapers example-content openoffice.org-base-core openoffice.org-hyphenation openoffice.org-base openoffice.org-calc openoffice.org-common  openoffice.org-draw openoffice.org-evolution openoffice.org-gnome openoffice.org-gtk openoffice.org-impress openoffice.org-java-common openoffice.org-math openoffice.org-writer python-uno openoffice.org openoffice.org-core openoffice.org-l10n-common openoffice.org-filter-binfilter openoffice.org-help-en-us openoffice.org-style-human language-support-translations-en || failure "Removing packages failed, error=$?"
-echo --------- remove ubuntu-gdm-themes
-remove_packages ubuntu-gdm-themes
+echo --------- remove packages
+remove_packages ubuntu-gdm-themes example-content
 
 echo --------- install sun-java, ubuntume, webstrict ---------
-# sun-java should be installed before ubuntume otherwise openjdk would be installed
-install_packages_with_recommends sun-java6-jre ubuntume webstrict || failure "Installing packages failed, error=$?"
+install_packages_with_recommends sun-java6-jre ubuntume webstrict ubuntume-example-content || failure "Installing packages failed, error=$?"
 
 echo --------- install Zekr online recitations ---------
 install_packages zekr-quran-recitation-online-huzaifi zekr-quran-recitation-online-husary zekr-quran-recitation-online-shuraim zekr-quran-recitation-online-ajmy zekr-quran-recitation-online-afasi zekr-quran-recitation-online-abdulbasit zekr-quran-recitation-online-ghamdi zekr-quran-recitation-online-shatri zekr-quran-recitation-online-ayyub || failure "Installing packages failed, error=$?" 
@@ -188,17 +191,28 @@ echo --------- Education
 install_packages kturtle stellarium celestia kstars kalzium atomix kig kmplot kpercentage kbruch tuxmath tuxpaint tuxtype tuxtype-data-nonfree xaos khangman ktouch gcompris || failure "Installing packages failed, error=$?"
 
 echo --------- Miscellaneous:
-install_packages compizconfig-settings-manager fusion-icon rar unrar command-not-found nautilus-open-terminal glipper wallpaper-tray scribus inkscape virtualbox bzr aptoncd galternatives startupmanager acroread mozilla-acroread acroread-plugins acroread-escript skype ubuntu-tweak gnochm clamtk envyng-gtk pessulus gnucash || failure "Installing packages failed, error=$?"
+install_packages compizconfig-settings-manager fusion-icon rar unrar command-not-found nautilus-open-terminal glipper wallpaper-tray scribus inkscape virtualbox virtualbox-ose-modules bzr aptoncd galternatives startupmanager acroread mozilla-acroread acroread-plugins acroread-escript skype ubuntu-tweak gnochm clamtk envyng-gtk pessulus gnucash || failure "Installing packages failed, error=$?"
 
-#echo --------- Acetoneiso2
+#echo --------- Acetoneiso2 -> error: chmod: cannot access `/dev/fuse': No such file or directory
 #install_packages fuseiso gnupg-agent gnupg2 mencoder p7zip-full pinentry-qt
-#wget http://downloads.sourceforge.net/acetoneiso2/acetoneiso2_2.0.2-20080602_i386.deb?modtime=1212467797&big_mirror=0
+#wget http://ubuntume.com/download/acetoneiso2_2.0.2-20080602_i386.deb
 #dpkg -i acetoneiso2_2.0.2-20080602_i386.deb 
 #rm acetoneiso2_2.0.2-20080602_i386.deb
+#wget http://ubuntume.com/download/acetoneiso2_2.0.2_amd64.deb
+#dpkg -i acetoneiso2_2.0.2_amd64.deb 
+#rm acetoneiso2_2.0.2_amd64.deb
+
+echo --------- Latest version of acon
+wget http://ftp.fr.debian.org/debian/pool/main/a/acon/acon_1.0.5-7_i386.deb
+dpkg -i acon_1.0.5-7_i386.deb
+rm acon_1.0.5-7_i386.deb
+wget http://ftp.fr.debian.org/debian/pool/main/a/acon/acon_1.0.5-7_amd64.deb
+dpkg -i acon_1.0.5-7_amd64.deb
+rm acon_1.0.5-7_amd64.deb
 
 echo --------- CLEAN UP ---------
-aptitude clean
-aptitude autoclean
+apt-get autoremove
+apt-get autoclean
 
 echo --------- download and install dansguardian blacklists ---------
 rm -rf /etc/dansguardian/blacklists
