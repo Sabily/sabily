@@ -191,7 +191,7 @@ echo --------- Education
 install_packages kturtle stellarium celestia kstars kalzium atomix kig kmplot kpercentage kbruch tuxmath tuxpaint tuxtype tuxtype-data-nonfree xaos khangman ktouch gcompris || failure "Installing packages failed, error=$?"
 
 echo --------- Miscellaneous:
-install_packages compizconfig-settings-manager fusion-icon rar unrar command-not-found nautilus-open-terminal glipper wallpaper-tray scribus inkscape virtualbox virtualbox-ose-modules bzr aptoncd galternatives startupmanager acroread mozilla-acroread acroread-plugins acroread-escript skype ubuntu-tweak gnochm clamtk envyng-gtk pessulus gnucash || failure "Installing packages failed, error=$?"
+install_packages compizconfig-settings-manager fusion-icon rar unrar command-not-found nautilus-open-terminal glipper wallpaper-tray scribus inkscape virtualbox virtualbox-ose-modules bzr aptoncd galternatives startupmanager acroread mozilla-acroread acroread-plugins acroread-escript skype ubuntu-tweak gnochm clamtk envyng-gtk pessulus gnucash catfish gparted || failure "Installing packages failed, error=$?"
 
 #echo --------- Acetoneiso2 -> error: chmod: cannot access `/dev/fuse': No such file or directory
 #install_packages fuseiso gnupg-agent gnupg2 mencoder p7zip-full pinentry-qt

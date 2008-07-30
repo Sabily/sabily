@@ -70,6 +70,8 @@
 - pessulus: lockdown editor for GNOME       
 - gnucash: A personal finance tracking program
 - clamtk: graphical front-end for ClamAV
+- catfish: file search tool that supports several different engines 
+- gparted: GNOME partition editor
 
 * Arabic support
 - language-pack-ar: translations for language Arabic
