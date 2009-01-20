@@ -1,3 +1,9 @@
+ubuntume (1.1~ppa7) jaunty; urgency=low
+
+  * Commented update-alternatives line, since we don't use it anymore.
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Tue, 20 Jan 2009 11:42:50 +0200
+
 ubuntume (1.1~ppa6) hardy; urgency=low
 
   * New package.
