@@ -18,20 +18,21 @@ pref("browser.shell.checkDefaultBrowser", false);
 // Disable safebrowsing.
 pref("browser.safebrowsing.enabled", true);
 
-// Use Dansguardian:
 pref("app.update.enabled", false);
 pref("app.update.auto", false);
-pref("network.proxy.http_port", 8080);
-pref("network.proxy.share_proxy_settings", true);
-pref("network.proxy.ssl", "127.0.0.1");
-pref("network.proxy.type", 1);
-pref("network.proxy.gopher_port", 8080);
-pref("network.proxy.socks_port", 8080);
-pref("network.proxy.http", "127.0.0.1");
-pref("network.proxy.gopher", "127.0.0.1");
-pref("network.proxy.no_proxies_on", "localhost, 127.0.0.1");
-pref("network.proxy.ssl_port", 8080);
-pref("network.proxy.ftp", "127.0.0.1");
-pref("network.proxy.socks", "127.0.0.1");
-pref("network.proxy.ftp_port", 8080);
+
+// Use Dansguardian:
+lockPref("network.proxy.http_port", 8080);
+lockPref("network.proxy.share_proxy_settings", true);
+lockPref("network.proxy.ssl", "127.0.0.1");
+lockPref("network.proxy.type", 1);
+lockPref("network.proxy.gopher_port", 8080);
+lockPref("network.proxy.socks_port", 8080);
+lockPref("network.proxy.http", "127.0.0.1");
+lockPref("network.proxy.gopher", "127.0.0.1");
+lockPref("network.proxy.no_proxies_on", "localhost, 127.0.0.1");
+lockPref("network.proxy.ssl_port", 8080);
+lockPref("network.proxy.ftp", "127.0.0.1");
+lockPref("network.proxy.socks", "127.0.0.1");
+lockPref("network.proxy.ftp_port", 8080);
 

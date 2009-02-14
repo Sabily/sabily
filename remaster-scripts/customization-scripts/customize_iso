@@ -122,6 +122,9 @@ chroot "$REMASTER_DIR" dpkg-reconfigure dansguardian
 
 chroot "$REMASTER_DIR" dpkg-reconfigure ubuntume-artwork
 
+# choose sun java
+chroot "$REMASTER_DIR" update-alternatives --config java
+
 
 echo "Done customize_iso.sh"
 

@@ -8,28 +8,28 @@ function failure()
 
 function prepare_install()
 {
-	sed -i "s|# deb http://archive.ubuntu.com/ubuntu hardy universe|deb http://archive.ubuntu.com/ubuntu hardy universe multiverse|" /etc/apt/sources.list ||  failure "sed failed, error=$?"
-	sed -i "s|# deb-src http://archive.ubuntu.com/ubuntu hardy universe|deb-src http://archive.ubuntu.com/ubuntu hardy universe multiverse|" /etc/apt/sources.list 
+	sed -i "s|# deb http://archive.ubuntu.com/ubuntu intrepid universe|deb http://archive.ubuntu.com/ubuntu intrepid universe multiverse|" /etc/apt/sources.list ||  failure "sed failed, error=$?"
+	sed -i "s|# deb-src http://archive.ubuntu.com/ubuntu intrepid universe|deb-src http://archive.ubuntu.com/ubuntu intrepid universe multiverse|" /etc/apt/sources.list 
 	
 	# Add ubuntuME repository
 	if grep -q "http://ppa.launchpad.net/ubuntume.team/ubuntu" "/etc/apt/sources.list" ; then EXISTS="yes"
 	else
-		echo "deb http://ppa.launchpad.net/ubuntume.team/ubuntu hardy main #Ubuntu Muslim Edition" >> "/etc/apt/sources.list"
-		echo "deb-src http://ppa.launchpad.net/ubuntume.team/ubuntu hardy main #Ubuntu Muslim Edition" >> "/etc/apt/sources.list"
+		echo "deb http://ppa.launchpad.net/ubuntume.team/ubuntu intrepid main #Ubuntu Muslim Edition" >> "/etc/apt/sources.list"
+		echo "deb-src http://ppa.launchpad.net/ubuntume.team/ubuntu intrepid main #Ubuntu Muslim Edition" >> "/etc/apt/sources.list"
 	fi
 
 	# Add Medibuntu repository
 	if grep -q "http://packages.medibuntu.org/" "/etc/apt/sources.list" ; then EXISTS="yes"
 	else
-		echo "deb http://packages.medibuntu.org/ hardy free non-free #Medibuntu" >> "/etc/apt/sources.list"
-		echo "deb-src http://packages.medibuntu.org/ hardy free non-free #Medibuntu" >> "/etc/apt/sources.list"
+		echo "deb http://packages.medibuntu.org/ intrepid free non-free #Medibuntu" >> "/etc/apt/sources.list"
+		echo "deb-src http://packages.medibuntu.org/ intrepid free non-free #Medibuntu" >> "/etc/apt/sources.list"
 	fi
 
 	# Add PPA for ubuntu tweak
 	if grep -q "http://ppa.launchpad.net/tualatrix/ubuntu" "/etc/apt/sources.list" ; then EXISTS="yes"
 	else
-		echo "deb http://ppa.launchpad.net/tualatrix/ubuntu hardy main #ubuntu tweak" >> "/etc/apt/sources.list"
-		echo "deb-src http://ppa.launchpad.net/tualatrix/ubuntu hardy main #ubuntu tweak" >> "/etc/apt/sources.list"
+		echo "deb http://ppa.launchpad.net/tualatrix/ubuntu intrepid main #ubuntu tweak" >> "/etc/apt/sources.list"
+		echo "deb-src http://ppa.launchpad.net/tualatrix/ubuntu intrepid main #ubuntu tweak" >> "/etc/apt/sources.list"
 	fi
 
 
@@ -185,13 +185,13 @@ echo --------- Multimedia
 install_packages libdvdcss2 w32codecs ogle ogle-gui vlc ubuntu-restricted-extras || failure "Installing packages failed, error=$?"
 
 echo --------- Arabic support
-install_packages language-pack-ar language-pack-ar-base language-pack-gnome-ar-base language-pack-gnome-ar language-support-ar language-support-extra-ar mozilla-firefox-locale-ar im-switch aspell-ar acon || failure "Installing packages failed, error=$?"
+install_packages language-pack-ar language-pack-ar-base language-pack-gnome-ar-base language-pack-gnome-ar language-support-ar language-support-extra-ar im-switch aspell-ar || failure "Installing packages failed, error=$?"
 
 echo --------- Education
 install_packages kturtle stellarium celestia kstars kalzium atomix kig kmplot kpercentage kbruch tuxmath tuxpaint tuxtype tuxtype-data-nonfree xaos khangman ktouch gcompris || failure "Installing packages failed, error=$?"
 
 echo --------- Miscellaneous:
-install_packages compizconfig-settings-manager fusion-icon rar unrar command-not-found nautilus-open-terminal glipper wallpaper-tray scribus inkscape virtualbox virtualbox-ose-modules bzr aptoncd galternatives startupmanager acroread mozilla-acroread acroread-plugins acroread-escript skype ubuntu-tweak gnochm clamtk envyng-gtk pessulus gnucash catfish gparted || failure "Installing packages failed, error=$?"
+install_packages compizconfig-settings-manager fusion-icon rar unrar command-not-found nautilus-open-terminal glipper wallpaper-tray scribus inkscape virtualbox virtualbox-ose-modules bzr aptoncd galternatives startupmanager acroread mozilla-acroread acroread-plugins acroread-escript ubuntu-tweak gnochm clamtk envyng-gtk pessulus gnucash catfish gparted || failure "Installing packages failed, error=$?"
 
 #echo --------- Acetoneiso2 -> error: chmod: cannot access `/dev/fuse': No such file or directory
 #install_packages fuseiso gnupg-agent gnupg2 mencoder p7zip-full pinentry-qt
@@ -202,13 +202,13 @@ install_packages compizconfig-settings-manager fusion-icon rar unrar command-not
 #dpkg -i acetoneiso2_2.0.2_amd64.deb 
 #rm acetoneiso2_2.0.2_amd64.deb
 
-echo --------- Latest version of acon
-wget http://ftp.fr.debian.org/debian/pool/main/a/acon/acon_1.0.5-7_i386.deb
-dpkg -i acon_1.0.5-7_i386.deb
-rm acon_1.0.5-7_i386.deb
-wget http://ftp.fr.debian.org/debian/pool/main/a/acon/acon_1.0.5-7_amd64.deb
-dpkg -i acon_1.0.5-7_amd64.deb
-rm acon_1.0.5-7_amd64.deb
+#echo --------- Latest version of acon
+#wget http://ftp.fr.debian.org/debian/pool/main/a/acon/acon_1.0.5-7_i386.deb
+#dpkg -i acon_1.0.5-7_i386.deb
+#rm acon_1.0.5-7_i386.deb
+#wget http://ftp.fr.debian.org/debian/pool/main/a/acon/acon_1.0.5-7_amd64.deb
+#dpkg -i acon_1.0.5-7_amd64.deb
+#rm acon_1.0.5-7_amd64.deb
 
 echo --------- CLEAN UP ---------
 apt-get autoremove

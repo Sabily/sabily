@@ -5,7 +5,7 @@ LIVE CD
 # Boot menu picture
 
 ARTWORK
-# GRUB picture updated 
+# GRUB picture updated : KO
 # usplash updated
 # GDM login screen updated
 # GDM splash screen updated
@@ -15,7 +15,7 @@ ARTWORK
 # Mouse pointer set to Dhikr_cursor
 
 GNOME
-# New "Islam Softwares" menu, sub-menus: "Zekr", "Minbar", "Thwab", "Monajat"  
+# New "Islam Softwares" menu, sub-menus: "Zekr", "Minbar", "Thwab", "Monajat", "Hijra"  
 # Screensaver configured to display islamic wallpapers
 
 MISC
@@ -31,7 +31,7 @@ FIREFOX
 
 WEBSTRICT
 # Dansguardian enabled (try loading www.playboy.com in firefox)
-# network proxy settings locked in Firefox -> KO
+# network proxy settings locked in Firefox 
 # Webstrict installed (in System-Administration)
 # Blacklists installed in "/etc/dansguardian/blacklists"  
 
