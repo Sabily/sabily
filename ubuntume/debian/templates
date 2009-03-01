@@ -1,6 +1,6 @@
-Template: ubuntume/replace-bookmarks
+Template: sabily/replace-bookmarks
 Type: boolean
 Default: true
 _Description: Replace system wide Firefox bookmarks ?
  That will replace /etc/firefox*/profile/bookmarks.html with one supplied by 
- Ubuntu Muslim Edition.
+ Sabily.

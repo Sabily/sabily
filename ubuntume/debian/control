@@ -1,4 +1,4 @@
-Source: ubuntume
+Source: sabily
 Section: metapackages
 Priority: optional
 Maintainer: Ubuntu Muslim Edition Team <ubuntume.team@lists.launchpad.net>
@@ -7,13 +7,23 @@ Build-Depends: debhelper (>= 5.0.51~)
 Build-Depends-Indep: po-debconf, debconf | debconf-2.0
 Standards-Version: 3.7.3
 Homepage: http://www.ubuntume.com
-Vcs-Bzr: http://bazaar.launchpad.net/~ubuntume.team/ubuntume/hardy
+Vcs-Bzr: http://code.launchpad.net/~ubuntume.team/ubuntume/hardy
 Vcs-Browser: http://bazaar.launchpad.net/~ubuntume.team/ubuntume/hardy
+
+Package: sabily
+Architecture: all
+Pre-Depends: sabily-artwork, sabily-keyring
+Depends: ${misc:Depends}, minbar, zekr, monajat, thwab, firefox-praytimes, wallpaper-tray, glipper, hijra
+Suggests: webstrict
+Replaces: ubuntume (<= 1.1~ppa7)
+Description: Sabily
+ Installs Islamic software and customizes the user interface.
 
 Package: ubuntume
 Architecture: all
-Pre-Depends: ubuntume-artwork
-Depends: ${misc:Depends}, minbar, zekr, monajat, thwab-lib, firefox-praytimes, wallpaper-tray, glipper
-Suggests: webstrict
-Description: Ubuntu Muslim Edition
+Depends: sabily
+Description: Sabily (transitional package)
  Installs Islamic software and customizes the user interface.
+ .
+ This is a dummy transitional package that will ensure a proper upgrade path.
+ This package may be safely removed after upgrading.

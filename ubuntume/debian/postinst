@@ -1,5 +1,5 @@
 #!/bin/sh
-# postinst script for ubuntume
+# postinst script for sabily
 
 set -e
 
@@ -9,14 +9,14 @@ set -e
 case "$1" in
     configure)
       # Update firefox homepage:
-      #update-alternatives --set firefox-homepage /usr/share/ubuntume-artwork/firefox/firefox-index.html
+      #update-alternatives --set firefox-homepage /usr/share/sabily-artwork/firefox/firefox-index.html
 
       # Update firefox bookmarks:
-      db_get ubuntume/replace-bookmarks || true
+      db_get sabily/replace-bookmarks || true
       if [ "$RET" = "true" ]; then
         for d in firefox firefox-3.0; do
           if [ -d /etc/$d/profile ]; then
-            cp -f /usr/share/ubuntume/bookmarks.html /etc/$d/profile/
+            cp -f /usr/share/sabily/bookmarks.html /etc/$d/profile/
           fi
         done
         echo "Firefox bookmarks updated"
