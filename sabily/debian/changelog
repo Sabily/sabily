@@ -4,6 +4,9 @@ sabily (1.1~ppa8) jaunty; urgency=low
     debian/postinst, debian/install, debian/templates
   * Renamed ubuntume.menu => sabily.menu
   * Distro name changed to Sabily: debian/control, debian/templates.
+  * Added sabily.list: which includes the URL of PPA archive repository for 
+    use by apt.
+    + debian/install: install sabily.list in /etc/apt/sources.list.d/
   * debian/control:
     + Added Replaces: ubuntume (<= 1.1~ppa7).
     + Provide ubuntume as a dummy transitional package.
@@ -11,7 +14,7 @@ sabily (1.1~ppa8) jaunty; urgency=low
     + Add hijra to Depends field.
     + Replace thwab-lib with thwab in Depends field.
 
- -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Sun,  1 Mar 2009 11:42:50 +0200
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Mon, 30 Mar 2009 11:42:50 +0200
 
 ubuntume (1.1~ppa7) jaunty; urgency=low
 
