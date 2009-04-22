@@ -6,7 +6,7 @@ XSBC-Original-Maintainer: أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahm
 Build-Depends: debhelper (>= 5.0.51~)
 Build-Depends-Indep: po-debconf, debconf | debconf-2.0
 Standards-Version: 3.7.3
-Homepage: http://www.ubuntume.com
+Homepage: http://www.sabily.org
 Vcs-Bzr: http://code.launchpad.net/~ubuntume.team/ubuntume/hardy
 Vcs-Browser: http://bazaar.launchpad.net/~ubuntume.team/ubuntume/hardy
 

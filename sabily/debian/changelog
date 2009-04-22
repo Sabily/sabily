@@ -3,7 +3,8 @@ sabily (1.1~ppa8) jaunty; urgency=low
   * Renamed package to sabily-artwork: debian/control, debian/config,
     debian/postinst, debian/install, debian/templates
   * Renamed ubuntume.menu => sabily.menu
-  * Distro name changed to Sabily: debian/control, debian/templates.
+  * Distro name changed to Sabily: debian/control, debian/templates, 
+  * bookmarks.html.
   * Added sabily.list: which includes the URL of PPA archive repository for 
     use by apt.
     + debian/install: install sabily.list in /etc/apt/sources.list.d/
@@ -13,6 +14,8 @@ sabily (1.1~ppa8) jaunty; urgency=low
     + Pre-Depend on sabily-keyring.
     + Add hijra to Depends field.
     + Replace thwab-lib with thwab in Depends field.
+  * bookmarks.html, debian/changelog, debian/control, debian/copyright: 
+    ubuntume.com -> sabily.org
 
  -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Mon, 30 Mar 2009 11:42:50 +0200
 
@@ -34,16 +37,16 @@ ubuntume (0.4-3) unstable; urgency=low
 
   * Firefox welcome page updated
 
- -- jMehdi <jMehdi@ubuntume.com>  Sat, 08 Sep 2007 14:32:23 +0200
+ -- jMehdi <jMehdi@sabily.org>  Sat, 08 Sep 2007 14:32:23 +0200
 
 ubuntume (0.4-2) unstable; urgency=low
 
   * Added Zekr 0.6 with ttf-farsiweb and zekr-quran-translation-extras
 
- -- jMehdi <jMehdi@ubuntume.com>  Sat, 11 Aug 2007 21:28:23 +0200
+ -- jMehdi <jMehdi@sabily.org>  Sat, 11 Aug 2007 21:28:23 +0200
 
 ubuntume (0.4-1) unstable; urgency=low
 
   * Initial release.
 
- -- jMehdi <jMehdi@ubuntume.com>  Sat, 16 Jun 2007 00:08:23 +0200
+ -- jMehdi <jMehdi@sabily.org>  Sat, 16 Jun 2007 00:08:23 +0200
