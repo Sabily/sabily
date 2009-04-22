@@ -5,7 +5,7 @@ Maintainer: Ubuntu Muslim Edition Team <ubuntume.team@lists.launchpad.net>
 XSBC-Original-Maintainer: أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>
 Build-Depends: debhelper (>= 5.0.51~)
 Build-Depends-Indep: po-debconf, debconf | debconf-2.0
-Standards-Version: 3.7.3
+Standards-Version: 3.8.1
 Homepage: http://www.sabily.org
 Vcs-Bzr: http://code.launchpad.net/~ubuntume.team/ubuntume/hardy
 Vcs-Browser: http://bazaar.launchpad.net/~ubuntume.team/ubuntume/hardy
