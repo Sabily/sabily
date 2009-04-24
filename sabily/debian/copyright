@@ -7,15 +7,19 @@ Copyright: Copyright © 2007, jc Mehdi
 Copyright: Copyright © 2008-2009, أحمد المحمودي (Ahmed El-Mahmoudy)
 License: GPL-3+
 
-Files: bookmarks.html
 Files: Islamic-Software.directory
 Files: sabily.menu
 Author: jc Mehdi <jmehdi@sabily.org>
 Copyright: Copyright © 2007, jc Mehdi
 License: GPL-3+
 
+Files: bookmarks.html
+Author: jc Mehdi <jmehdi@sabily.org>
+Copyright: Copyright © 2007, jc Mehdi
+License: CC-SA
+
 Files: zakatcalc.ods
-Author: Arif Jamel
+Author: Arif Jamel <ajameel@yahoo.com>
 Copyright: Copyright © 2007, Arif Jamel
 License: CC-SA
 

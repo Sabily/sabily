@@ -21,7 +21,7 @@ Description: Sabily
 
 Package: ubuntume
 Architecture: all
-Depends: sabily
+Depends: ${misc:Depends}, sabily
 Description: Sabily (transitional package)
  Installs Islamic software and customizes the user interface.
  .
