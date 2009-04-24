@@ -12,11 +12,12 @@ sabily (1.1~ppa8) jaunty; urgency=low
     + Add hijra to Depends field.
     + Replace thwab-lib with thwab in Depends field.
     + Bumped Standards-Version to 3.8.1, no changes needed.
+    + Updated team name/email.
   * bookmarks.html, debian/changelog, debian/control, debian/copyright: 
     ubuntume.com -> sabily.org
   * debian/copyright: converted to machine-readable format.
 
- -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Mon, 23 Apr 2009 11:42:50 +0200
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Mon, 24 Apr 2009 11:42:50 +0200
 
 ubuntume (1.1~ppa7) jaunty; urgency=low
 
