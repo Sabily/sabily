@@ -7,8 +7,8 @@ Build-Depends: debhelper (>= 5.0.51~)
 Build-Depends-Indep: po-debconf, debconf | debconf-2.0
 Standards-Version: 3.8.1
 Homepage: http://www.sabily.org
-Vcs-Bzr: http://code.launchpad.net/~ubuntume.team/ubuntume/hardy
-Vcs-Browser: http://bazaar.launchpad.net/~ubuntume.team/ubuntume/hardy
+Vcs-Bzr: http://code.launchpad.net/~sabily.team/sabily/hardy
+Vcs-Browser: http://bazaar.launchpad.net/~sabily.team/sabily/hardy
 
 Package: sabily
 Architecture: all
