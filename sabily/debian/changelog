@@ -1,4 +1,4 @@
-sabily (1.1~ppa8) jaunty; urgency=low
+sabily (1.1~ppa9) jaunty; urgency=low
 
   * Renamed package to sabily-artwork: debian/control, debian/config,
     debian/postinst, debian/install, debian/templates
@@ -16,14 +16,9 @@ sabily (1.1~ppa8) jaunty; urgency=low
   * bookmarks.html, debian/changelog, debian/control, debian/copyright: 
     ubuntume.com -> sabily.org
   * debian/copyright: converted to machine-readable format.
-
- -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Mon, 24 Apr 2009 11:42:50 +0200
-
-ubuntume (1.1~ppa7) jaunty; urgency=low
-
   * Commented update-alternatives line, since we don't use it anymore.
 
- -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Tue, 20 Jan 2009 11:42:50 +0200
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Mon, 25 Apr 2009 11:42:50 +0200
 
 ubuntume (1.1~ppa6) hardy; urgency=low
 

@@ -16,17 +16,17 @@ License: GPL-3+
 Files: bookmarks.html
 Author: jc Mehdi <jmehdi@sabily.org>
 Copyright: Copyright © 2007, jc Mehdi
-License: CC-SA
+License: CC-BY-SA
 
 Files: zakatcalc.ods
 Author: Arif Jamel <ajameel@yahoo.com>
 Copyright: Copyright © 2007, Arif Jamel
-License: CC-SA
+License: CC-BY-SA
 
 Files: icon-islam.png
 Author: Yulian Ardiansyah <yulian.ardiansyah@gmail.com>
 Copyright: Copyright © 2007-2008, Yulian Ardiansyah
-License: CC-SA
+License: CC-BY-SA
 
 License: GPL-3+
     This program is free software: you can redistribute it and/or modify
@@ -45,7 +45,7 @@ License: GPL-3+
 On Debian systems, the complete text of the GNU GPL3 licenses
 can be found at `/usr/share/common-licenses/GPL-3'.
 
-License: CC-SA
+License: CC-BY-SA
     Creative Commons Legal Code Attribution-ShareAlike 3.0 Unported
 
     CREATIVE COMMONS CORPORATION IS NOT A LAW FIRM AND DOES NOT PROVIDE LEGAL
