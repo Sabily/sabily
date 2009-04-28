@@ -1,4 +1,4 @@
-sabily (1.1~ppa10) jaunty; urgency=low
+sabily (1.1~ppa11) jaunty; urgency=low
 
   * Renamed package to sabily-artwork: debian/control, debian/config,
     debian/postinst, debian/install, debian/templates
@@ -9,7 +9,7 @@ sabily (1.1~ppa10) jaunty; urgency=low
     + Added Replaces: ubuntume (<= 1.1~ppa7).
     + Provide ubuntume as a dummy transitional package.
     + Pre-Depend on sabily-keyring.
-    + Add hijra to Depends field.
+    + Add hijra-applet to Depends field.
     + Replace thwab-lib with thwab in Depends field.
     + Bumped Standards-Version to 3.8.1, no changes needed.
     + Updated team name/email.
@@ -19,7 +19,7 @@ sabily (1.1~ppa10) jaunty; urgency=low
   * debian/copyright: converted to machine-readable format.
   * Commented update-alternatives line, since we don't use it anymore.
 
- -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Mon, 25 Apr 2009 11:42:50 +0200
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Mon, 28 Apr 2009 11:42:50 +0200
 
 ubuntume (1.1~ppa6) hardy; urgency=low
 

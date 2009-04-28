@@ -13,7 +13,7 @@ Vcs-Browser: http://bazaar.launchpad.net/~sabily.team/sabily/hardy
 Package: sabily
 Architecture: all
 Pre-Depends: sabily-artwork, sabily-keyring
-Depends: ${misc:Depends}, minbar, zekr, monajat, thwab, firefox-praytimes, wallpaper-tray, glipper, hijra
+Depends: ${misc:Depends}, minbar, zekr, monajat, thwab, firefox-praytimes, wallpaper-tray, glipper, hijra-applet
 Suggests: webstrict
 Replaces: ubuntume (<= 1.1~ppa7)
 Description: Sabily
