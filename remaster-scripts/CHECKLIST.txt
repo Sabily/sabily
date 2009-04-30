@@ -24,7 +24,7 @@ MISC
 # Wallpaper-tray installed (Applications - Graphics)
 
 FIREFOX
-# Firefox welcome page updated -> ??
+# Firefox welcome page updated
 # Bookmarks updated
 # Firefox flash plugin installed
 # PrayTimes installed

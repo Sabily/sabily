@@ -5,7 +5,7 @@
 # ISO_NAME -> name of the final ISO file
 #
 # For example:
-# sudo ./1.clean.sh "fullPathToISO" "ubuntuME-vX.XX-desktop-i386.iso"
+# sudo ./1.clean.sh "fullPathToISO" "sabily-vX.XX-desktop-i386.iso"
 
 REMASTER_HOME=`pwd`
 ISO_IMAGE=$1

@@ -1,4 +1,5 @@
 #!/bin/bash
+VERSION="small"
 
 function failure()
 {
@@ -8,36 +9,42 @@ function failure()
 
 function prepare_install()
 {
-	sed -i "s|# deb http://archive.ubuntu.com/ubuntu intrepid universe|deb http://archive.ubuntu.com/ubuntu intrepid universe multiverse|" /etc/apt/sources.list ||  failure "sed failed, error=$?"
-	sed -i "s|# deb-src http://archive.ubuntu.com/ubuntu intrepid universe|deb-src http://archive.ubuntu.com/ubuntu intrepid universe multiverse|" /etc/apt/sources.list 
+	sed -i "s|# deb http://archive.ubuntu.com/ubuntu jaunty universe|deb http://archive.ubuntu.com/ubuntu jaunty universe multiverse|" /etc/apt/sources.list ||  failure "sed failed, error=$?"
+	sed -i "s|# deb-src http://archive.ubuntu.com/ubuntu jaunty universe|deb-src http://archive.ubuntu.com/ubuntu jaunty universe multiverse|" /etc/apt/sources.list 
 	
-	# Add ubuntuME repository
-	if grep -q "http://ppa.launchpad.net/ubuntume.team/ubuntu" "/etc/apt/sources.list" ; then EXISTS="yes"
-	else
-		echo "deb http://ppa.launchpad.net/ubuntume.team/ubuntu intrepid main #Ubuntu Muslim Edition" >> "/etc/apt/sources.list"
-		echo "deb-src http://ppa.launchpad.net/ubuntume.team/ubuntu intrepid main #Ubuntu Muslim Edition" >> "/etc/apt/sources.list"
-	fi
+	# Enable partner repository 
+	#if grep -q "http://archive.canonical.com/ubuntu jaunty partner" "/etc/apt/sources.list" ; then EXISTS="yes"
+	#else
+	#	echo "deb http://archive.canonical.com/ubuntu jaunty partner" >> "/etc/apt/sources.list"
+		#echo "deb-src http://archive.canonical.com/ubuntu jaunty partner" >> "/etc/apt/sources.list"
+	#fi
 
-	# Add Medibuntu repository
-	if grep -q "http://packages.medibuntu.org/" "/etc/apt/sources.list" ; then EXISTS="yes"
-	else
-		echo "deb http://packages.medibuntu.org/ intrepid free non-free #Medibuntu" >> "/etc/apt/sources.list"
-		echo "deb-src http://packages.medibuntu.org/ intrepid free non-free #Medibuntu" >> "/etc/apt/sources.list"
-	fi
-
-	# Add PPA for ubuntu tweak
-	if grep -q "http://ppa.launchpad.net/tualatrix/ubuntu" "/etc/apt/sources.list" ; then EXISTS="yes"
-	else
-		echo "deb http://ppa.launchpad.net/tualatrix/ubuntu intrepid main #ubuntu tweak" >> "/etc/apt/sources.list"
-		echo "deb-src http://ppa.launchpad.net/tualatrix/ubuntu intrepid main #ubuntu tweak" >> "/etc/apt/sources.list"
-	fi
-
-
-	# Add Medibuntu gpg key
-	wget -q http://packages.medibuntu.org/medibuntu-key.gpg -O- | apt-key add -
+	# Add sabily repository
+	sudo wget http://www.sabily.org/sources.list.d/jaunty.list --output-document=/etc/apt/sources.list.d/sabily.list
 	
+	if [ "$VERSION" = "dvd" ]; then
+		# Add Medibuntu repository
+		sudo wget http://www.medibuntu.org/sources.list.d/jaunty.list --output-document=/etc/apt/sources.list.d/medibuntu.list
+	
+		# Add PPA for ubuntu tweak
+		if grep -q "http://ppa.launchpad.net/tualatrix/ubuntu" "/etc/apt/sources.list" ; then EXISTS="yes"
+		else
+			echo "deb http://ppa.launchpad.net/tualatrix/ubuntu jaunty main #ubuntu tweak" >> "/etc/apt/sources.list"
+			echo "deb-src http://ppa.launchpad.net/tualatrix/ubuntu jaunty main #ubuntu tweak" >> "/etc/apt/sources.list"
+		fi
+
+		# Add ubuntu tweak gpg key
+		sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com FE85409EEAB40ECCB65740816AF0E1940624A220
+	fi
+
 	#try 2 times to avoid slow proxies failures
 	aptitude update || aptitude update || failure "aptitude update failed, error=$?"
+
+	sudo apt-get install sabily-keyring
+
+	if [ "$VERSION" = "dvd" ]; then
+		sudo apt-get install medibuntu-keyring
+	fi
 
 	aptitude safe-upgrade
 }
@@ -162,36 +169,39 @@ done
 #echo "removed: $REMOVED_PACKAGES"
 
 #######################################
-# UBUNTUME customizations
+# SABILY customizations
 #######################################
 
+# 21.4 MB
 install_packages linux-restricted-modules-$(uname -r) build-essential
 
 #echo --------- FOR CD: remove wallpapers, example-content, openoffice, games ---------
 #remove_packages  gnome-games gnome-games-data ubuntu-wallpapers example-content openoffice.org-base-core openoffice.org-hyphenation openoffice.org-base openoffice.org-calc openoffice.org-common  openoffice.org-draw openoffice.org-evolution openoffice.org-gnome openoffice.org-gtk openoffice.org-impress openoffice.org-java-common openoffice.org-math openoffice.org-writer python-uno openoffice.org openoffice.org-core openoffice.org-l10n-common openoffice.org-filter-binfilter openoffice.org-help-en-us openoffice.org-style-human language-support-translations-en || failure "Removing packages failed, error=$?"
-echo --------- remove packages
+echo --------- remove packages -13.7 MB ---------
 remove_packages ubuntu-gdm-themes example-content
 
-echo --------- install sun-java, ubuntume, webstrict ---------
-install_packages_with_recommends sun-java6-jre ubuntume webstrict ubuntume-example-content || failure "Installing packages failed, error=$?"
+echo --------- install sun-java, sabily, webstrict 462 MB ---------
+install_packages_with_recommends sun-java6-jre sabily tinyproxy dansguardian webstrict sabily-example-content || failure "Installing packages failed, error=$?"
 
 echo --------- install Zekr online recitations ---------
 install_packages zekr-quran-recitation-online-huzaifi zekr-quran-recitation-online-husary zekr-quran-recitation-online-shuraim zekr-quran-recitation-online-ajmy zekr-quran-recitation-online-afasi zekr-quran-recitation-online-abdulbasit zekr-quran-recitation-online-ghamdi zekr-quran-recitation-online-shatri zekr-quran-recitation-online-ayyub || failure "Installing packages failed, error=$?" 
 
-echo --------- install Zekr Quran translations ---------
-install_packages zekr-quran-translation-bs-korkut zekr-quran-translation-de-bubenheimelyas zekr-quran-translation-de-muhammadibnrassoul zekr-quran-translation-de-zaidan zekr-quran-translation-en-pickthall zekr-quran-translation-en-qaribullah zekr-quran-translation-en-shakir zekr-quran-translation-en-yusufali zekr-quran-translation-es-cortes zekr-quran-translation-fa-ansarian zekr-quran-translation-fa-ghomshei zekr-quran-translation-fa-makarem zekr-quran-translation-fr-hamidullah zekr-quran-translation-id-indonesian zekr-quran-translation-it-piccardo zekr-quran-translation-nl-keyzer zekr-quran-translation-pt-elhayek zekr-quran-translation-ru-kuliev zekr-quran-translation-ru-osmanov zekr-quran-translation-ru-porokhova zekr-quran-translation-tr-diyanet zekr-quran-translation-tr-ozturk zekr-quran-translation-tt-noghmani zekr-quran-translation-ur-irfanulquran zekr-quran-translation-ur-jalandhry zekr-quran-translation-ur-kanzuliman   || failure "Installing packages failed, error=$?"
+echo --------- install Zekr Quran translations 11.6 MB ---------
+install_packages zekr-quran-translation-az-mammadaliyevbunyadov zekr-quran-translation-bs-korkut zekr-quran-translation-bs-mlivo zekr-quran-translation-de-bubenheimelyas zekr-quran-translation-de-muhammadibnrassoul zekr-quran-translation-de-zaidan zekr-quran-translation-en-arberry zekr-quran-translation-en-pickthall zekr-quran-translation-en-qaribullah zekr-quran-translation-en-shakir zekr-quran-translation-en-yusufali zekr-quran-translation-es-cortes zekr-quran-translation-fa-ansarian zekr-quran-translation-fa-ghomshei zekr-quran-translation-fa-makarem zekr-quran-translation-fr-hamidullah zekr-quran-translation-id-indonesian zekr-quran-translation-it-piccardo zekr-quran-translation-ml-cheriyamundamparappur zekr-quran-translation-nl-keyzer zekr-quran-translation-pt-elhayek zekr-quran-translation-ru-kuliev zekr-quran-translation-ru-osmanov zekr-quran-translation-ru-porokhova zekr-quran-translation-tr-diyanet zekr-quran-translation-tr-ozturk zekr-quran-translation-tt-noghmani zekr-quran-translation-ur-irfanulquran zekr-quran-translation-ur-jalandhry zekr-quran-translation-ur-kanzuliman   || failure "Installing packages failed, error=$?"
 
-echo --------- Multimedia
-install_packages libdvdcss2 w32codecs ogle ogle-gui vlc ubuntu-restricted-extras || failure "Installing packages failed, error=$?"
-
-echo --------- Arabic support
+echo --------- Arabic support 21 MB
 install_packages language-pack-ar language-pack-ar-base language-pack-gnome-ar-base language-pack-gnome-ar language-support-ar language-support-extra-ar im-switch aspell-ar || failure "Installing packages failed, error=$?"
 
-echo --------- Education
-install_packages kturtle stellarium celestia kstars kalzium atomix kig kmplot kpercentage kbruch tuxmath tuxpaint tuxtype tuxtype-data-nonfree xaos khangman ktouch gcompris || failure "Installing packages failed, error=$?"
+if [ "$VERSION" = "dvd" ]; then
+	echo --------- Multimedia 171 MB
+	install_packages libdvdcss2 w32codecs vlc ubuntu-restricted-extras || failure "Installing packages failed, error=$?"
 
-echo --------- Miscellaneous:
-install_packages compizconfig-settings-manager fusion-icon rar unrar command-not-found nautilus-open-terminal glipper wallpaper-tray scribus inkscape virtualbox virtualbox-ose-modules bzr aptoncd galternatives startupmanager acroread mozilla-acroread acroread-plugins acroread-escript ubuntu-tweak gnochm clamtk envyng-gtk pessulus gnucash catfish gparted || failure "Installing packages failed, error=$?"
+	echo --------- Education 545 MB
+	install_packages ubuntu-edu-preschool ubuntu-edu-primary ubuntu-edu-secondary ubuntu-edu-tertiary stellarium celestia atomix xaos  || failure "Installing packages failed, error=$?"
+
+	echo --------- Miscellaneous 406 MB
+	install_packages gnome-do gnome-do-plugins compizconfig-settings-manager fusion-icon rar unrar command-not-found nautilus-open-terminal glipper wallpaper-tray scribus inkscape virtualbox bzr aptoncd galternatives startupmanager ubuntu-tweak gnochm clamtk envyng-gtk pessulus gnucash catfish gparted || failure "Installing packages failed, error=$?"
+fi
 
 #echo --------- Acetoneiso2 -> error: chmod: cannot access `/dev/fuse': No such file or directory
 #install_packages fuseiso gnupg-agent gnupg2 mencoder p7zip-full pinentry-qt

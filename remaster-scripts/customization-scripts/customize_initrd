@@ -4,5 +4,5 @@ REMASTER_DIR="$REMASTER_HOME/remaster-root"
 INITRD_REMASTER_DIR="$REMASTER_HOME/remaster-initrd"
 
 # live CD usplash
-cp -f "./resources/usplash-theme-ubuntume.so" "$INITRD_REMASTER_DIR/usr/lib/usplash/usplash-artwork.so"
+cp -f "./resources/usplash-theme-taibah.so" "$INITRD_REMASTER_DIR/usr/lib/usplash/usplash-artwork.so"
 chroot "$REMASTER_DIR" update-initramfs -u

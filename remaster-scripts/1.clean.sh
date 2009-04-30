@@ -5,7 +5,7 @@
 # ISO_NAME -> name of the final ISO file
 #
 # For example:
-# sudo ./1.clean.sh "fullPathToISO" "ubuntuME-vX.XX-desktop-i386.iso"
+# sudo ./1.clean.sh "fullPathToISO" "sabily-vX.XX-desktop-i386.iso"
 
 REMASTER_HOME=`pwd`
 ISO_IMAGE=$1
@@ -68,6 +68,10 @@ fi
 if [ -e "$CUSTOMIZE_DIR/clean_desktop_manifest" ]; then
 	CLEAN_DESKTOP_MANIFEST="yes"
 fi
+
+#if [ -e "$REMASTER_HOME" ] ; then
+	#umount -f "/tmp/.X11-unix" # Bugfix
+#fi
 
 $SCRIPTS_DIR/uck-remaster-clean "$REMASTER_HOME"
 check_exit_code

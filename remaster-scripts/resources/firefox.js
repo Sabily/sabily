@@ -15,11 +15,11 @@ pref("intl.locale.matchOS", true);
 // Disable default browser checking.
 pref("browser.shell.checkDefaultBrowser", false);
 
-// Disable safebrowsing.
-pref("browser.safebrowsing.enabled", true);
+// Prevent EULA dialog to popup on first run
+pref("browser.EULA.override", true);
 
-pref("app.update.enabled", false);
-pref("app.update.auto", false);
+// identify ubuntu @ yahoo searchplugin
+pref("browser.search.param.yahoo-fr", "ubuntu");
 
 // Use Dansguardian:
 lockPref("network.proxy.http_port", 8080);

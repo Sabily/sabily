@@ -67,11 +67,8 @@ else
 fi
 
 #################################################
-# Hijra calendar
-cp -f ./resources/hijra/share/applications/Hijra.desktop "$REMASTER_DIR"/usr/share/applications/Hijra.desktop
-cp -rf ./resources/hijra/share/hijra "$REMASTER_DIR"/usr/share
-cp -f ./resources/hijra/share/pixmaps/calendar.png "$REMASTER_DIR"/usr/share/pixmaps/calendar.png
-
+# SABILY customizations
+#################################################
 # bicon
 cp -f ./resources/bicon_0.2.0-1_amd64.deb "$REMASTER_DIR"/tmp/bicon_0.2.0-1_amd64.deb
 cp -f ./resources/bicon_0.2.0-1_i386.deb "$REMASTER_DIR"/tmp/bicon_0.2.0-1_i386.deb
@@ -81,9 +78,9 @@ rm -f "$REMASTER_DIR"/tmp/bicon_0.2.0-1_amd64.deb
 rm -f "$REMASTER_DIR"/tmp/bicon_0.2.0-1_i386.deb
 
 # Thwab books
-cp -f ./resources/thwab-books_1.0-0ubuntu1~ppa1_all.deb "$REMASTER_DIR"/tmp/thwab-books_1.0-0ubuntu1~ppa1_all.deb
-chroot "$REMASTER_DIR" dpkg -i /tmp/thwab-books_1.0-0ubuntu1~ppa1_all.deb
-rm -f "$REMASTER_DIR"/tmp/thwab-books_1.0-0ubuntu1~ppa1_all.deb
+#cp -f ./resources/thwab-books_1.0-0ubuntu1~ppa1_all.deb "$REMASTER_DIR"/tmp/thwab-books_1.0-0ubuntu1~ppa1_all.deb
+#chroot "$REMASTER_DIR" dpkg -i /tmp/thwab-books_1.0-0ubuntu1~ppa1_all.deb
+#rm -f "$REMASTER_DIR"/tmp/thwab-books_1.0-0ubuntu1~ppa1_all.deb
 
 # Customization
 cp -f ./resources/apt-setup "$REMASTER_DIR"/usr/share/ubiquity/apt-setup
@@ -120,7 +117,7 @@ cp -f ./resources/dansguardian/tinyproxy/tinyproxy.conf "$REMASTER_DIR"/etc/tiny
 cp -rf ./resources/dansguardian/languages "$REMASTER_DIR"/etc/dansguardian
 chroot "$REMASTER_DIR" dpkg-reconfigure dansguardian
 
-chroot "$REMASTER_DIR" dpkg-reconfigure ubuntume-artwork
+chroot "$REMASTER_DIR" dpkg-reconfigure sabily-artwork
 
 # choose sun java
 chroot "$REMASTER_DIR" update-alternatives --config java
