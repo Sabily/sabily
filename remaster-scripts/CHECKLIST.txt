@@ -1,11 +1,11 @@
-The following points should be checked after the ubuntuME remastering:
+The following points should be checked after the Sabily remastering:
 
 LIVE CD
 # Boot menu text color
 # Boot menu picture
 
 ARTWORK
-# GRUB picture updated : KO
+# GRUB picture updated
 # usplash updated
 # GDM login screen updated
 # GDM splash screen updated
@@ -20,8 +20,6 @@ GNOME
 
 MISC
 # zakatcalc.ods in ~/Documents
-# Glipper installed (Gnome panel - Add to)
-# Wallpaper-tray installed (Applications - Graphics)
 
 FIREFOX
 # Firefox welcome page updated
