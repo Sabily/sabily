@@ -1,4 +1,4 @@
-sabily (1.1~ppa11) jaunty; urgency=low
+sabily (1.1~ppa12) jaunty; urgency=low
 
   * Renamed package to sabily-artwork: debian/control, debian/config,
     debian/postinst, debian/install, debian/templates
@@ -18,8 +18,10 @@ sabily (1.1~ppa11) jaunty; urgency=low
     ubuntume.com -> sabily.org
   * debian/copyright: converted to machine-readable format.
   * Commented update-alternatives line, since we don't use it anymore.
+  * debian/links: added a link to minbar.desktop in /etc/xdg/autostart/ to 
+    make minbar startup by default on user sessions.
 
- -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Mon, 28 Apr 2009 11:42:50 +0200
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Mon,  3 May 2009 11:42:50 +0200
 
 ubuntume (1.1~ppa6) hardy; urgency=low
 
