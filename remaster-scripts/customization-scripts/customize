@@ -181,27 +181,27 @@ install_packages linux-restricted-modules-$(uname -r) build-essential
 echo --------- remove packages -13.7 MB ---------
 remove_packages ubuntu-gdm-themes example-content
 
-echo --------- install sun-java, sabily, webstrict 462 MB ---------
+echo --------- install sun-java, sabily, webstrict 185-462 MB ---------
 install_packages_with_recommends sun-java6-jre sabily tinyproxy dansguardian webstrict sabily-example-content || failure "Installing packages failed, error=$?"
 
 echo --------- install Zekr online recitations ---------
 install_packages zekr-quran-recitation-online-huzaifi zekr-quran-recitation-online-husary zekr-quran-recitation-online-shuraim zekr-quran-recitation-online-ajmy zekr-quran-recitation-online-afasi zekr-quran-recitation-online-abdulbasit zekr-quran-recitation-online-ghamdi zekr-quran-recitation-online-shatri zekr-quran-recitation-online-ayyub || failure "Installing packages failed, error=$?" 
 
-echo --------- install Zekr Quran translations 11.6 MB ---------
+echo --------- install Zekr Quran translations 10.4-13.3 MB ---------
 install_packages zekr-quran-translation-az-mammadaliyevbunyadov zekr-quran-translation-bs-korkut zekr-quran-translation-bs-mlivo zekr-quran-translation-de-bubenheimelyas zekr-quran-translation-de-muhammadibnrassoul zekr-quran-translation-de-zaidan zekr-quran-translation-en-arberry zekr-quran-translation-en-pickthall zekr-quran-translation-en-qaribullah zekr-quran-translation-en-shakir zekr-quran-translation-en-yusufali zekr-quran-translation-es-cortes zekr-quran-translation-fa-ansarian zekr-quran-translation-fa-ghomshei zekr-quran-translation-fa-makarem zekr-quran-translation-fr-hamidullah zekr-quran-translation-id-indonesian zekr-quran-translation-it-piccardo zekr-quran-translation-ml-cheriyamundamparappur zekr-quran-translation-nl-keyzer zekr-quran-translation-pt-elhayek zekr-quran-translation-ru-kuliev zekr-quran-translation-ru-osmanov zekr-quran-translation-ru-porokhova zekr-quran-translation-tr-diyanet zekr-quran-translation-tr-ozturk zekr-quran-translation-tt-noghmani zekr-quran-translation-ur-irfanulquran zekr-quran-translation-ur-jalandhry zekr-quran-translation-ur-kanzuliman   || failure "Installing packages failed, error=$?"
 
-echo --------- Arabic support 21 MB
-install_packages language-pack-ar language-pack-ar-base language-pack-gnome-ar-base language-pack-gnome-ar language-support-ar language-support-extra-ar im-switch aspell-ar || failure "Installing packages failed, error=$?"
+echo --------- Arabic support 4.2-21 MB
+install_packages language-pack-ar language-pack-ar-base language-pack-gnome-ar-base language-pack-gnome-ar language-support-ar language-support-extra-ar im-switch aspell-ar ttf-me-quran || failure "Installing packages failed, error=$?"
 
 if [ "$VERSION" = "dvd" ]; then
-	echo --------- Multimedia 171 MB
+	echo --------- Multimedia 78-171 MB
 	install_packages libdvdcss2 w32codecs vlc ubuntu-restricted-extras || failure "Installing packages failed, error=$?"
 
-	echo --------- Education 545 MB
+	echo --------- Education 333-796 MB
 	install_packages ubuntu-edu-preschool ubuntu-edu-primary ubuntu-edu-secondary ubuntu-edu-tertiary stellarium celestia atomix xaos  || failure "Installing packages failed, error=$?"
 
 	echo --------- Miscellaneous 216 MB
-	install_packages compizconfig-settings-manager fusion-icon rar unrar command-not-found nautilus-open-terminal glipper wallpaper-tray scribus inkscape virtualbox bzr aptoncd galternatives startupmanager ubuntu-tweak gnochm clamtk envyng-gtk pessulus gnucash catfish gparted || failure "Installing packages failed, error=$?"
+	install_packages compizconfig-settings-manager fusion-icon rar unrar command-not-found nautilus-open-terminal glipper wallpaper-tray scribus inkscape virtualbox bzr aptoncd galternatives startupmanager ubuntu-tweak gnochm clamtk envyng-gtk pessulus gnucash catfish slocate gparted || failure "Installing packages failed, error=$?"
 fi
 
 #echo --------- Acetoneiso2 -> error: chmod: cannot access `/dev/fuse': No such file or directory
