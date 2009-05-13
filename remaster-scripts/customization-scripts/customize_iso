@@ -89,6 +89,9 @@ cp -f ./resources/apt-setup "$REMASTER_DIR"/usr/share/ubiquity/apt-setup
 cp -f ./resources/splash1-14colors.pcx "$ISO_REMASTER_DIR/isolinux/splash.pcx"
 sed -i "s|background=.*|background=0x1F6E0B|" "$ISO_REMASTER_DIR/isolinux/gfxboot.cfg"
 
+# Live CD menu
+cp -f ./resources/text.cfg "$ISO_REMASTER_DIR/isolinux/text.cfg"
+
 # lock firefox by default
 #sed -i "s|pref(\"general.config.obscure_value\", 13)|pref(\"general.config.obscure_value\", 0)|" "$REMASTER_DIR"/usr/lib/xulrunner-1.9b5/greprefs/all.js
 #cp -f ./resources/firefox.js "$REMASTER_DIR"/etc/firefox-3.0/pref/firefox.js
