@@ -1,6 +1,6 @@
 #!/bin/bash
 #small or dvd:
-VERSION="dvd"
+VERSION="small"
 
 function failure()
 {
