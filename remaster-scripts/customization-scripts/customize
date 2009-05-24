@@ -195,7 +195,7 @@ install_packages language-pack-ar language-pack-ar-base language-pack-gnome-ar-b
 
 if [ "$VERSION" = "dvd" ]; then
 	echo --------- Multimedia 78-171 MB
-	install_packages libdvdcss2 w32codecs w64codecs vlc ubuntu-restricted-extras || failure "Installing packages failed, error=$?"
+	install_packages libdvdcss2 w32codecs w64codecs vlc ubuntu-restricted-extras music-applet || failure "Installing packages failed, error=$?"
 
 	echo --------- Education 333-796 MB
 	install_packages ubuntu-edu-preschool ubuntu-edu-primary ubuntu-edu-secondary ubuntu-edu-tertiary stellarium celestia atomix xaos  || failure "Installing packages failed, error=$?"
