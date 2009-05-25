@@ -201,7 +201,7 @@ if [ "$VERSION" = "dvd" ]; then
 	install_packages ubuntu-edu-preschool ubuntu-edu-primary ubuntu-edu-secondary ubuntu-edu-tertiary stellarium celestia atomix xaos  || failure "Installing packages failed, error=$?"
 
 	echo --------- Miscellaneous 216 MB
-	install_packages compizconfig-settings-manager fusion-icon rar unrar command-not-found nautilus-open-terminal glipper wallpaper-tray scribus inkscape virtualbox bzr aptoncd galternatives startupmanager ubuntu-tweak gnochm clamtk envyng-gtk pessulus gnucash catfish slocate gparted thunderbird screenlets || failure "Installing packages failed, error=$?"
+	install_packages compizconfig-settings-manager fusion-icon rar unrar command-not-found nautilus-open-terminal glipper wallpaper-tray scribus inkscape virtualbox bzr aptoncd galternatives startupmanager ubuntu-tweak gnochm clamtk envyng-gtk pessulus gnucash catfish slocate gparted thunderbird screenlets alltray || failure "Installing packages failed, error=$?"
 fi
 
 #echo --------- Acetoneiso2 -> error: chmod: cannot access `/dev/fuse': No such file or directory
