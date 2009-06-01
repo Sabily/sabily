@@ -22,7 +22,11 @@ function prepare_install()
 
 	# Add sabily repository
 	sudo wget http://www.sabily.org/sources.list.d/jaunty.list --output-document=/etc/apt/sources.list.d/sabily.list
-	
+
+	#Add gnote repository
+	echo "deb http://ppa.launchpad.net/gnote/ppa/ubuntu jaunty main" | sudo tee /etc/apt/sources.list.d/gnote.list
+	sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 5AAB5553
+		
 	if [ "$VERSION" = "dvd" ]; then
 		# Add Medibuntu repository
 		sudo wget http://www.medibuntu.org/sources.list.d/jaunty.list --output-document=/etc/apt/sources.list.d/medibuntu.list
@@ -62,7 +66,7 @@ function install_packages_with_recommends()
 
 function remove_packages()
 {
-	aptitude remove --assume-yes "$@" || failure "aptitude remove $@ failed, error=$?"
+	apt-get purge --assume-yes "$@" || failure "aptitude remove $@ failed, error=$?"
 }
 
 function run_package_manager()
@@ -180,6 +184,11 @@ install_packages linux-restricted-modules-$(uname -r) build-essential
 #remove_packages  gnome-games gnome-games-data ubuntu-wallpapers example-content openoffice.org-base-core openoffice.org-hyphenation openoffice.org-base openoffice.org-calc openoffice.org-common  openoffice.org-draw openoffice.org-evolution openoffice.org-gnome openoffice.org-gtk openoffice.org-impress openoffice.org-java-common openoffice.org-math openoffice.org-writer python-uno openoffice.org openoffice.org-core openoffice.org-l10n-common openoffice.org-filter-binfilter openoffice.org-help-en-us openoffice.org-style-human language-support-translations-en || failure "Removing packages failed, error=$?"
 echo --------- remove packages -13.7 MB ---------
 remove_packages ubuntu-gdm-themes example-content
+
+echo --------- remove Mono -54MB ---------
+remove_packages libmono0 mono-common
+echo --------- replace tomboy with gnote, f-spot with gthumb 12.8 MB ----------
+install_packages gnote gthumb
 
 echo --------- install sun-java, sabily, webstrict 185-462 MB ---------
 install_packages_with_recommends sun-java6-jre sabily tinyproxy dansguardian webstrict sabily-example-content || failure "Installing packages failed, error=$?"
