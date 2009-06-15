@@ -107,16 +107,18 @@ cp -f ./resources/minbar.desktop "$REMASTER_DIR"/usr/share/applications/minbar.d
 #rm -f "$REMASTER_DIR"/usr/share/backgrounds/space-05.jpg # 14.3 KB
 
 # dansguardian configuration
-cp -f ./resources/dansguardian/dansguardian.conf "$REMASTER_DIR"/etc/dansguardian/dansguardian.conf
-cp -f ./resources/dansguardian/dansguardianf2.conf "$REMASTER_DIR"/etc/dansguardian/dansguardianf2.conf
-cp -f ./resources/dansguardian/bannedsitelist "$REMASTER_DIR"/etc/dansguardian/bannedsitelist
-cp -f ./resources/dansguardian/bannedurllist "$REMASTER_DIR"/etc/dansguardian/bannedurllist
-cp -f ./resources/dansguardian/bannedmimetypelist "$REMASTER_DIR"/etc/dansguardian/bannedmimetypelist
-cp -f ./resources/dansguardian/bannedextensionlist "$REMASTER_DIR"/etc/dansguardian/bannedextensionlist
-cp -f ./resources/dansguardian/default/oidentd "$REMASTER_DIR"/etc/default/oidentd
-cp -f ./resources/dansguardian/tinyproxy/tinyproxy.conf "$REMASTER_DIR"/etc/tinyproxy/tinyproxy.conf
-cp -rf ./resources/dansguardian/languages "$REMASTER_DIR"/etc/dansguardian
-chroot "$REMASTER_DIR" dpkg-reconfigure dansguardian
+if [ 0 = 0 ]; then
+	cp -f ./resources/dansguardian/dansguardian.conf "$REMASTER_DIR"/etc/dansguardian/dansguardian.conf
+	cp -f ./resources/dansguardian/dansguardianf2.conf "$REMASTER_DIR"/etc/dansguardian/dansguardianf2.conf
+	cp -f ./resources/dansguardian/bannedsitelist "$REMASTER_DIR"/etc/dansguardian/bannedsitelist
+	cp -f ./resources/dansguardian/bannedurllist "$REMASTER_DIR"/etc/dansguardian/bannedurllist
+	cp -f ./resources/dansguardian/bannedmimetypelist "$REMASTER_DIR"/etc/dansguardian/bannedmimetypelist
+	cp -f ./resources/dansguardian/bannedextensionlist "$REMASTER_DIR"/etc/dansguardian/bannedextensionlist
+	cp -f ./resources/dansguardian/default/oidentd "$REMASTER_DIR"/etc/default/oidentd
+	cp -f ./resources/dansguardian/tinyproxy/tinyproxy.conf "$REMASTER_DIR"/etc/tinyproxy/tinyproxy.conf
+	cp -rf ./resources/dansguardian/languages "$REMASTER_DIR"/etc/dansguardian
+	chroot "$REMASTER_DIR" dpkg-reconfigure dansguardian
+fi
 
 chroot "$REMASTER_DIR" dpkg-reconfigure sabily-artwork
 
