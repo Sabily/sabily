@@ -256,7 +256,7 @@ echo --------- CLEAN UP ---------
 apt-get autoremove
 apt-get autoclean
 
-if [0 = 0 ]; then
+if [ 0 = 0 ]; then
 	echo --------- download and install dansguardian blacklists ---------
 	rm -rf /etc/dansguardian/blacklists
 	wget http://squidguard.shalla.de/Downloads/shallalist.tar.gz
