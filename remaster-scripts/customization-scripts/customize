@@ -1,6 +1,6 @@
 #!/bin/bash
-#small or dvd:
-VERSION="small"
+#cd, small or dvd:
+VERSION="cd"
 RUN_MANUAL_CUSTOMIZATIONS="yes"
 
 function failure()
@@ -207,7 +207,7 @@ if [ "$VERSION" = "dvd" ]; then
 	install_packages ubuntu-edu-preschool ubuntu-edu-primary ubuntu-edu-secondary ubuntu-edu-tertiary stellarium celestia atomix xaos  || failure "Installing packages failed, error=$?"
 
 	echo --------- Miscellaneous 216 MB
-	install_packages compizconfig-settings-manager fusion-icon rar unrar command-not-found nautilus-open-terminal glipper parcellite wallpaper-tray scribus inkscape virtualbox bzr aptoncd galternatives startupmanager ubuntu-tweak gnochm clamtk envyng-gtk pessulus gnucash catfish slocate gparted thunderbird screenlets alltray xchat || failure "Installing packages failed, error=$?"
+	install_packages compizconfig-settings-manager fusion-icon rar unrar command-not-found nautilus-open-terminal parcellite wallpaper-tray scribus inkscape virtualbox bzr aptoncd galternatives startupmanager ubuntu-tweak gnochm clamtk envyng-gtk pessulus gnucash catfish slocate gparted thunderbird screenlets alltray xchat filezilla deluge-torrent cheese || failure "Installing packages failed, error=$?"
 fi
 
 #echo --------- Acetoneiso2 -> error: chmod: cannot access `/dev/fuse': No such file or directory
@@ -232,8 +232,11 @@ wget http://hacktolive.org/runner/download
 dpkg -i app-runner-0.4.deb
 rm app-runner-0.4.deb
 
-#echo --------- FOR CD: remove wallpapers, openoffice, games ---------
-#remove_packages  gnome-games gnome-games-datahttp://hacktolive.org/runner/download ubuntu-wallpapers openoffice.org-base-core openoffice.org-hyphenation openoffice.org-base openoffice.org-calc openoffice.org-common  openoffice.org-draw openoffice.org-evolution openoffice.org-gnome openoffice.org-gtk openoffice.org-impress openoffice.org-java-common openoffice.org-math openoffice.org-writer python-uno openoffice.org openoffice.org-core openoffice.org-l10n-common openoffice.org-filter-binfilter openoffice.org-help-en-us openoffice.org-style-human language-support-translations-en || failure "Removing packages failed, error=$?"
+if [ "$VERSION" = "cd" ]; then
+	echo --------- FOR CD: remove wallpapers, openoffice -334 MB, games ---------
+	remove_packages gnome-games gnome-games-data ubuntu-wallpapers openoffice.org-base-core openoffice.org-hyphenation openoffice.org-base openoffice.org-calc openoffice.org-common  openoffice.org-draw openoffice.org-evolution openoffice.org-gnome openoffice.org-gtk openoffice.org-impress openoffice.org-java-common openoffice.org-math openoffice.org-writer python-uno openoffice.org openoffice.org-core openoffice.org-l10n-common openoffice.org-filter-binfilter openoffice.org-help-en-us openoffice.org-style-human language-support-translations-en || failure "Removing packages failed, error=$?"
+fi
+
 echo --------- remove packages -13.7 MB ---------
 remove_packages ubuntu-gdm-themes example-content 
 # -15.4 MB
@@ -246,6 +249,8 @@ remove_packages libmono0 mono-common
 echo --------- replace tomboy with gnote, f-spot with gthumb 16.3 MB ----------
 install_packages gnote gthumb
 
+echo --------- remove old linux kernels
+remove_packages linux-image-2.6.28-11-generic linux-restricted-modules-2.6.28-11-generic
 
 echo --------- CLEAN UP ---------
 apt-get autoremove
