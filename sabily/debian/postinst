@@ -14,7 +14,7 @@ case "$1" in
       # Update firefox bookmarks:
       db_get sabily/replace-bookmarks || true
       if [ "$RET" = "true" ]; then
-        for d in firefox firefox-3.0; do
+        for d in firefox firefox-3.0 firefox-3.5; do
           if [ -d /etc/$d/profile ]; then
             cp -f /usr/share/sabily/bookmarks.html /etc/$d/profile/
           fi

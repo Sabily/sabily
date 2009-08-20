@@ -3,16 +3,16 @@ Section: metapackages
 Priority: optional
 Maintainer: Sabily Team <sabily.team@lists.launchpad.net>
 XSBC-Original-Maintainer: أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>
-Build-Depends: debhelper (>= 5.0.51~)
+Build-Depends: debhelper (>= 7)
 Build-Depends-Indep: po-debconf, debconf | debconf-2.0
-Standards-Version: 3.8.1
+Standards-Version: 3.8.3
 Homepage: http://www.sabily.org
-Vcs-Bzr: http://code.launchpad.net/~sabily.team/sabily/hardy
-Vcs-Browser: http://bazaar.launchpad.net/~sabily.team/sabily/hardy
+Vcs-Bzr: http://code.launchpad.net/~sabily.team/sabily/trunk
+Vcs-Browser: http://code.launchpad.net/~sabily.team/sabily/trunk
 
 Package: sabily
 Architecture: all
-Pre-Depends: sabily-artwork, sabily-keyring
+Pre-Depends: sabily-artwork
 Depends: ${misc:Depends}, minbar, zekr, monajat, thwab, firefox-praytimes, hijra-applet
 Suggests: webstrict
 Replaces: ubuntume (<= 1.1~ppa7)

@@ -1,3 +1,15 @@
+sabily (1.1~ppa14) karmic; urgency=low
+
+  * Bumped compat level to 7
+  * Simplify rules file
+  * debian/control:
+    + Drop sabily-keyring from Pre-Depends field
+    + Update Standards-Version to 3.8.3
+    + Fix URLs in Vcs-* fields.
+  * debian/postinst: support firefox 3.5
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Thu, 20 Aug 2009 22:49:38 +0300
+
 sabily (1.1~ppa13) jaunty; urgency=low
 
   * Renamed package to sabily-artwork: debian/control, debian/config,
