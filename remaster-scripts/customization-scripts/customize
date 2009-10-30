@@ -1,6 +1,6 @@
 #!/bin/bash
 #cd, small or dvd:
-VERSION="cd"
+VERSION="small"
 RUN_MANUAL_CUSTOMIZATIONS="yes"
 
 function failure()
@@ -11,32 +11,28 @@ function failure()
 
 function prepare_install()
 {
-	sed -i "s|# deb http://archive.ubuntu.com/ubuntu jaunty universe|deb http://archive.ubuntu.com/ubuntu jaunty universe multiverse|" /etc/apt/sources.list ||  failure "sed failed, error=$?"
-	sed -i "s|# deb-src http://archive.ubuntu.com/ubuntu jaunty universe|deb-src http://archive.ubuntu.com/ubuntu jaunty universe multiverse|" /etc/apt/sources.list 
+	sed -i "s|# deb http://archive.ubuntu.com/ubuntu karmic universe|deb http://archive.ubuntu.com/ubuntu karmic universe multiverse|" /etc/apt/sources.list ||  failure "sed failed, error=$?"
+	sed -i "s|# deb-src http://archive.ubuntu.com/ubuntu karmic universe|deb-src http://archive.ubuntu.com/ubuntu karmic universe multiverse|" /etc/apt/sources.list 
 	
 	# Enable partner repository 
-	#if grep -q "http://archive.canonical.com/ubuntu jaunty partner" "/etc/apt/sources.list" ; then EXISTS="yes"
+	#if grep -q "http://archive.canonical.com/ubuntu karmic partner" "/etc/apt/sources.list" ; then EXISTS="yes"
 	#else
-	#	echo "deb http://archive.canonical.com/ubuntu jaunty partner" >> "/etc/apt/sources.list"
-		#echo "deb-src http://archive.canonical.com/ubuntu jaunty partner" >> "/etc/apt/sources.list"
+	#	echo "deb http://archive.canonical.com/ubuntu karmic partner" >> "/etc/apt/sources.list"
+		#echo "deb-src http://archive.canonical.com/ubuntu karmic partner" >> "/etc/apt/sources.list"
 	#fi
 
 	# Add sabily repository
-	sudo wget http://www.sabily.org/sources.list.d/jaunty.list --output-document=/etc/apt/sources.list.d/sabily.list
-
-	#Add gnote repository - plus besoin dans karmic !!!
-	echo "deb http://ppa.launchpad.net/gnote/ppa/ubuntu jaunty main" | sudo tee /etc/apt/sources.list.d/gnote.list
-	sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 5AAB5553
-		
+	sudo wget http://www.sabily.org/sources.list.d/karmic.list --output-document=/etc/apt/sources.list.d/sabily.list
+			
 	if [ "$VERSION" = "dvd" ]; then
 		# Add Medibuntu repository
-		sudo wget http://www.medibuntu.org/sources.list.d/jaunty.list --output-document=/etc/apt/sources.list.d/medibuntu.list
+		sudo wget http://www.medibuntu.org/sources.list.d/karmic.list --output-document=/etc/apt/sources.list.d/medibuntu.list
 	
 		# Add PPA for ubuntu tweak
 		if grep -q "http://ppa.launchpad.net/tualatrix/ubuntu" "/etc/apt/sources.list" ; then EXISTS="yes"
 		else
-			echo "deb http://ppa.launchpad.net/tualatrix/ubuntu jaunty main #ubuntu tweak" >> "/etc/apt/sources.list"
-			echo "deb-src http://ppa.launchpad.net/tualatrix/ubuntu jaunty main #ubuntu tweak" >> "/etc/apt/sources.list"
+			echo "deb http://ppa.launchpad.net/tualatrix/ubuntu karmic main #ubuntu tweak" >> "/etc/apt/sources.list"
+			echo "deb-src http://ppa.launchpad.net/tualatrix/ubuntu karmic main #ubuntu tweak" >> "/etc/apt/sources.list"
 		fi
 
 		# Add ubuntu tweak gpg key
@@ -190,7 +186,7 @@ done
 install_packages_without_recommends ant
 
 echo --------- install sun-java, sabily, webstrict 185-462 MB ---------
-install_packages_with_recommends sun-java6-jre sabily tinyproxy dansguardian webstrict sabily-example-content || failure "Installing packages failed, error=$?"
+install_packages_with_recommends sun-java6-jre sabily tinyproxy dansguardian webstrict sabily-example-content sabily-xsplash-artwork  || failure "Installing packages failed, error=$?"
 #install_packages sabily sabily-example-content
 
 echo --------- install Zekr Quran translations 10.4-13.3 MB ---------
@@ -226,7 +222,7 @@ fi
 #wget http://ftp.fr.debian.org/debian/pool/main/a/acon/acon_1.0.5-7_amd64.deb
 #dpkg -i acon_1.0.5-7_amd64.deb
 #rm acon_1.0.5-7_amd64.deb
-
+ 
 echo ------ install app runner -------
 wget http://hacktolive.org/runner/download
 dpkg -i app-runner-0.4.deb
@@ -234,23 +230,21 @@ rm app-runner-0.4.deb
 
 if [ "$VERSION" = "cd" ]; then
 	echo --------- FOR CD: remove wallpapers, openoffice -334 MB, games ---------
-	remove_packages gnome-games gnome-games-data ubuntu-wallpapers openoffice.org-base-core openoffice.org-hyphenation openoffice.org-base openoffice.org-calc openoffice.org-common  openoffice.org-draw openoffice.org-evolution openoffice.org-gnome openoffice.org-gtk openoffice.org-impress openoffice.org-java-common openoffice.org-math openoffice.org-writer python-uno openoffice.org openoffice.org-core openoffice.org-l10n-common openoffice.org-filter-binfilter openoffice.org-help-en-us openoffice.org-style-human language-support-translations-en || failure "Removing packages failed, error=$?"
+	remove_packages gnome-games gnome-games-data ubuntu-wallpapers openoffice.org-base-core openoffice.org-hyphenation openoffice.org-base openoffice.org-calc openoffice.org-common  openoffice.org-draw openoffice.org-evolution openoffice.org-gnome openoffice.org-gtk openoffice.org-impress openoffice.org-java-common openoffice.org-math openoffice.org-writer python-uno openoffice.org openoffice.org-core openoffice.org-l10n-common openoffice.org-filter-binfilter openoffice.org-help-en-us openoffice.org-style-human language-support-translations-en openjdk-6-jre-headless || failure "Removing packages failed, error=$?"
 fi
 
 echo --------- remove packages -13.7 MB ---------
 remove_packages ubuntu-gdm-themes example-content 
-# -15.4 MB
-remove_packages ekiga
 # -35MB  -12MB
 remove_packages openjdk-6-jdk ttf-wqy-zenhei
 
-echo --------- remove Mono -54MB ---------
-remove_packages libmono0 mono-common
-echo --------- replace tomboy with gnote, f-spot with gthumb 16.3 MB ----------
-install_packages gnote gthumb
+#echo --------- remove Mono -54MB ---------
+#remove_packages libmono0 mono-common
+#echo --------- replace tomboy with gnote, f-spot with gthumb 16.3 MB ----------
+#install_packages gnote gthumb
 
-echo --------- remove old linux kernels
-remove_packages linux-image-2.6.28-11-generic linux-restricted-modules-2.6.28-11-generic
+#echo --------- remove old linux kernels
+#remove_packages linux-image-2.6.28-11-generic linux-restricted-modules-2.6.28-11-generic
 
 echo --------- CLEAN UP ---------
 apt-get autoremove
