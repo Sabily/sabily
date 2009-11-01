@@ -77,16 +77,19 @@ fi
 #############
 
 if [ "$CUSTOMIZE_ISO" = "yes" ] ; then
+	echo unpack iso
 	$SCRIPTS_DIR/uck-remaster-unpack-iso "$ISO_IMAGE" "$REMASTER_HOME"
 	check_exit_code
 fi
 
 if [ "$CUSTOMIZE_INITRD" = "yes" ] ; then
+	echo unpack initrd
 	$SCRIPTS_DIR/uck-remaster-unpack-initrd "$REMASTER_HOME"
 	check_exit_code
 fi
 
 if [ "$CUSTOMIZE_ISO" = "yes" ] && [ "$CUSTOMIZE_ROOTFS" = "yes" ] ; then
+	echo unpack rootfs
 	$SCRIPTS_DIR/uck-remaster-unpack-rootfs "$REMASTER_HOME"
 	check_exit_code
 fi

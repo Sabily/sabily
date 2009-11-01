@@ -14,3 +14,6 @@ ISO_NAME -> name of the final ISO file
 for example: sudo ./1.clean.sh "fullPathToISO" "sabily-vX.XX-desktop-i386.iso"
 
 .... and you should have a sabily ISO file (in the remaster-new-files folder) ;)
+
+---------------
+copy uck-remaster-unpack-initrd to /usr/lib/uck/
