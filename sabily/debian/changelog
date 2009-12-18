@@ -7,8 +7,10 @@ sabily (1.1~ppa14) karmic; urgency=low
     + Update Standards-Version to 3.8.3
     + Fix URLs in Vcs-* fields.
   * debian/postinst: support firefox 3.5
+  * Remove Islamic-Software.directory, sabily.menu, icon-islam.png, and depend
+    on islamic-menus package instead to provide Islamic menu categories
 
- -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Thu, 20 Aug 2009 22:49:38 +0300
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Fri, 18 Dec 2009 11:12:35 +0200
 
 sabily (1.1~ppa13) jaunty; urgency=low
 
