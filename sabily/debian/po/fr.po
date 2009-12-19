@@ -1,4 +1,4 @@
-# Arabic translation for sabily
+# French translation for sabily
 # Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
 # This file is distributed under the same license as the sabily package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: sabily\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2009-04-24 18:01+0300\n"
-"PO-Revision-Date: 2009-12-18 17:51+0000\n"
-"Last-Translator: Abdelmonam Kouka <abdelmonam.kouka@gmail.com>\n"
-"Language-Team: Arabic <ar@li.org>\n"
+"PO-Revision-Date: 2009-12-18 21:48+0000\n"
+"Last-Translator: François Blondel <Unknown>\n"
+"Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,7 +21,7 @@ msgstr ""
 #. Description
 #: ../templates:1001
 msgid "Replace system wide Firefox bookmarks ?"
-msgstr "تعويض كامل الإشارات المرجعية لفايرفوكس ؟"
+msgstr "Remplacer les marques-pages de Firefox ?"
 
 #. Type: boolean
 #. Description
@@ -30,4 +30,5 @@ msgid ""
 "That will replace /etc/firefox*/profile/bookmarks.html with one supplied by  "
 "Sabily."
 msgstr ""
-"سيتم تعويض etc/firefox*/profile/bookmarks.html/ بالمسار الذي يوفره \"سبيلي\""
+"Cela va remplacer /etc/firefox*/profile/bookmarks.html par un proposé par "
+"Sabily."
