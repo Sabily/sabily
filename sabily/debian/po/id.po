@@ -1,0 +1,34 @@
+# Indonesian translation for sabily
+# Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
+# This file is distributed under the same license as the sabily package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: sabily\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2009-04-24 18:01+0300\n"
+"PO-Revision-Date: 2009-12-30 12:32+0000\n"
+"Last-Translator: Waluyo Adi Siswanto <Unknown>\n"
+"Language-Team: Indonesian <id@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2009-12-31 04:59+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
+
+#. Type: boolean
+#. Description
+#: ../templates:1001
+msgid "Replace system wide Firefox bookmarks ?"
+msgstr "Mengganti sistem bookmark yang ada di Firefox ?"
+
+#. Type: boolean
+#. Description
+#: ../templates:1001
+msgid ""
+"That will replace /etc/firefox*/profile/bookmarks.html with one supplied by  "
+"Sabily."
+msgstr ""
+"Akan mengganti berkas /etc/firefox*/profile/bookmarks.html dengan berkas "
+"dari Sabily."
