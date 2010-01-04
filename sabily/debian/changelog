@@ -1,4 +1,4 @@
-sabily (1.1~ppa14) karmic; urgency=low
+sabily (1.1~ppa15) karmic; urgency=low
 
   * Bumped compat level to 7
   * Simplify rules file
@@ -9,6 +9,7 @@ sabily (1.1~ppa14) karmic; urgency=low
   * debian/postinst: support firefox 3.5
   * Remove Islamic-Software.directory, sabily.menu, icon-islam.png, and depend
     on islamic-menus package instead to provide Islamic menu categories
+  * Added French & Indonesian translations.
 
  -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Fri, 18 Dec 2009 11:12:35 +0200
 
