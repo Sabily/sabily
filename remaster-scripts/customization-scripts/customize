@@ -11,28 +11,28 @@ function failure()
 
 function prepare_install()
 {
-	sed -i "s|# deb http://archive.ubuntu.com/ubuntu karmic universe|deb http://archive.ubuntu.com/ubuntu karmic universe multiverse|" /etc/apt/sources.list ||  failure "sed failed, error=$?"
-	sed -i "s|# deb-src http://archive.ubuntu.com/ubuntu karmic universe|deb-src http://archive.ubuntu.com/ubuntu karmic universe multiverse|" /etc/apt/sources.list 
+	sed -i "s|# deb http://archive.ubuntu.com/ubuntu lucid universe|deb http://archive.ubuntu.com/ubuntu lucid universe multiverse|" /etc/apt/sources.list ||  failure "sed failed, error=$?"
+	sed -i "s|# deb-src http://archive.ubuntu.com/ubuntu lucid universe|deb-src http://archive.ubuntu.com/ubuntu lucid universe multiverse|" /etc/apt/sources.list 
 	
 	# Enable partner repository 
-	#if grep -q "http://archive.canonical.com/ubuntu karmic partner" "/etc/apt/sources.list" ; then EXISTS="yes"
+	#if grep -q "http://archive.canonical.com/ubuntu lucid partner" "/etc/apt/sources.list" ; then EXISTS="yes"
 	#else
-	#	echo "deb http://archive.canonical.com/ubuntu karmic partner" >> "/etc/apt/sources.list"
-		#echo "deb-src http://archive.canonical.com/ubuntu karmic partner" >> "/etc/apt/sources.list"
+	#	echo "deb http://archive.canonical.com/ubuntu lucid partner" >> "/etc/apt/sources.list"
+		#echo "deb-src http://archive.canonical.com/ubuntu lucid partner" >> "/etc/apt/sources.list"
 	#fi
 
 	# Add sabily repository
-	sudo wget http://www.sabily.org/sources.list.d/karmic.list --output-document=/etc/apt/sources.list.d/sabily.list
+	sudo wget http://www.sabily.org/sources.list.d/lucid.list --output-document=/etc/apt/sources.list.d/sabily.list
 			
 	if [ "$VERSION" = "dvd" ]; then
 		# Add Medibuntu repository
-		sudo wget http://www.medibuntu.org/sources.list.d/karmic.list --output-document=/etc/apt/sources.list.d/medibuntu.list
+		sudo wget http://www.medibuntu.org/sources.list.d/lucid.list --output-document=/etc/apt/sources.list.d/medibuntu.list
 	
 		# Add PPA for ubuntu tweak
 		if grep -q "http://ppa.launchpad.net/tualatrix/ubuntu" "/etc/apt/sources.list" ; then EXISTS="yes"
 		else
-			echo "deb http://ppa.launchpad.net/tualatrix/ubuntu karmic main #ubuntu tweak" >> "/etc/apt/sources.list"
-			echo "deb-src http://ppa.launchpad.net/tualatrix/ubuntu karmic main #ubuntu tweak" >> "/etc/apt/sources.list"
+			echo "deb http://ppa.launchpad.net/tualatrix/ubuntu lucid main #ubuntu tweak" >> "/etc/apt/sources.list"
+			echo "deb-src http://ppa.launchpad.net/tualatrix/ubuntu lucid main #ubuntu tweak" >> "/etc/apt/sources.list"
 		fi
 
 		# Add ubuntu tweak gpg key
@@ -262,8 +262,8 @@ if [ 0 = 0 ]; then
 fi
 
 echo --------- GRUB image ---------
-cp /boot/grub/splashimages/medine_moon_right_below.xpm.gz /boot/grub/splash.xpm.gz
-update-grub
+#cp /boot/grub/splashimages/medine_moon_right_below.xpm.gz /boot/grub/splash.xpm.gz
+#update-grub
 
 
 ####################################
