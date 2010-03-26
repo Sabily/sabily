@@ -1,3 +1,11 @@
+sabily (1.1~ppa17) lucid; urgency=low
+
+  * Added Javanese translation.
+  * debian/control: Bumped Standards-Version to 3.8.4, no changes needed.
+  * Switched to 3.0 (native) format.
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Fri, 26 Mar 2010 22:46:05 +0200
+
 sabily (1.1~ppa16) karmic; urgency=low
 
   * Bumped compat level to 7

@@ -5,7 +5,7 @@ Maintainer: Sabily Team <sabily.team@lists.launchpad.net>
 XSBC-Original-Maintainer: أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>
 Build-Depends: debhelper (>= 7)
 Build-Depends-Indep: po-debconf, debconf | debconf-2.0
-Standards-Version: 3.8.3
+Standards-Version: 3.8.4
 Homepage: http://www.sabily.org
 Vcs-Bzr: http://code.launchpad.net/~sabily.team/sabily/trunk
 Vcs-Browser: http://code.launchpad.net/~sabily.team/sabily/trunk
