@@ -14,6 +14,7 @@ Package: sabily
 Architecture: all
 Pre-Depends: sabily-artwork
 Depends: ${misc:Depends}, minbar, zekr, monajat, thwab, firefox-praytimes, hijra-applet, islamic-menus
+Recommends: mlterm
 Suggests: webstrict
 Replaces: ubuntume (<= 1.1~ppa7)
 Description: Sabily
