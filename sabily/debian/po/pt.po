@@ -1,4 +1,4 @@
-# German translation for sabily
+# Portuguese translation for sabily
 # Copyright (c) 2010 Rosetta Contributors and Canonical Ltd 2010
 # This file is distributed under the same license as the sabily package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: sabily\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2009-04-24 18:01+0300\n"
-"PO-Revision-Date: 2010-01-18 05:27+0000\n"
-"Last-Translator: jMehdi <jmehdi@sabily.org>\n"
-"Language-Team: German <de@li.org>\n"
+"PO-Revision-Date: 2010-04-19 12:32+0000\n"
+"Last-Translator: Tiago Silva <Unknown>\n"
+"Language-Team: Portuguese <pt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,7 +21,7 @@ msgstr ""
 #. Description
 #: ../templates:1001
 msgid "Replace system wide Firefox bookmarks ?"
-msgstr "Systemweites Firefox-Lesezeichen ersetzen?"
+msgstr ""
 
 #. Type: boolean
 #. Description
@@ -30,5 +30,5 @@ msgid ""
 "That will replace /etc/firefox*/profile/bookmarks.html with one supplied by  "
 "Sabily."
 msgstr ""
-"Dieses wird /etc/firefox*/profile/bookmarks.html mit einer, durch Sabily "
-"bereitgestellten Version, ersetzten."
+"Irá substituir /etc/firefox*/profile/bookmarks.html com um fornecido por "
+"Sabily."
