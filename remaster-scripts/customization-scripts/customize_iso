@@ -99,7 +99,7 @@ cp -f ./resources/text.cfg "$ISO_REMASTER_DIR/isolinux/text.cfg"
 # overwrite .desktop files to display Islamic apps in the Islamic software menu
 cp -f ./resources/minbar.desktop "$REMASTER_DIR"/usr/share/applications/minbar.desktop
 
-cp -f ./resources/bookmarks.html "$REMASTER_DIR"/etc/firefox-3.5/profile/bookmarks.html
+cp -f ./resources/bookmarks.html "$REMASTER_DIR"/etc/firefox/profile/bookmarks.html
 
 # remove ubuntu backgrounds to free up some space
 #rm -f "$REMASTER_DIR"/usr/share/backgrounds/space-01.jpg # 73.9 KB

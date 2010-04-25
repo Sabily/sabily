@@ -3,6 +3,9 @@
 VERSION="small"
 RUN_MANUAL_CUSTOMIZATIONS="yes"
 
+# you should mount /dev to prevent error during sabily-grub installation
+# mount -o bind /dev .../remaster-root/dev
+
 function failure()
 {
 	echo "$@"
@@ -182,18 +185,17 @@ done
 # 21.4 MB   ???
 #install_packages linux-restricted-modules-$(uname -r) build-essential
 
-# 
 install_packages_without_recommends ant
 
 echo --------- install sun-java, sabily, webstrict 185-462 MB ---------
-install_packages_with_recommends sun-java6-jre sabily tinyproxy dansguardian webstrict sabily-example-content sabily-xsplash-artwork  || failure "Installing packages failed, error=$?"
+install_packages_with_recommends sun-java6-jre sabily tinyproxy dansguardian webstrict sabily-example-content sabily-xsplash-artwork libjlayer-java || failure "Installing packages failed, error=$?"
 #install_packages sabily sabily-example-content
 
 echo --------- install Zekr Quran translations 10.4-13.3 MB ---------
 install_packages zekr-quran-translation-az-mammadaliyevbunyadov zekr-quran-translation-bs-korkut zekr-quran-translation-bs-mlivo zekr-quran-translation-de-bubenheimelyas zekr-quran-translation-de-muhammadibnrassoul zekr-quran-translation-de-zaidan zekr-quran-translation-en-arberry zekr-quran-translation-en-pickthall zekr-quran-translation-en-qaribullah zekr-quran-translation-en-shakir zekr-quran-translation-en-yusufali zekr-quran-translation-es-cortes zekr-quran-translation-fa-ansarian zekr-quran-translation-fa-ghomshei zekr-quran-translation-fa-makarem zekr-quran-translation-fr-hamidullah zekr-quran-translation-id-indonesian zekr-quran-translation-it-piccardo zekr-quran-translation-ml-cheriyamundamparappur zekr-quran-translation-nl-keyzer zekr-quran-translation-pt-elhayek zekr-quran-translation-ru-kuliev zekr-quran-translation-ru-osmanov zekr-quran-translation-ru-porokhova zekr-quran-translation-tr-diyanet zekr-quran-translation-tr-ozturk zekr-quran-translation-tt-noghmani zekr-quran-translation-ur-irfanulquran zekr-quran-translation-ur-jalandhry zekr-quran-translation-ur-kanzuliman   || failure "Installing packages failed, error=$?"
 
 echo --------- Arabic support 4.2-21 MB
-install_packages language-pack-ar language-pack-ar-base language-pack-gnome-ar-base language-pack-gnome-ar language-support-ar language-support-extra-ar im-switch aspell-ar ttf-me-quran || failure "Installing packages failed, error=$?"
+install_packages language-pack-ar language-pack-ar-base language-pack-gnome-ar-base language-pack-gnome-ar language-support-ar language-support-extra-ar im-switch aspell-ar ttf-me-quran mlterm otf-thabit || failure "Installing packages failed, error=$?"
 
 if [ "$VERSION" = "dvd" ]; then
 	echo --------- Multimedia 78-171 MB
@@ -238,10 +240,10 @@ wget http://foxoman.googlecode.com/files/aeqamoos-2.0-1.i386.deb
 dpkg -i aeqamoos-2.0-1.i386.deb
 rm aeqamoos-2.0-1.i386.deb
 
-echo ------ installing app runner -------
-wget http://hacktolive.org/runner/download
-dpkg -i app-runner-0.4.deb
-rm app-runner-0.4.deb
+#echo ------ installing app runner -------
+#wget http://hacktolive.org/runner/download
+#dpkg -i app-runner-0.4.deb
+#rm app-runner-0.4.deb
 
 if [ "$VERSION" = "cd" ]; then
 	echo --------- FOR CD: remove wallpapers, openoffice -334 MB, games ---------

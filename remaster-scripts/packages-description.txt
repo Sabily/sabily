@@ -89,7 +89,8 @@
 - aspell-ar: Arabic dictionary for aspell 
 - acon: Text console arabization
 - bicon: Console that supports bidirectional text display
-
+- mlterm: MultiLingual TERMinal
+- otf-thabit: fixed width OpenTypeArabic fonts
 
 
 
