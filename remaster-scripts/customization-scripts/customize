@@ -188,7 +188,7 @@ done
 install_packages_without_recommends ant
 
 echo --------- install sun-java, sabily, webstrict 185-462 MB ---------
-install_packages_with_recommends sun-java6-jre sabily tinyproxy dansguardian webstrict sabily-example-content sabily-xsplash-artwork libjlayer-java || failure "Installing packages failed, error=$?"
+install_packages_with_recommends sun-java6-jre sabily tinyproxy dansguardian webstrict sabily-example-content sabily-xsplash-artwork libjlayer-java flashplugin-installer || failure "Installing packages failed, error=$?"
 #install_packages sabily sabily-example-content
 
 echo --------- install Zekr Quran translations 10.4-13.3 MB ---------
