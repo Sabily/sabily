@@ -101,6 +101,11 @@ cp -f ./resources/minbar.desktop "$REMASTER_DIR"/usr/share/applications/minbar.d
 
 cp -f ./resources/bookmarks.html "$REMASTER_DIR"/etc/firefox/profile/bookmarks.html
 
+# thwab example files
+cp -f "/resources/thwab/GLOSSARY OF ISLAMIC TERMS.bok" "$REMASTER_DIR/usr/share/example-content/thwab/GLOSSARY OF ISLAMIC TERMS.bok"
+cp -f "/resources/thwab/Riadh-Assalihin_ar-en.bok" "$REMASTER_DIR/usr/share/example-content/tRiadh-Assalihin_ar-en.bok"
+cp -f "/resources/thwab/Time and its importance in Muslim life.bok" "$REMASTER_DIR/usr/share/example-content/thwab/Time and its importance in Muslim life.bok"
+
 # remove ubuntu backgrounds to free up some space
 #rm -f "$REMASTER_DIR"/usr/share/backgrounds/space-01.jpg # 73.9 KB
 #rm -f "$REMASTER_DIR"/usr/share/backgrounds/space-02.jpg # 81.9 KB
