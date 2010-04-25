@@ -270,13 +270,13 @@ apt-get autoclean
 
 if [ 0 = 0 ]; then
 	echo --------- download and install dansguardian blacklists ---------
-	rm -rf /etc/dansguardian/blacklists
 	wget http://squidguard.shalla.de/Downloads/shallalist.tar.gz
 	tar xzf shallalist.tar.gz -C /etc/dansguardian
-	mv /etc/dansguardian/BL /etc/dansguardian/blacklists
+	cp -r /etc/dansguardian/BL/* /etc/dansguardian/lists/blacklists
 	rm -f shallalist.tar.gz
-	chown -R root:root /etc/dansguardian/blacklists
-	chmod -R 755 /etc/dansguardian/blacklists
+	rm -rf /etc/dansguardian/BL
+	chown -R root:root /etc/dansguardian/lists/blacklists
+	chmod -R 755 /etc/dansguardian/lists/blacklists
 fi
 
 echo --------- GRUB image ---------
