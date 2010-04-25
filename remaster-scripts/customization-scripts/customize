@@ -251,7 +251,8 @@ if [ "$VERSION" = "cd" ]; then
 fi
 
 echo --------- remove packages -13.7 MB ---------
-remove_packages ubuntu-gdm-themes example-content 
+# ubuntu-gdm-themes -> doesn't exist anymore
+remove_packages  example-content 
 # -35MB  -12MB
 remove_packages openjdk-6-jdk ttf-wqy-zenhei
 
