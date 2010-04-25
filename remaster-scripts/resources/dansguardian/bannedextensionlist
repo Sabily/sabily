@@ -66,7 +66,7 @@
 
 #.doc  # Word document
 #.xls  # Excel document
-
+#.pps
 
 # Other files which may contain files with executable code
 
@@ -97,3 +97,114 @@
 #.wmf  # Movie file
 #.bin # CD ISO image
 #.cue # CD ISO image
+
+# Banned Media extension list (Audio , Video , Streaming)
+# Arrange Alphabetically
+# Some have no Description
+#.3g2    #
+#.3gp      # Nokia Movie File
+#.3gp2
+#.3gpp
+#.3gpp2
+#.aac    # AAC Audio
+#.acp    # AAC for SD Media
+#.adts
+#.aif
+#.aifc
+#.aiff    # AIFF Audio
+#.amc    # AMC Media
+#.amr    # narrow-Band Content
+#.asf      # Media / this can also exploit a security hole allowing virus infection
+#.asx      # Windows Media Audio / Video
+#.au    # uLaw/AU Audio
+#.avi      # Movie file
+#.awb    # AMR Wide-Band Content
+#.bwf
+#.caf    # CAF Audio
+#.cda    # Audio CD File
+#.cdda    # Audio CD File
+#.cel
+#.cue     # CD ISO image
+#.dif
+#.divx    # Compress Movie
+#.dv    # Video Format used in Portable Camera
+#.flc      # Autodesk Animator
+#.fli
+#.flv      # Internet Movies
+#.gsm
+#.ivf
+#.kar    # Karaoke Media Files
+#.m15
+#.m1a
+#.m1s
+#.m1v
+#.m2v
+#.m3u    # MP3 Playlist
+#.m4a    # AAC Audio
+#.m4b
+#.m4e
+#.m4p    # AAC Audio (Protected)
+#.m4v    # Video (Protected)
+#.m75
+#.mid    # Midi Audio Files
+#.midi    # Midi Audio Files
+#.mjpg
+#.mov    # Movie Files
+#.mp1
+#.mp2
+#.mp3      # Music file
+#.mp4    # Mpeg-4 Media
+#.mpa
+#.mpe
+#.mpeg     # Movie file
+#.mpg      # Movie file
+#.mpga
+#.mpm
+#.mps
+#.mpv
+#.mpv2
+#.mqv      # Quicktime Movies
+#.mv
+#.ogg      # Music file
+#.ogm      # Ogg Based Movie Files
+#.pls      # Shoutcast type of radio
+#.qcp    # Qualcomm Purevoice Audio
+#.qt    # Quicktime File
+#.qtc
+#.qtl      # Quicktime Movies
+#.ra    # Real Audio
+#.ram    # Real Audio Media
+#.rm       # Real Media Files
+#.rmi
+#.rmm
+#.rmp
+#.rmvb    # Real Media Video
+#.rnx
+#.rp    # Real Player Files
+#.rt
+#.rts
+#.rtsp
+#.rv
+#.sd2    # Sound Designer II
+#.sdp      # Stream Descriptor
+#.sdv    # SD Video
+#.sf
+#.smf
+#.smi    #
+#.smil     # SMIL Multimedia Presentation (Video and Audio Presentation
+#.snd
+#.ssm      # Streaming Media Metafile
+#.swa    # MP3 Audio
+#.swf      # Shockwave Streaming files
+#.ulw
+#.vfw       # Video for Windows
+#.wav
+#.wax
+#.wm
+#.wma
+#.wmf      # Movie file
+#.wmp
+#.wmv     # Windows Media Video
+#.wmx
+#.wvx
+#.xpl

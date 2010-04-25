@@ -22,46 +22,38 @@
 
 #You can have multiple .Includes.
 
+#listcategory: "Banned URLs"
+
 #List other URLs to block:
 
 members.home.net/uporn
 
+# The squidGuard advert domain/URL lists are now included by default.
+# To work with advanced ad blocking & the logadblocks option, advert
+# phrase/site/URL lists should have the string "ADs" in their listcategory.
+.Include</etc/dansguardian/lists/blacklists/ads/urls>
 
 #Remove the # from the following and edit as needed to use a stock
-#squidGuard blacklists collection.
-#.Include</etc/dansguardian/blacklists/adv/urls>
-.Include</etc/dansguardian/blacklists/aggressive/urls>
-#.Include</etc/dansguardian/blacklists/automobile/urls>
-#.Include</etc/dansguardian/blacklists/chat/urls>
-#.Include</etc/dansguardian/blacklists/dating/urls>
-#.Include</etc/dansguardian/blacklists/downloads/urls>
-#.Include</etc/dansguardian/blacklists/drugs/urls>
-#.Include</etc/dansguardian/blacklists/dynamic/urls>
-#.Include</etc/dansguardian/blacklists/finance/urls>
-#.Include</etc/dansguardian/blacklists/forum/urls>
-#.Include</etc/dansguardian/blacklists/gamble/urls>
-#.Include</etc/dansguardian/blacklists/hacking/urls>
-#.Include</etc/dansguardian/blacklists/hobby/urls>
-#.Include</etc/dansguardian/blacklists/isp/urls>
-#.Include</etc/dansguardian/blacklists/jobsearch/urls>
-#.Include</etc/dansguardian/blacklists/models/urls>
-#.Include</etc/dansguardian/blacklists/movies/urls>
-#.Include</etc/dansguardian/blacklists/music/urls>
-#.Include</etc/dansguardian/blacklists/news/urls>
-.Include</etc/dansguardian/blacklists/porn/urls>
-#.Include</etc/dansguardian/blacklists/recreation/urls>
-#.Include</etc/dansguardian/blacklists/redirector/urls>
-#.Include</etc/dansguardian/blacklists/ringtones/urls>
-#.Include</etc/dansguardian/blacklists/science/urls>
-#.Include</etc/dansguardian/blacklists/searchengines/urls>
-#.Include</etc/dansguardian/blacklists/shopping/urls>
-#.Include</etc/dansguardian/blacklists/socialnet/urls>
-#.Include</etc/dansguardian/blacklists/spyware/urls>
-#.Include</etc/dansguardian/blacklists/tracker/urls>
-#.Include</etc/dansguardian/blacklists/updatesites/urls>
-.Include</etc/dansguardian/blacklists/violence/urls>
-#.Include</etc/dansguardian/blacklists/warez/urls>
-#.Include</etc/dansguardian/blacklists/webmail/urls>
-#.Include</etc/dansguardian/blacklists/webradio/urls>
-#.Include</etc/dansguardian/blacklists/webtv/urls>
+#squidGuard/urlblacklist blacklists collection.
+#.Include</etc/dansguardian/lists/blacklists/adult/urls>
+.Include</etc/dansguardian/lists/blacklists/aggressive/urls>
+#.Include</etc/dansguardian/lists/blacklists/audio-video/urls>
+#.Include</etc/dansguardian/lists/blacklists/chat/urls>
+#.Include</etc/dansguardian/lists/blacklists/drugs/urls>
+#.Include</etc/dansguardian/lists/blacklists/entertainment/urls>
+#.Include</etc/dansguardian/lists/blacklists/frencheducation/urls>
+#.Include</etc/dansguardian/lists/blacklists/gambling/urls>
+#.Include</etc/dansguardian/lists/blacklists/government/urls>
+#.Include</etc/dansguardian/lists/blacklists/hacking/urls>
+#.Include</etc/dansguardian/lists/blacklists/jobsearch/urls>
+#.Include</etc/dansguardian/lists/blacklists/kidstimewasting/urls>
+#.Include</etc/dansguardian/lists/blacklists/mail/urls>
+#.Include</etc/dansguardian/lists/blacklists/news/urls>
+.Include</etc/dansguardian/lists/blacklists/porn/urls>
+#.Include</etc/dansguardian/lists/blacklists/proxy/urls>
+#.Include</etc/dansguardian/lists/blacklists/publicite/urls>
+#.Include</etc/dansguardian/lists/blacklists/redirector/urls>
+.Include</etc/dansguardian/lists/blacklists/violence/urls>
+#.Include</etc/dansguardian/lists/blacklists/virusinfected/urls>
+#.Include</etc/dansguardian/lists/blacklists/warez/urls>
 # You will need to edit to add and remove categories you want
