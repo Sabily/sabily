@@ -223,7 +223,22 @@ fi
 #dpkg -i acon_1.0.5-7_amd64.deb
 #rm acon_1.0.5-7_amd64.deb
  
-echo ------ install app runner -------
+echo --------- installing fsool
+wget http://foxoman.googlecode.com/files/fsool_1.0-1_all.deb
+dpkg -i fsool_1.0-1_all.deb
+rm fsool_1.0-1_all.deb
+
+echo --------- installing rejaal
+wget http://foxoman.googlecode.com/files/rejaal-2.0-1.i386.deb
+dpkg -i rejaal-2.0-1.i386.deb
+rm rejaal-2.0-1.i386.deb
+
+echo --------- installing aeqamoos
+wget http://foxoman.googlecode.com/files/aeqamoos-2.0-1.i386.deb
+dpkg -i aeqamoos-2.0-1.i386.deb
+rm aeqamoos-2.0-1.i386.deb
+
+echo ------ installing app runner -------
 wget http://hacktolive.org/runner/download
 dpkg -i app-runner-0.4.deb
 rm app-runner-0.4.deb

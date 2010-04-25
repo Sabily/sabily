@@ -9,6 +9,9 @@
 - webstrict: UI frontend to DansGuardian (web content filtering tool)
 - thwab: Electronic Encyclopedia System
 - Hijra: Islamic calendar 
+- aeqamoos (Arab Eyes Qamoos): Arabic - English Dictionary
+- rejaal: Men around the prophet mohammed is an islamic application
+- fsool: Abbreviated Chapters in The Messenger Vita is an islamic application about Prophet Mohammed Vita 
 
 # Multimedia
 - libdvdcss2: Library for accessing DVDs
