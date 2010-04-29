@@ -17,12 +17,12 @@ function prepare_install()
 	sed -i "s|# deb http://archive.ubuntu.com/ubuntu lucid universe|deb http://archive.ubuntu.com/ubuntu lucid universe multiverse|" /etc/apt/sources.list ||  failure "sed failed, error=$?"
 	sed -i "s|# deb-src http://archive.ubuntu.com/ubuntu lucid universe|deb-src http://archive.ubuntu.com/ubuntu lucid universe multiverse|" /etc/apt/sources.list 
 	
-	# Enable partner repository 
-	#if grep -q "http://archive.canonical.com/ubuntu lucid partner" "/etc/apt/sources.list" ; then EXISTS="yes"
-	#else
-	#	echo "deb http://archive.canonical.com/ubuntu lucid partner" >> "/etc/apt/sources.list"
-		#echo "deb-src http://archive.canonical.com/ubuntu lucid partner" >> "/etc/apt/sources.list"
-	#fi
+	# Enable partner repository (for sun java)
+	if grep -q "http://archive.canonical.com/ubuntu lucid partner" "/etc/apt/sources.list" ; then EXISTS="yes"
+	else
+		echo "deb http://archive.canonical.com/ubuntu lucid partner" >> "/etc/apt/sources.list"
+		echo "deb-src http://archive.canonical.com/ubuntu lucid partner" >> "/etc/apt/sources.list"
+	fi
 
 	# Add sabily repository
 	sudo wget http://www.sabily.org/sources.list.d/lucid.list --output-document=/etc/apt/sources.list.d/sabily.list
@@ -205,7 +205,7 @@ if [ "$VERSION" = "dvd" ]; then
 	install_packages ubuntu-edu-preschool ubuntu-edu-primary ubuntu-edu-secondary ubuntu-edu-tertiary stellarium celestia atomix xaos  || failure "Installing packages failed, error=$?"
 
 	echo --------- Miscellaneous 216 MB
-	install_packages compizconfig-settings-manager fusion-icon rar unrar command-not-found nautilus-open-terminal parcellite wallpaper-tray scribus inkscape virtualbox bzr aptoncd galternatives startupmanager ubuntu-tweak gnochm clamtk envyng-gtk pessulus gnucash catfish slocate gparted thunderbird screenlets alltray xchat filezilla deluge-torrent cheese || failure "Installing packages failed, error=$?"
+	install_packages compizconfig-settings-manager fusion-icon rar unrar command-not-found nautilus-open-terminal parcellite wallpaper-tray scribus inkscape virtualbox bzr aptoncd galternatives startupmanager ubuntu-tweak gnochm clamtk envyng-gtk pessulus gnucash catfish slocate gparted thunderbird screenlets alltray xchat filezilla deluge-torrent cheese goldendict || failure "Installing packages failed, error=$?"
 fi
 
 #echo --------- Acetoneiso2 -> error: chmod: cannot access `/dev/fuse': No such file or directory
@@ -252,7 +252,7 @@ fi
 
 echo --------- remove packages -13.7 MB ---------
 # ubuntu-gdm-themes -> doesn't exist anymore
-remove_packages  example-content 
+remove_packages  example-content gtali aisleriot
 # -35MB  -12MB
 remove_packages openjdk-6-jdk ttf-wqy-zenhei
 
@@ -276,7 +276,7 @@ if [ 0 = 0 ]; then
 	rm -f shallalist.tar.gz
 	rm -rf /etc/dansguardian/BL
 	chown -R root:root /etc/dansguardian/lists/blacklists
-	chmod -R 755 /etc/dansguardian/lists/blacklists
+	chmod -R 644 /etc/dansguardian/lists/blacklists
 fi
 
 echo --------- GRUB image ---------
