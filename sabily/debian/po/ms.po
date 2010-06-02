@@ -1,0 +1,32 @@
+# Malay translation for sabily
+# Copyright (c) 2010 Rosetta Contributors and Canonical Ltd 2010
+# This file is distributed under the same license as the sabily package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: sabily\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2009-04-24 18:01+0300\n"
+"PO-Revision-Date: 2010-06-01 16:39+0000\n"
+"Last-Translator: Izzuddin Shah <dxplay@gmail.com>\n"
+"Language-Team: Malay <ms@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2010-06-02 03:35+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
+
+#. Type: boolean
+#. Description
+#: ../templates:1001
+msgid "Replace system wide Firefox bookmarks ?"
+msgstr "Gantikan keseluruhan sistem penandaan Firefox?"
+
+#. Type: boolean
+#. Description
+#: ../templates:1001
+msgid ""
+"That will replace /etc/firefox*/profile/bookmarks.html with one supplied by  "
+"Sabily."
+msgstr ""
