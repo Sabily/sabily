@@ -13,7 +13,7 @@ Vcs-Browser: http://code.launchpad.net/~sabily.team/sabily/trunk
 Package: sabily
 Architecture: all
 Pre-Depends: sabily-artwork
-Depends: ${misc:Depends}, minbar, zekr, monajat, thwab, firefox-praytimes, hijra-applet, islamic-menus
+Depends: ${misc:Depends}, minbar, zekr, othman, monajat, thwab, firefox-praytimes, hijra-applet, islamic-menus
 Recommends: mlterm
 Suggests: webstrict
 Replaces: ubuntume (<= 1.1~ppa7)
