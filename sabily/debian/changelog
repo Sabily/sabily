@@ -1,13 +1,13 @@
-sabily (1.1~ppa19) lucid; urgency=low
+sabily (1.1~ppa20) lucid; urgency=low
 
   * Added/updated several translations.
   * debian/control:
     + Bumped Standards-Version to 3.8.4, no changes needed.
-    + Added othman to Depends.
+    + Added othman, nanny to Depends.
     + Depend on thawab (v3) instead of thwab (v2).
   * Switched to 3.0 (native) format.
 
- -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>  Sat, 26 Jun 2010 14:39:26 +0300
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>  Tue, 20 Jul 2010 23:19:12 +0300
 
 sabily (1.1~ppa16) karmic; urgency=low
 
