@@ -2,6 +2,7 @@ sabily (1.1~ppa21) maverick; urgency=low
 
   * Updated bookmarks.html
   * Updated translations.
+  * debian/control: Bumped Standards-Version to 3.9.1, no changes needed.
 
  -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>  Fri, 29 Oct 2010 15:39:31 +0200
 
