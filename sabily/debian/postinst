@@ -8,9 +8,6 @@ set -e
 
 case "$1" in
     configure)
-      # Update firefox homepage:
-      #update-alternatives --set firefox-homepage /usr/share/sabily-artwork/firefox/firefox-index.html
-
       # Update firefox bookmarks:
       db_get sabily/replace-bookmarks || true
       if [ "$RET" = "true" ]; then

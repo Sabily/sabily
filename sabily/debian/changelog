@@ -1,8 +1,10 @@
 sabily (1.1~ppa22) natty; urgency=low
 
   * Added sabily.gschema.override to allow all tray icons.
+  * Removed debian/prerm
+  * debian/postinst: Cleanup
 
- -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>  Tue, 12 Apr 2011 17:18:26 +0200
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>  Thu, 14 Apr 2011 19:34:15 +0200
 
 sabily (1.1~ppa21) maverick; urgency=low
 
