@@ -8,6 +8,10 @@ set -e
 
 case "$1" in
     configure)
+     if [ -x /usr/lib/gdm/gdm-set-default-session ] ; then
+       /usr/lib/gdm/gdm-set-default-session --keep-old gnome-classic || true
+     fi
+
       # Update firefox bookmarks:
       db_get sabily/replace-bookmarks || true
       if [ "$RET" = "true" ]; then
