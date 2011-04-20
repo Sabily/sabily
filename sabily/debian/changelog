@@ -1,10 +1,11 @@
-sabily (1.1~ppa23) natty; urgency=low
+sabily (1.1~ppa24) natty; urgency=low
 
   * Added sabily.gschema.override to allow all tray icons.
   * Removed debian/prerm
   * debian/postinst: Set gnome-classic as default xsession rather than unity.
+  * Updated translations
 
- -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>  Thu, 14 Apr 2011 19:34:15 +0200
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>  Wed, 20 Apr 2011 12:28:24 +0200
 
 sabily (1.1~ppa21) maverick; urgency=low
 
