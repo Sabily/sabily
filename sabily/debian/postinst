@@ -7,10 +7,14 @@ set -e
 . /usr/share/debconf/confmodule
 
 case "$1" in
-    configure)
+    configure|upgrade)
      if [ -x /usr/lib/gdm/gdm-set-default-session ] ; then
-       /usr/lib/gdm/gdm-set-default-session --keep-old gnome-classic || true
+       /usr/lib/gdm/gdm-set-default-session --keep-old gnome-shell || true
      fi
+
+    if [ -x /usr/lib/lightdm/lightdm-set-defaults ] ; then
+        /usr/lib/lightdm/lightdm-set-defaults --keep-old --session=gnome-shell || true
+    fi
 
       # Update firefox bookmarks:
       db_get sabily/replace-bookmarks || true

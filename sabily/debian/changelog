@@ -1,3 +1,10 @@
+sabily (1.1~ppa25) oneiric; urgency=low
+
+  * debian/control: Added gnome-shell to Depends
+  * debian/postinst: Set gnome-shell as default xsession.
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>  Mon, 31 Oct 2011 21:22:00 +0200
+
 sabily (1.1~ppa24) natty; urgency=low
 
   * Added sabily.gschema.override to allow all tray icons.
