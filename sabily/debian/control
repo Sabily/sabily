@@ -13,7 +13,22 @@ Vcs-Browser: http://code.launchpad.net/~sabily.team/sabily/trunk
 Package: sabily
 Architecture: all
 Pre-Depends: sabily-artwork
-Depends: ${misc:Depends}, minbar, zekr, othman, monajat, thawab, firefox-praytimes, hijra-applet, islamic-menus, nanny, gnome-shell
+Depends: ${misc:Depends},
+ minbar,
+ zekr,
+ othman,
+ monajat,
+ thawab,
+ firefox-praytimes,
+ hijra-applet,
+ islamic-menus,
+ nanny,
+ gnome-shell,
+ gnome-tweak-tool,
+ gnome-shell-extension-islamic-datetime,
+ gnome-shell-extensions-alternative,
+ gnome-shell-extensions-user-theme,
+ gnome-shell-extensions-windows-navigator
 Recommends: mlterm
 Replaces: ubuntume (<= 1.1~ppa7)
 Description: Sabily

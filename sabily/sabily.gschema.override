@@ -1,2 +1,5 @@
 [com.canonical.Unity.Panel]
 systray-whitelist=[ 'all' ]
+
+[org.gnome.shell]
+enabled-extensions=[ 'user-theme@gnome-shell-extensions.gnome.org', 'windowsNavigator@gnome-shell-extensions.gnome.org', 'alternative-status-menu@gnome-shell-extensions.gnome.org' ]
