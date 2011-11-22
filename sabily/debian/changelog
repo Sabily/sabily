@@ -1,3 +1,9 @@
+sabily (1.1~ppa26) oneiric; urgency=low
+
+  * debian/postinst: Force the default session to be gnome-session.
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>  Tue, 22 Nov 2011 14:16:24 +0200
+
 sabily (1.1~ppa25) oneiric; urgency=low
 
   * debian/control: Added gnome-shell to Depends
