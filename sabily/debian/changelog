@@ -1,11 +1,11 @@
-sabily (1.1~ppa26) oneiric; urgency=low
+sabily (1.1~ppa27) oneiric; urgency=low
 
   * debian/postinst: Force the default session to be gnome-session.
   * debian/control: Add gnome-tweak-tool, gnome-shell, and default GNOME shell 
     extensions to Depends.
   * sabily.gschema.override: Add default GNOME shell extensions
 
- -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>  Tue, 22 Nov 2011 14:19:56 +0200
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>  Thu, 24 Nov 2011 09:20:15 +0200
 
 sabily (1.1~ppa25) oneiric; urgency=low
 
