@@ -1,18 +1,16 @@
-sabily (1.1~ppa27) oneiric; urgency=low
+sabily (1.1~ppa28) oneiric; urgency=low
 
   * debian/postinst: Force the default session to be gnome-session.
-  * debian/control: Add gnome-tweak-tool, gnome-shell, and default GNOME shell 
+  * debian/control: Add gnome-tweak-tool, gnome-shell, and default GNOME shell
     extensions to Depends.
   * sabily.gschema.override: Add default GNOME shell extensions
+  * Don't autostart Minbar in GNOME Shell:
+    + Added minbar.desktop, which is a copy of Minbar's desktop file with the
+      extra key: AutostartCondition=GNOME3 unless-session gnome
+    + Removed debian/links
+    + debian/install: Install minbar.desktop in /etc/xdg/autostart
 
- -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>  Thu, 24 Nov 2011 09:20:15 +0200
-
-sabily (1.1~ppa25) oneiric; urgency=low
-
-  * debian/control: Added gnome-shell to Depends
-  * debian/postinst: Set gnome-shell as default xsession.
-
- -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>  Mon, 31 Oct 2011 21:22:00 +0200
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>  Thu, 24 Nov 2011 22:35:57 +0200
 
 sabily (1.1~ppa24) natty; urgency=low
 

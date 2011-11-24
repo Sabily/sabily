@@ -1,3 +1,4 @@
 zakatcalc.ods /etc/skel/Documents
 bookmarks.html /usr/share/sabily
 sabily.gschema.override /usr/share/glib-2.0/schemas
+minbar.desktop /etc/xdg/autostart
