@@ -30,7 +30,7 @@ Depends: ${misc:Depends},
  gnome-shell-extensions-alternative-status-menu,
  gnome-shell-extensions-user-theme,
  gnome-shell-extensions-windows-navigator
-Recommends: mlterm
+Recommends: mlterm, fonts-hosny-amiri
 Replaces: ubuntume (<= 1.1~ppa7)
 Description: Sabily
  Installs Islamic software and customizes the user interface.
