@@ -1,3 +1,9 @@
+sabily (1.1~ppa31) oneiric; urgency=low
+
+  * Add Alfanous to Firefox's search engines list
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>  Sat, 31 Dec 2011 22:30:43 +0200
+
 sabily (1.1~ppa30) oneiric; urgency=low
 
   * debian/postinst: Force the default session to be gnome-session.
