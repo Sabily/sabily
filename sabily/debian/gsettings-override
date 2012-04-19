@@ -1,0 +1,5 @@
+gnome-shell-extensions.gcampax.github.com[com.canonical.Unity.Panel]
+systray-whitelist=[ 'all' ]
+
+[org.gnome.shell]
+enabled-extensions=[ 'user-theme@gnome-shell-extensions.gcampax.github.org', 'windowsNavigator@gnome-shell-extensions.gcampax.github.org', 'alternative-status-menu@gnome-shell-extensions.gcampax.github.org' ]

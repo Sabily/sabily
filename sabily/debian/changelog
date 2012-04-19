@@ -1,3 +1,11 @@
+sabily (1.1~ppa32) precise; urgency=low
+
+  * Rename sabily.gschema.override to debian/gsettings-override, and get it
+    installed using dh_installgsettings instead of dh_install.
+  * debian/gsettings-override: Updated UUIDs of enabled-extensions
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>  Thu, 19 Apr 2012 13:47:44 +0200
+
 sabily (1.1~ppa31) oneiric; urgency=low
 
   * Add Alfanous to Firefox's search engines list
